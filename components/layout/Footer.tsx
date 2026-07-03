@@ -1,0 +1,54 @@
+'use client'
+
+import { useI18n } from '@/lib/i18n'
+import { site, waLink } from '@/lib/site'
+import Logo from '@/components/ui/Logo'
+import Icon from '@/components/ui/Icon'
+
+export default function Footer() {
+  const { t } = useI18n()
+  return (
+    <footer className="relative overflow-hidden border-t border-white/10 bg-bg-soft">
+      <div className="aurora-blob aurora-3 opacity-40" />
+      <div className="relative mx-auto max-w-7xl px-5 py-16 sm:px-8">
+        <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
+          <div>
+            <Logo className="text-xl" />
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">{t.footer.tagline}</p>
+            <div className="mt-6 flex gap-3">
+              <a href={waLink()} target="_blank" rel="noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-muted transition-colors hover:border-cyan/40 hover:text-cyan" aria-label="WhatsApp">
+                <Icon name="whatsapp" className="h-5 w-5" />
+              </a>
+              <a href={`mailto:${site.email}`} className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-muted transition-colors hover:border-magenta/40 hover:text-magenta" aria-label="Email">
+                <Icon name="mail" className="h-5 w-5" />
+              </a>
+            </div>
+          </div>
+
+          {t.footer.cols.map((col) => (
+            <div key={col.title}>
+              <h4 className="font-display text-sm font-semibold uppercase tracking-wider text-ink">{col.title}</h4>
+              <ul className="mt-4 space-y-3">
+                {col.links.map((link) => (
+                  <li key={link}>
+                    <a href="#top" className="text-sm text-muted transition-colors hover:text-ink">
+                      {link}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-14 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-muted sm:flex-row">
+          <p>© {new Date().getFullYear()} MiAgentIA. {t.footer.rights}</p>
+          <p className="flex items-center gap-1.5">
+            <Icon name="sparkle" className="h-3.5 w-3.5 text-violet" />
+            {t.footer.made}
+          </p>
+        </div>
+      </div>
+    </footer>
+  )
+}
