@@ -21,6 +21,8 @@ const paths: Record<string, React.ReactNode> = {
   mail: <><rect x="3" y="5" width="18" height="14" rx="2.5" /><path d="M3.5 7l8.5 6 8.5-6" /></>,
   chevron: <path d="M6 9l6 6 6-6" />,
   plus: <path d="M12 5v14M5 12h14" />,
+  bot: <><rect x="4.5" y="8" width="15" height="11" rx="3" /><path d="M12 8V5M9.5 13.2h.01M14.5 13.2h.01M9.5 16h5" /><circle cx="12" cy="4" r="1" /></>,
+  user: <><circle cx="12" cy="8" r="3.5" /><path d="M5 20c.9-3.4 3.6-5.4 7-5.4s6.1 2 7 5.4" /></>,
 }
 
 export default function Icon({ name, ...props }: { name: string } & SVGProps<SVGSVGElement>) {

@@ -87,6 +87,19 @@ const es = {
       ],
     },
 
+    hybrid: {
+      label: 'IA + Humanos',
+      titleTop: 'La IA no reemplaza a tu equipo.',
+      titleGrad: 'Lo potencia.',
+      sub: 'El modelo híbrido de MiAgentIA: la inteligencia artificial hace el trabajo pesado (atender, filtrar, calificar) y tus expertos humanos entran justo en el momento que más valor generan: el cierre.',
+      steps: [
+        { icon: 'bot', kicker: 'Lo hace la IA', title: 'Atiende y califica cada lead', desc: 'Día y noche, la IA responde llamadas y mensajes, hace las preguntas correctas y detecta quién está listo para comprar y quién solo está preguntando.' },
+        { icon: 'calendar', kicker: '¿Lead calificado?', title: 'Agenda la cita automáticamente', desc: 'La IA reserva el espacio directo en el calendario de tu equipo, con recordatorios incluidos para que el cliente sí llegue.' },
+        { icon: 'user', kicker: 'Entra tu experto', title: 'O transfiere la conversación en vivo', desc: 'Si el cliente está listo ahora, la IA pasa la conversación a uno de tus vendedores al instante, con todo el contexto ya capturado.' },
+      ],
+      closing: 'Trabajo en equipo entre IA y humanos: tus vendedores dejan de perseguir curiosos y hablan solo con gente lista para comprar.',
+    },
+
     how: {
       label: 'Cómo funciona',
       title: 'De la idea al agente en vivo',
@@ -275,6 +288,19 @@ const en: Dict = {
         { who: 'in',  text: 'Yes, please 🙌' },
         { who: 'out', text: 'Great ✨ I booked you Thursday 3:00 pm. Your confirmation is on the way. What is your name?' },
       ],
+    },
+
+    hybrid: {
+      label: 'AI + Humans',
+      titleTop: 'AI does not replace your team.',
+      titleGrad: 'It empowers it.',
+      sub: 'The MiAgentIA hybrid model: AI does the heavy lifting (answering, filtering, qualifying) and your human experts step in at the exact moment they create the most value: the close.',
+      steps: [
+        { icon: 'bot', kicker: 'AI handles it', title: 'Answers and qualifies every lead', desc: 'Day and night, the AI answers calls and messages, asks the right questions and spots who is ready to buy and who is just asking around.' },
+        { icon: 'calendar', kicker: 'Qualified lead?', title: 'Books the appointment automatically', desc: 'The AI reserves the slot straight into your team calendar, reminders included so the customer actually shows up.' },
+        { icon: 'user', kicker: 'Your expert steps in', title: 'Or transfers the conversation live', desc: 'If the customer is ready now, the AI hands the conversation to one of your salespeople instantly, with all the context already captured.' },
+      ],
+      closing: 'Teamwork between AI and humans: your salespeople stop chasing window shoppers and talk only to people ready to buy.',
     },
 
     how: {

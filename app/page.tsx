@@ -3,6 +3,7 @@ import LogosMarquee from '@/components/sections/LogosMarquee'
 import Services from '@/components/sections/Services'
 import VoiceDemo from '@/components/sections/VoiceDemo'
 import WhatsAppDemo from '@/components/sections/WhatsAppDemo'
+import HybridModel from '@/components/sections/HybridModel'
 import HowItWorks from '@/components/sections/HowItWorks'
 import Industries from '@/components/sections/Industries'
 import Results from '@/components/sections/Results'
@@ -18,6 +19,7 @@ export default function Home() {
       <Services />
       <VoiceDemo />
       <WhatsAppDemo />
+      <HybridModel />
       <HowItWorks />
       <Industries />
       <Results />
