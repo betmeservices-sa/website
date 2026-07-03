@@ -3,8 +3,7 @@
 
 export type Lang = 'es' | 'en'
 
-export const content = {
-  es: {
+const es = {
     nav: {
       links: [
         { label: 'Servicios', href: '#servicios' },
@@ -189,9 +188,12 @@ export const content = {
       rights: 'Todos los derechos reservados.',
       made: 'Hecho con IA en LatAm.',
     },
-  },
+}
 
-  en: {
+// El diccionario ES define la forma; EN se valida contra ella.
+export type Dict = typeof es
+
+const en: Dict = {
     nav: {
       links: [
         { label: 'Services', href: '#servicios' },
@@ -376,7 +378,6 @@ export const content = {
       rights: 'All rights reserved.',
       made: 'Made with AI in LatAm.',
     },
-  },
-} as const
+}
 
-export type Dict = (typeof content)['es']
+export const content: Record<Lang, Dict> = { es, en }
