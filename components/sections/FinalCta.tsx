@@ -14,6 +14,19 @@ export default function FinalCta() {
     <section id="empezar" className="relative overflow-hidden py-28 sm:py-36">
       <Aurora dots={false} />
       <div className="relative mx-auto max-w-3xl px-5 text-center sm:px-8">
+        {/* Mascota: robot de voz + chat. FUERA de AnimatedContent: el transform
+            de GSAP crea un stacking context y rompe mix-blend-screen (el negro
+            del video dejaría de fundirse con el fondo). Máscara radial de
+            respaldo para desvanecer los bordes del rectángulo. */}
+        <video
+          src="/robot.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          aria-hidden="true"
+          className="pointer-events-none mx-auto mb-4 h-56 w-auto mix-blend-screen animate-float sm:h-72 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_58%,transparent_84%)]"
+        />
         <AnimatedContent>
           <Eyebrow badge>{t.finalCta.label}</Eyebrow>
           <h2 className="mt-6 font-display text-3xl font-semibold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
