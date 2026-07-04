@@ -41,12 +41,8 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="mt-14 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-muted sm:flex-row">
+        <div className="mt-14 border-t border-white/10 pt-6 text-center text-xs text-muted">
           <p>© {new Date().getFullYear()} MiAgentIA. {t.footer.rights}</p>
-          <p className="flex items-center gap-1.5">
-            <Icon name="sparkle" className="h-3.5 w-3.5 text-violet" />
-            {t.footer.made}
-          </p>
         </div>
       </div>
     </footer>

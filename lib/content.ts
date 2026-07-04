@@ -199,7 +199,6 @@ const es = {
         { title: 'Empresa', links: ['Industrias', 'Cómo funciona', 'Preguntas', 'Contacto'] },
       ],
       rights: 'Todos los derechos reservados.',
-      made: 'Hecho con IA en LatAm.',
     },
 }
 
@@ -402,7 +401,6 @@ const en: Dict = {
         { title: 'Company', links: ['Industries', 'How it works', 'FAQ', 'Contact'] },
       ],
       rights: 'All rights reserved.',
-      made: 'Made with AI in LatAm.',
     },
 }
 

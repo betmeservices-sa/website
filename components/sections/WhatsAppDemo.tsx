@@ -104,7 +104,7 @@ export default function WhatsAppDemo() {
 
                 {/* Header WhatsApp */}
                 <div className="relative z-10 flex items-center gap-3 bg-[#1F2C34] px-4 pb-3 pt-10">
-                  <VoiceBadge className="!h-9 !w-9" />
+                  <VoiceBadge className="h-9 w-9" />
                   <div className="flex-1">
                     <p className="text-sm font-semibold text-white">{t.chat.contact}</p>
                     <p className="text-[11px] text-[#8696A0]">{typing ? t.chat.typing : t.chat.status}</p>
