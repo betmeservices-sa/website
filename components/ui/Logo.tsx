@@ -5,7 +5,7 @@
 
 export default function Logo({ className = '', showText = true }: { className?: string; showText?: boolean }) {
   return (
-    <span className={`inline-flex items-center gap-[0.28em] ${className}`} aria-label="MiAgentIA">
+    <span className={`inline-flex items-center gap-[0.09em] ${className}`} aria-label="MiAgentIA">
       {/* Bolita al tamaño del logo original: igual a la altura-x de las letras */}
       <VoiceBadge className="h-[1.15em] w-[1.15em]" />
       {showText && (
