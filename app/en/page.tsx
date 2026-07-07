@@ -19,6 +19,9 @@ export const metadata: Metadata = {
     title: 'MiAgentIA · AI Voice & WhatsApp Agents',
     description:
       'AI agents that answer, sell and book for you. Natural voice + WhatsApp, 24/7. Book a free demo.',
+    // La imagen por convención (app/opengraph-image.tsx) no se hereda al
+    // definir openGraph propio: se referencia explícita.
+    images: [{ url: '/opengraph-image', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',

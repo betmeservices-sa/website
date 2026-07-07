@@ -34,9 +34,12 @@ function LangToggle() {
 }
 
 export default function Navbar() {
-  const { t } = useI18n()
+  const { t, lang } = useI18n()
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  // Prefijo de la home del idioma actual: así los anclajes también
+  // funcionan desde las páginas de aterrizaje por keyword.
+  const base = lang === 'en' ? '/en' : '/'
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -52,7 +55,7 @@ export default function Navbar() {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
-        <a href="#top" aria-label="MiAgentIA">
+        <a href={`${base}#top`} aria-label="MiAgentIA">
           <Logo className="text-lg" />
         </a>
 
@@ -60,7 +63,7 @@ export default function Navbar() {
           {t.nav.links.map((item) => (
             <a
               key={item.href}
-              href={item.href}
+              href={`${base}${item.href}`}
               className="text-sm font-medium text-white/70 transition-colors hover:text-ink"
             >
               {item.label}
@@ -71,7 +74,7 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <LangToggle />
           <a
-            href={site.booking}
+            href={`${base}${site.booking}`}
             className="hidden rounded-full [background:var(--grad)] px-5 py-2.5 text-sm font-semibold text-bg transition-transform duration-300 hover:-translate-y-0.5 sm:inline-block"
           >
             {t.nav.cta}
@@ -100,7 +103,7 @@ export default function Navbar() {
           {t.nav.links.map((item) => (
             <a
               key={item.href}
-              href={item.href}
+              href={`${base}${item.href}`}
               onClick={() => setOpen(false)}
               className="rounded-lg px-3 py-3 text-base font-medium text-white/80 hover:bg-white/5"
             >
@@ -108,7 +111,7 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href={site.booking}
+            href={`${base}${site.booking}`}
             onClick={() => setOpen(false)}
             className="mt-2 flex items-center justify-center gap-2 rounded-full [background:var(--grad)] px-5 py-3 text-sm font-semibold text-bg"
           >

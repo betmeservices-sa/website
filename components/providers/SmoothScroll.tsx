@@ -23,13 +23,17 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     gsap.ticker.add(raf)
     gsap.ticker.lagSmoothing(0)
 
-    // Anclas suaves para la navegación interna
+    // Anclas suaves para la navegación interna. Acepta "#id" y también
+    // "/#id" o "/en#id" cuando apuntan a la página actual; si el ancla es de
+    // otra página, se deja pasar la navegación normal de Next.
     const onClick = (e: MouseEvent) => {
-      const a = (e.target as HTMLElement).closest('a[href^="#"]') as HTMLAnchorElement | null
+      const a = (e.target as HTMLElement).closest('a[href*="#"]') as HTMLAnchorElement | null
       if (!a) return
-      const id = a.getAttribute('href')
-      if (!id || id === '#') return
-      const target = document.querySelector(id)
+      const href = a.getAttribute('href')
+      if (!href || href === '#') return
+      const url = new URL(href, window.location.href)
+      if (url.pathname !== window.location.pathname || !url.hash) return
+      const target = document.querySelector(url.hash)
       if (target) {
         e.preventDefault()
         lenis.scrollTo(target as HTMLElement, { offset: -80 })

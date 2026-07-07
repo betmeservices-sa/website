@@ -6,7 +6,8 @@ import Logo from '@/components/ui/Logo'
 import Icon from '@/components/ui/Icon'
 
 export default function Footer() {
-  const { t } = useI18n()
+  const { t, lang } = useI18n()
+  const base = lang === 'en' ? '/en' : '/'
   return (
     <footer className="relative overflow-hidden border-t border-white/10 bg-bg-soft">
       <div className="aurora-blob aurora-3 opacity-40" />
@@ -31,7 +32,7 @@ export default function Footer() {
               <ul className="mt-4 space-y-3">
                 {col.links.map((link) => (
                   <li key={link}>
-                    <a href="#top" className="text-sm text-muted transition-colors hover:text-ink">
+                    <a href={`${base}#top`} className="text-sm text-muted transition-colors hover:text-ink">
                       {link}
                     </a>
                   </li>

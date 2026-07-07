@@ -1,0 +1,29 @@
+# MiAgentIA
+
+> Empresa de agentes de IA y CRM conversacional para Guatemala y El Salvador.
+> Agentes de voz e IA para WhatsApp que atienden, califican leads y agendan citas 24/7.
+
+URL: https://www.miagentia.com
+Versión en inglés: https://www.miagentia.com/en
+Contacto: hola@miagentia.com
+
+## Servicios
+
+- Agentes de voz con IA: contestan llamadas entrantes y hacen salientes con voz natural
+- Chat de WhatsApp con IA: responde cada mensaje al instante en el tono de la marca
+- Agendamiento automático: reserva citas en el calendario y envía recordatorios
+- Calificación de leads: prioriza a los clientes listos para comprar
+- Integración con CRM y automatizaciones (n8n, GoHighLevel)
+- Modelo híbrido IA + humanos: la IA filtra y califica, el equipo humano cierra
+
+## Industrias
+
+Clínicas y salud, automotriz, inmobiliaria, e-commerce, restaurantes, servicios y agencias.
+
+## Páginas
+
+- https://www.miagentia.com : página principal (español)
+- https://www.miagentia.com/en : página principal (inglés)
+- https://www.miagentia.com/agente-ia-whatsapp-guatemala : agente de IA para WhatsApp en Guatemala
+- https://www.miagentia.com/crm-conversacional-el-salvador : CRM conversacional en El Salvador
+- https://www.miagentia.com/automatizacion-ventas-whatsapp : automatización de ventas por WhatsApp

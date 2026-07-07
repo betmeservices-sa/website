@@ -20,5 +20,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
       alternates: { languages },
     },
+    // Páginas de aterrizaje por keyword (solo español)
+    ...[
+      'agente-ia-whatsapp-guatemala',
+      'crm-conversacional-el-salvador',
+      'automatizacion-ventas-whatsapp',
+    ].map((slug) => ({
+      url: `${SITE_URL}/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
   ]
 }

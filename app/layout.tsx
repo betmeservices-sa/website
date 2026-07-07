@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { Analytics } from '@vercel/analytics/next'
 import { inter, space } from '@/lib/fonts'
 import { SITE_URL } from '@/lib/jsonld'
 import './globals.css'
@@ -6,15 +7,18 @@ import './globals.css'
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'MiAgentIA · Agentes de IA de Voz y WhatsApp',
+    default: 'MiAgentIA · Agentes de IA para WhatsApp y Voz | Guatemala y El Salvador',
     template: '%s · MiAgentIA',
   },
   description:
-    'Agentes de IA que atienden llamadas y WhatsApp, califican leads y agendan citas por tu negocio, 24/7. Implementación en días. Agenda una demo gratis.',
+    'Agentes de voz e IA que atienden, venden y agendan por ti 24/7. CRM conversacional para WhatsApp en Guatemala y El Salvador. Implementación en días. Agenda una demo gratis.',
   keywords: [
     'agentes de IA',
     'agente de voz IA',
     'chatbot de WhatsApp',
+    'agente IA WhatsApp Guatemala',
+    'CRM conversacional El Salvador',
+    'automatización de ventas WhatsApp',
     'IA para negocios',
     'automatización de atención al cliente',
     'agendar citas con IA',
@@ -25,9 +29,9 @@ export const metadata: Metadata = {
     locale: 'es_ES',
     url: SITE_URL,
     siteName: 'MiAgentIA',
-    title: 'MiAgentIA · Agentes de IA de Voz y WhatsApp',
+    title: 'MiAgentIA · Agentes de IA para WhatsApp y Voz',
     description:
-      'Agentes de IA que atienden, venden y agendan por ti. Voz natural + WhatsApp, 24/7. Agenda una demo gratis.',
+      'Agentes de IA que atienden, venden y agendan por ti. Voz natural + WhatsApp, 24/7. Guatemala y El Salvador. Agenda una demo gratis.',
   },
   twitter: {
     card: 'summary_large_image',
@@ -46,6 +50,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="es" className={`${inter.variable} ${space.variable}`} suppressHydrationWarning>
       <body className="grain font-sans antialiased" suppressHydrationWarning>
         {children}
+        <Analytics />
       </body>
     </html>
   )
