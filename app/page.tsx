@@ -1,27 +1,25 @@
-import Hero from '@/components/sections/Hero'
-import Services from '@/components/sections/Services'
-import VoiceDemo from '@/components/sections/VoiceDemo'
-import WhatsAppDemo from '@/components/sections/WhatsAppDemo'
-import HybridModel from '@/components/sections/HybridModel'
-import HowItWorks from '@/components/sections/HowItWorks'
-import Industries from '@/components/sections/Industries'
-import Results from '@/components/sections/Results'
-import Faq from '@/components/sections/Faq'
-import FinalCta from '@/components/sections/FinalCta'
+import type { Metadata } from 'next'
+import SiteShell from '@/components/SiteShell'
+import HomeSections from '@/components/HomeSections'
+import { buildJsonLd } from '@/lib/jsonld'
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: '/',
+    languages: { es: '/', en: '/en', 'x-default': '/' },
+  },
+}
 
 export default function Home() {
   return (
     <>
-      <Hero />
-      <Services />
-      <VoiceDemo />
-      <WhatsAppDemo />
-      <HybridModel />
-      <HowItWorks />
-      <Industries />
-      <Results />
-      <Faq />
-      <FinalCta />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildJsonLd('es')) }}
+      />
+      <SiteShell lang="es">
+        <HomeSections />
+      </SiteShell>
     </>
   )
 }

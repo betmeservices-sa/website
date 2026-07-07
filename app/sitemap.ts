@@ -1,14 +1,24 @@
 import type { MetadataRoute } from 'next'
+import { SITE_URL } from '@/lib/jsonld'
 
-// Landing de una sola página (con anclas). Si en el futuro hay páginas
-// dedicadas (p. ej. /precios, /industrias/automotriz), agrégalas aquí.
+// Landing en dos idiomas: / (es) y /en. Las alternates le dicen a Google
+// que son la misma página en distinto idioma (hreflang).
 export default function sitemap(): MetadataRoute.Sitemap {
+  const languages = { es: SITE_URL, en: `${SITE_URL}/en` }
   return [
     {
-      url: 'https://www.miagentia.com',
+      url: SITE_URL,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 1,
+      alternates: { languages },
+    },
+    {
+      url: `${SITE_URL}/en`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+      alternates: { languages },
     },
   ]
 }

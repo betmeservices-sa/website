@@ -1,13 +1,16 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { useI18n } from '@/lib/i18n'
 import { site } from '@/lib/site'
 import Logo from '@/components/ui/Logo'
 import Icon from '@/components/ui/Icon'
 
+// El idioma vive en la ruta (/ = es, /en = en): el toggle navega.
 function LangToggle() {
-  const { lang, setLang } = useI18n()
+  const { lang } = useI18n()
+  const router = useRouter()
   return (
     <div className="relative flex items-center rounded-full border border-white/10 bg-white/[0.04] p-0.5 text-xs font-semibold">
       <span
@@ -17,7 +20,7 @@ function LangToggle() {
       {(['es', 'en'] as const).map((l) => (
         <button
           key={l}
-          onClick={() => setLang(l)}
+          onClick={() => l !== lang && router.push(l === 'en' ? '/en' : '/')}
           className={`relative z-10 w-9 rounded-full py-1.5 uppercase transition-colors ${
             lang === l ? 'text-bg' : 'text-muted hover:text-ink'
           }`}

@@ -1,36 +1,33 @@
 'use client'
 
-import { createContext, useContext, useEffect, useState, type ReactNode } from 'react'
+import { createContext, useContext, useEffect, type ReactNode } from 'react'
 import { content, type Lang, type Dict } from './content'
 
+// El idioma lo define la RUTA (/ = es, /en = en), no un estado de cliente:
+// así Google indexa ambas versiones desde el HTML del servidor.
+// El toggle de la navbar navega entre rutas.
 interface I18nCtx {
   lang: Lang
   t: Dict
-  setLang: (l: Lang) => void
-  toggle: () => void
 }
 
 const Ctx = createContext<I18nCtx | null>(null)
 
-export function I18nProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>('es')
-
-  // Rehidratar preferencia guardada
+export function I18nProvider({
+  initialLang = 'es',
+  children,
+}: {
+  initialLang?: Lang
+  children: ReactNode
+}) {
+  // El atributo lang del <html> (fijado en "es" por el layout raíz)
+  // se corrige en cliente para /en.
   useEffect(() => {
-    const saved = window.localStorage.getItem('miagentia-lang') as Lang | null
-    if (saved === 'es' || saved === 'en') setLangState(saved)
-  }, [])
-
-  const setLang = (l: Lang) => {
-    setLangState(l)
-    window.localStorage.setItem('miagentia-lang', l)
-    document.documentElement.lang = l
-  }
-
-  const toggle = () => setLang(lang === 'es' ? 'en' : 'es')
+    document.documentElement.lang = initialLang
+  }, [initialLang])
 
   return (
-    <Ctx.Provider value={{ lang, t: content[lang], setLang, toggle }}>
+    <Ctx.Provider value={{ lang: initialLang, t: content[initialLang] }}>
       {children}
     </Ctx.Provider>
   )
