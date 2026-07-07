@@ -1,8 +1,11 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/next'
 import { inter, space } from '@/lib/fonts'
 import { SITE_URL } from '@/lib/jsonld'
 import './globals.css'
+
+const GA_ID = 'G-Z3GPQSFHVD'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -51,6 +54,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="grain font-sans antialiased" suppressHydrationWarning>
         {children}
         <Analytics />
+        {/* Google tag (gtag.js) · GA4 */}
+        <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_ID}');`}
+        </Script>
       </body>
     </html>
   )
