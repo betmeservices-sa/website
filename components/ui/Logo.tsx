@@ -37,9 +37,14 @@ export function VoiceBadge({ className = 'h-[1.5em] w-[1.5em]' }: { className?: 
   return (
     <span
       className={`relative inline-flex shrink-0 items-center justify-center rounded-full ${className}`}
-      style={{ background: 'conic-gradient(from 140deg, #22D3EE, #8B5CF6, #E879F9, #22D3EE)' }}
+      // Base oscura + anillo cónico encima. La base (#05050A) evita que el badge
+      // se vea claro/blanco en móviles que no pintan bien el conic-gradient.
+      style={{
+        backgroundColor: '#05050A',
+        backgroundImage: 'conic-gradient(from 140deg, #22D3EE, #8B5CF6, #E879F9, #22D3EE)',
+      }}
     >
-      <span className="absolute rounded-full bg-bg" style={{ inset: '8%' }} />
+      <span className="absolute rounded-full" style={{ inset: '8%', background: '#05050A' }} />
       <svg viewBox="0 0 24 24" className="relative h-full w-full" aria-hidden="true">
         <defs>
           <linearGradient id="eq-grad" x1="0" y1="1" x2="0" y2="0">

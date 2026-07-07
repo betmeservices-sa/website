@@ -10,7 +10,6 @@ const es = {
         { label: 'Demo Voz', href: '#voz' },
         { label: 'Demo Chat', href: '#chat' },
         { label: 'Industrias', href: '#industrias' },
-        { label: 'Planes', href: '#planes' },
       ],
       cta: 'Agenda una demo',
     },
@@ -43,7 +42,7 @@ const es = {
       items: [
         { icon: 'phone', title: 'Agente de voz', desc: 'Contesta llamadas entrantes y hace salientes con voz natural. Responde, califica y transfiere cuando hace falta.' },
         { icon: 'whatsapp', title: 'Chat de WhatsApp', desc: 'Atiende cada mensaje al segundo, en cualquier idioma, con el tono de tu marca.' },
-        { icon: 'calendar', title: 'Agendamiento', desc: 'Reserva citas directo en tu calendario y envía recordatorios para reducir ausencias.' },
+        { icon: 'calendar', title: 'Citas', desc: 'Reserva citas directo en tu calendario y envía recordatorios para reducir ausencias.' },
         { icon: 'filter', title: 'Calificación de leads', desc: 'Hace las preguntas correctas y prioriza a los clientes listos para comprar.' },
         { icon: 'plug', title: 'Integración con tu CRM', desc: 'Se conecta con tu CRM, hoja de cálculo o herramientas para que todo quede registrado.' },
         { icon: 'globe', title: 'Soporte 24/7', desc: 'Resuelve dudas frecuentes y escala a un humano solo cuando de verdad importa.' },
@@ -147,7 +146,7 @@ const es = {
         {
           name: 'Arranque',
           tagline: 'Un canal, listo para vender',
-          features: ['1 agente (voz o chat)', 'Guion y personalidad a medida', 'Agendamiento en tu calendario', 'Integración básica', 'Soporte por WhatsApp'],
+          features: ['1 agente (voz o chat)', 'Guion y personalidad a medida', 'Citas en tu calendario', 'Integración básica', 'Soporte por WhatsApp'],
           cta: 'Cotizar',
           featured: false,
         },
@@ -195,7 +194,7 @@ const es = {
     footer: {
       tagline: 'Soluciones inteligentes. Agentes de IA de voz y WhatsApp que trabajan por tu negocio, 24/7.',
       cols: [
-        { title: 'Producto', links: ['Servicios', 'Demo Voz', 'Demo Chat', 'Planes'] },
+        { title: 'Producto', links: ['Servicios', 'Demo Voz', 'Demo Chat'] },
         { title: 'Empresa', links: ['Industrias', 'Cómo funciona', 'Preguntas', 'Contacto'] },
       ],
       rights: 'Todos los derechos reservados.',
@@ -212,7 +211,6 @@ const en: Dict = {
         { label: 'Voice Demo', href: '#voz' },
         { label: 'Chat Demo', href: '#chat' },
         { label: 'Industries', href: '#industrias' },
-        { label: 'Plans', href: '#planes' },
       ],
       cta: 'Book a demo',
     },
@@ -397,7 +395,7 @@ const en: Dict = {
     footer: {
       tagline: 'Intelligent solutions. AI voice and WhatsApp agents that work for your business, 24/7.',
       cols: [
-        { title: 'Product', links: ['Services', 'Voice Demo', 'Chat Demo', 'Plans'] },
+        { title: 'Product', links: ['Services', 'Voice Demo', 'Chat Demo'] },
         { title: 'Company', links: ['Industries', 'How it works', 'FAQ', 'Contact'] },
       ],
       rights: 'All rights reserved.',
