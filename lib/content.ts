@@ -194,8 +194,23 @@ const es = {
     footer: {
       tagline: 'Soluciones inteligentes. Agentes de IA de voz y WhatsApp que trabajan por tu negocio, 24/7.',
       cols: [
-        { title: 'Producto', links: ['Servicios', 'Demo Voz', 'Demo Chat'] },
-        { title: 'Empresa', links: ['Industrias', 'Cómo funciona', 'Preguntas', 'Contacto'] },
+        {
+          title: 'Producto',
+          links: [
+            { label: 'Servicios', href: '#servicios' },
+            { label: 'Demo Voz', href: '#voz' },
+            { label: 'Demo Chat', href: '#chat' },
+          ],
+        },
+        {
+          title: 'Empresa',
+          links: [
+            { label: 'Industrias', href: '#industrias' },
+            { label: 'Cómo funciona', href: '#como-funciona' },
+            { label: 'Preguntas', href: '#preguntas' },
+            { label: 'Contacto', href: '#empezar' },
+          ],
+        },
       ],
       rights: 'Todos los derechos reservados.',
     },
@@ -395,8 +410,23 @@ const en: Dict = {
     footer: {
       tagline: 'Intelligent solutions. AI voice and WhatsApp agents that work for your business, 24/7.',
       cols: [
-        { title: 'Product', links: ['Services', 'Voice Demo', 'Chat Demo'] },
-        { title: 'Company', links: ['Industries', 'How it works', 'FAQ', 'Contact'] },
+        {
+          title: 'Product',
+          links: [
+            { label: 'Services', href: '#servicios' },
+            { label: 'Voice Demo', href: '#voz' },
+            { label: 'Chat Demo', href: '#chat' },
+          ],
+        },
+        {
+          title: 'Company',
+          links: [
+            { label: 'Industries', href: '#industrias' },
+            { label: 'How it works', href: '#como-funciona' },
+            { label: 'FAQ', href: '#preguntas' },
+            { label: 'Contact', href: '#empezar' },
+          ],
+        },
       ],
       rights: 'All rights reserved.',
     },

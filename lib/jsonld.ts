@@ -12,12 +12,15 @@ export function buildJsonLd(lang: Lang) {
     '@context': 'https://schema.org',
     '@graph': [
       {
-        '@type': 'Organization',
+        '@type': ['Organization', 'ProfessionalService'],
         '@id': `${SITE_URL}/#organization`,
         name: 'MiAgentIA',
         url: SITE_URL,
         logo: `${SITE_URL}/brand/wordmark.png`,
         email: site.email,
+        telephone: `+${site.whatsapp}`,
+        areaServed: ['Guatemala', 'El Salvador', 'Latinoamérica'],
+        knowsLanguage: ['es', 'en'],
         description: t.footer.tagline,
       },
       {

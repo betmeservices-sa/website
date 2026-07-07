@@ -31,9 +31,9 @@ export default function Footer() {
               <h4 className="font-display text-sm font-semibold uppercase tracking-wider text-ink">{col.title}</h4>
               <ul className="mt-4 space-y-3">
                 {col.links.map((link) => (
-                  <li key={link}>
-                    <a href={`${base}#top`} className="text-sm text-muted transition-colors hover:text-ink">
-                      {link}
+                  <li key={link.label}>
+                    <a href={`${base}${link.href}`} className="text-sm text-muted transition-colors hover:text-ink">
+                      {link.label}
                     </a>
                   </li>
                 ))}

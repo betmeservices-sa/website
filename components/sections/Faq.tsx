@@ -12,7 +12,7 @@ export default function Faq() {
   const [open, setOpen] = useState<number | null>(0)
 
   return (
-    <section className="relative border-t border-white/5 bg-bg-soft/60 py-24 sm:py-32">
+    <section id="preguntas" className="relative border-t border-white/5 bg-bg-soft/60 py-24 sm:py-32">
       <div className="mx-auto max-w-3xl px-5 sm:px-8">
         <AnimatedContent className="text-center">
           <Eyebrow>{t.faq.label}</Eyebrow>
