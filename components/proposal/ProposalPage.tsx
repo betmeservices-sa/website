@@ -8,6 +8,7 @@ import AgentSpec from './AgentSpec'
 import ScopeGrid from './ScopeGrid'
 import Investment from './Investment'
 import Kickoff from './Kickoff'
+import DemoLauncher from './demo/DemoLauncher'
 
 export default function ProposalPage({ proposal }: { proposal: Proposal }) {
   return (
@@ -31,6 +32,8 @@ export default function ProposalPage({ proposal }: { proposal: Proposal }) {
       <footer className="relative mx-auto max-w-4xl px-5 py-10 text-center text-xs text-muted sm:px-8">
         MiAgentIA · <a href={`mailto:${site.email}`} className="hover:text-ink">{site.email}</a>
       </footer>
+
+      <DemoLauncher />
     </div>
   )
 }

@@ -4,8 +4,10 @@ import Icon from '@/components/ui/Icon'
 import type { Canal, Proposal } from '@/lib/proposals/types'
 
 const canalInfo: Record<Canal, { icon: string; label: string }> = {
-  voz: { icon: 'phone', label: 'Voz / llamadas' },
   whatsapp: { icon: 'whatsapp', label: 'WhatsApp' },
+  facebook: { icon: 'facebook', label: 'Facebook' },
+  instagram: { icon: 'instagram', label: 'Instagram' },
+  voz: { icon: 'phone', label: 'Voz / llamadas' },
 }
 
 export default function AgentSpec({ agente }: { agente: Proposal['agente'] }) {
@@ -20,7 +22,7 @@ export default function AgentSpec({ agente }: { agente: Proposal['agente'] }) {
       <div className="mt-8 grid gap-3 sm:grid-cols-3">
         <div className="rounded-2xl border border-white/10 bg-bg-card p-5">
           <p className="text-xs uppercase tracking-wider text-muted">Canales</p>
-          <div className="mt-2 flex flex-col gap-1.5">
+          <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1.5">
             {agente.canales.map((c) => (
               <span key={c} className="inline-flex items-center gap-1.5 text-sm text-ink">
                 <Icon name={canalInfo[c].icon} className="h-4 w-4 text-cyan" />

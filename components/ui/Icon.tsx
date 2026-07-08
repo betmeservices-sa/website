@@ -23,6 +23,8 @@ const paths: Record<string, React.ReactNode> = {
   plus: <path d="M12 5v14M5 12h14" />,
   bot: <><rect x="4.5" y="8" width="15" height="11" rx="3" /><path d="M12 8V5M9.5 13.2h.01M14.5 13.2h.01M9.5 16h5" /><circle cx="12" cy="4" r="1" /></>,
   user: <><circle cx="12" cy="8" r="3.5" /><path d="M5 20c.9-3.4 3.6-5.4 7-5.4s6.1 2 7 5.4" /></>,
+  facebook: <><rect x="3.5" y="3.5" width="17" height="17" rx="4.5" /><path d="M15 8h-1.5A1.5 1.5 0 0 0 12 9.5V12h3l-.5 2.5H12V20" /></>,
+  instagram: <><rect x="4" y="4" width="16" height="16" rx="4.5" /><circle cx="12" cy="12" r="3.8" /><circle cx="16.6" cy="7.4" r="0.9" fill="currentColor" stroke="none" /></>,
 }
 
 export default function Icon({ name, ...props }: { name: string } & SVGProps<SVGSVGElement>) {

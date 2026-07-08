@@ -3,7 +3,7 @@
 // la propuesta corta: violarlos es un error de compilación, no una
 // convención que se erosiona.
 
-export type Canal = 'voz' | 'whatsapp'
+export type Canal = 'voz' | 'whatsapp' | 'facebook' | 'instagram'
 
 export type Metrica = {
   insumos: string[]        // los datos que dio el cliente, a la vista
