@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getProposal, allProposalSlugs } from '@/lib/proposals'
+import ProposalPage from '@/components/proposal/ProposalPage'
 
 // Prerenderiza solo los slugs conocidos; cualquier otro da 404 (sin ISR).
 export const dynamicParams = false
@@ -30,7 +31,5 @@ export default async function Page(
   const { slug } = await params
   const proposal = getProposal(slug)
   if (!proposal) notFound()
-
-  // Cuerpo provisional (se reemplaza en la Task 3 por <ProposalPage/>).
-  return <main className="p-10 text-ink">Propuesta para {proposal.cliente.nombre}</main>
+  return <ProposalPage proposal={proposal} />
 }
