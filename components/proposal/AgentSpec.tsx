@@ -42,8 +42,8 @@ export default function AgentSpec({ agente }: { agente: Proposal['agente'] }) {
       {/* Flujos: situación real -> qué hace */}
       <div className="mt-4 overflow-hidden rounded-2xl border border-white/10">
         {agente.flujos.map((f, i) => (
-          <AnimatedContent key={i} delay={i * 0.08}>
-            <div className="grid gap-1 border-b border-white/5 bg-bg-card p-5 last:border-0 sm:grid-cols-[1fr_1.4fr] sm:gap-6">
+          <AnimatedContent key={i} delay={i * 0.08} className="border-b border-white/5 last:border-0">
+            <div className="grid gap-1 bg-bg-card p-5 sm:grid-cols-[1fr_1.4fr] sm:gap-6">
               <p className="text-sm font-medium text-muted">{f.situacion}</p>
               <p className="flex items-start gap-2 text-sm text-ink">
                 <Icon name="arrow" className="mt-1 h-3.5 w-3.5 shrink-0 text-violet" />

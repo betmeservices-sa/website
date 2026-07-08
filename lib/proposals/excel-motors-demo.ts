@@ -19,11 +19,11 @@ export const excelMotors: Proposal = {
       'Hoy no hay forma de saber cuántas visitas al piso de ventas se pierden por responder tarde.',
     ],
     metrica: {
-      insumos: ['~40 conversaciones sin respuesta al mes', 'ticket promedio de $8,000', 'cierre estimado del 5%'],
+      insumos: ['~XX conversaciones sin respuesta al mes', 'ticket promedio de $X,XXX', 'cierre estimado del X%'],
       resultado:
-        'Cada mes se enfrían unos 40 prospectos. Aun con un cierre conservador, son 2 ventas (cerca de $16,000) que se van solo por no contestar a tiempo.',
+        'Cada mes se enfrían unos XX prospectos. Aun con un cierre conservador, son N ventas (cerca de $XX,XXX) que se van solo por no contestar a tiempo.',
       fuente:
-        'Cifras dichas por el cliente en la llamada del 7 de julio; el cierre es un estimado conservador, no una garantía.',
+        'EJEMPLO ilustrativo: reemplazar con las cifras reales que dijo el cliente en la llamada y su fuente, antes de enviar.',
     },
   },
 
