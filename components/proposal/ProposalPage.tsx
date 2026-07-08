@@ -5,6 +5,9 @@ import type { Proposal } from '@/lib/proposals/types'
 import Cover from './Cover'
 import Diagnostico from './Diagnostico'
 import AgentSpec from './AgentSpec'
+import ScopeGrid from './ScopeGrid'
+import Investment from './Investment'
+import Kickoff from './Kickoff'
 
 export default function ProposalPage({ proposal }: { proposal: Proposal }) {
   return (
@@ -20,6 +23,9 @@ export default function ProposalPage({ proposal }: { proposal: Proposal }) {
         <Cover proposal={proposal} />
         <Diagnostico data={proposal.diagnostico} />
         <AgentSpec agente={proposal.agente} />
+        <ScopeGrid alcance={proposal.alcance} />
+        <Investment inversion={proposal.inversion} />
+        <Kickoff proposal={proposal} />
       </main>
 
       <footer className="relative mx-auto max-w-4xl px-5 py-10 text-center text-xs text-muted sm:px-8">
