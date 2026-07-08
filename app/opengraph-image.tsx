@@ -1,13 +1,19 @@
 import { ImageResponse } from 'next/og'
+import { readFile } from 'node:fs/promises'
+import { join } from 'node:path'
 
-// Imagen para compartir en redes (og:image + twitter:image). Next la enlaza
-// automáticamente en el <head>. Se genera con next/og (satori): cada contenedor
-// con varios hijos lleva display:flex.
-export const alt = 'MiAgentIA · Agentes de IA de voz y WhatsApp'
+// Imagen para compartir en redes (og:image + twitter:image): el LOGO oficial
+// (bolita + wordmark + tagline) centrado sobre el fondo oscuro de marca.
+// Se genera con next/og (satori): cada contenedor con varios hijos lleva
+// display:flex y los gradientes cónicos no existen (por eso el logo va en PNG).
+export const alt = 'MiAgentIA · Soluciones Inteligentes'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
-export default function Image() {
+export default async function Image() {
+  const logo = await readFile(join(process.cwd(), 'public/brand/logo-lockup.png'))
+  const logoSrc = `data:image/png;base64,${logo.toString('base64')}`
+
   return new ImageResponse(
     (
       <div
@@ -15,51 +21,47 @@ export default function Image() {
           width: '100%',
           height: '100%',
           display: 'flex',
-          flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          background: 'radial-gradient(125% 125% at 50% 0%, #17142e 0%, #0a0a12 62%)',
-          color: '#ffffff',
-          fontFamily: 'sans-serif',
-          padding: 80,
+          background: '#05050A',
+          position: 'relative',
         }}
       >
+        {/* Glows de marca (cian arriba-izquierda, magenta abajo-derecha) */}
         <div
           style={{
-            display: 'flex',
-            alignItems: 'baseline',
-            fontSize: 104,
-            fontWeight: 700,
-            letterSpacing: -3,
+            position: 'absolute',
+            left: -220,
+            top: -220,
+            width: 640,
+            height: 640,
+            background: 'radial-gradient(circle, rgba(34,211,238,0.28) 0%, rgba(34,211,238,0) 65%)',
           }}
-        >
-          <span>MiAgent</span>
-          <span style={{ color: '#a78bfa' }}>IA</span>
-        </div>
+        />
         <div
           style={{
-            display: 'flex',
-            marginTop: 8,
-            fontSize: 20,
-            letterSpacing: 8,
-            textTransform: 'uppercase',
-            color: '#22d3ee',
+            position: 'absolute',
+            right: -220,
+            bottom: -220,
+            width: 640,
+            height: 640,
+            background: 'radial-gradient(circle, rgba(232,121,249,0.26) 0%, rgba(232,121,249,0) 65%)',
           }}
-        >
-          Voz + WhatsApp · 24/7
-        </div>
+        />
         <div
           style={{
-            marginTop: 34,
-            maxWidth: 860,
-            textAlign: 'center',
-            fontSize: 38,
-            lineHeight: 1.3,
-            color: '#c7c7d6',
+            position: 'absolute',
+            left: 300,
+            top: 115,
+            width: 600,
+            height: 400,
+            background: 'radial-gradient(circle, rgba(139,92,246,0.22) 0%, rgba(139,92,246,0) 70%)',
           }}
-        >
-          Agentes de IA que atienden, venden y agendan por tu negocio.
-        </div>
+        />
+
+        {/* Logo oficial */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={logoSrc} width={902} height={253} alt="" />
       </div>
     ),
     { ...size },
