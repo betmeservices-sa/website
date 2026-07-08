@@ -42,15 +42,16 @@ export const metadata: Metadata = {
     description: 'Agentes de IA que atienden, venden y agendan por ti. Voz + WhatsApp, 24/7.',
   },
   robots: { index: true, follow: true },
-   other: {
+  other: {
     'facebook-domain-verification': 'kfv78yyfx43pc3fqlbgk3qsrh6eydw',
   },
-  alternates: {
+  // Fallback para páginas sin alternates propios; / y /en definen los suyos.
   alternates: {
     canonical: 'https://www.miagentia.com',
     languages: {
-      'es': 'https://www.miagentia.com',
-      'en': 'https://www.miagentia.com/en',
+      es: 'https://www.miagentia.com',
+      en: 'https://www.miagentia.com/en',
+      'x-default': 'https://www.miagentia.com',
     },
   },
   // Al verificar en Google Search Console, pega aquí el código:
