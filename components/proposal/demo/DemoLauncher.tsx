@@ -27,27 +27,33 @@ export default function DemoLauncher() {
 
   return (
     <>
-      <motion.button
-        type="button"
-        onClick={() => setOpen(true)}
+      {/* El fixed vive en el wrapper: .border-grad fija position:relative y
+          anularia el fixed si estuviera en el mismo elemento. */}
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.6, duration: 0.5 }}
-        aria-label="Ver el demo del panel de Sofía"
-        className="group fixed bottom-5 right-5 z-40 flex items-center gap-2.5 rounded-full border-grad glass py-2.5 pl-2.5 pr-5 shadow-xl transition-transform hover:-translate-y-0.5"
+        className="fixed bottom-5 right-5 z-40"
       >
-        <span className="relative flex h-9 w-9 items-center justify-center rounded-full [background:var(--grad)] text-bg">
-          <Icon name="bot" className="h-5 w-5" />
-          <span className="absolute -right-0.5 -top-0.5 flex h-3 w-3">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-70" />
-            <span className="relative inline-flex h-3 w-3 rounded-full bg-emerald-400 ring-2 ring-bg" />
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
+          aria-label="Ver el demo del panel de Sofía"
+          className="group flex items-center gap-2.5 rounded-full border-grad glass py-2.5 pl-2.5 pr-5 shadow-xl transition-transform hover:-translate-y-0.5"
+        >
+          <span className="relative flex h-9 w-9 items-center justify-center rounded-full [background:var(--grad)] text-bg">
+            <Icon name="bot" className="h-5 w-5" />
+            <span className="absolute -right-0.5 -top-0.5 flex h-3 w-3">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-70" />
+              <span className="relative inline-flex h-3 w-3 rounded-full bg-emerald-400 ring-2 ring-bg" />
+            </span>
           </span>
-        </span>
-        <span className="text-left">
-          <span className="block text-sm font-semibold text-ink">Ver demo en vivo</span>
-          <span className="block text-[11px] text-muted">El panel de Sofía</span>
-        </span>
-      </motion.button>
+          <span className="text-left">
+            <span className="block text-sm font-semibold text-ink">Ver demo en vivo</span>
+            <span className="block text-[11px] text-muted">El panel de Sofía</span>
+          </span>
+        </button>
+      </motion.div>
 
       <AnimatePresence>
         {open && (
