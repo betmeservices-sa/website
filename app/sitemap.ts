@@ -31,5 +31,34 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     })),
+    // Legales (es + en)
+    {
+      url: `${SITE_URL}/privacidad`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.3,
+      alternates: { languages: { es: `${SITE_URL}/privacidad`, en: `${SITE_URL}/en/privacy` } },
+    },
+    {
+      url: `${SITE_URL}/en/privacy`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.3,
+      alternates: { languages: { es: `${SITE_URL}/privacidad`, en: `${SITE_URL}/en/privacy` } },
+    },
+    {
+      url: `${SITE_URL}/terminos`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.3,
+      alternates: { languages: { es: `${SITE_URL}/terminos`, en: `${SITE_URL}/en/terms` } },
+    },
+    {
+      url: `${SITE_URL}/en/terms`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.3,
+      alternates: { languages: { es: `${SITE_URL}/terminos`, en: `${SITE_URL}/en/terms` } },
+    },
   ]
 }
