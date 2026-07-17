@@ -33,7 +33,7 @@ export default function Page() {
           <>
             <strong>Visitantes del sitio:</strong> datos de contacto que nos envías por
             formularios o al escribirnos por WhatsApp (nombre, teléfono, correo, negocio), y datos
-            de uso del sitio mediante herramientas de analítica (Google Analytics).
+            de uso del sitio mediante herramientas de analítica.
           </>,
           <>
             <strong>Clientes del servicio:</strong> datos de cuenta y facturación, y la
@@ -81,10 +81,10 @@ export default function Page() {
 
       <H2>5. Con quién compartimos datos</H2>
       <P>
-        Solo con proveedores que necesitamos para operar: alojamiento y despliegue (por ejemplo
-        Vercel), base de datos (por ejemplo Supabase), plataformas de mensajería y redes (Meta,
-        WhatsApp Business), proveedores de IA y de telefonía, y analítica del sitio. Cada
-        proveedor procesa los datos bajo sus propios términos de servicio empresariales. No
+        Solo con los proveedores que necesitamos para operar el servicio: infraestructura de
+        alojamiento y base de datos, las plataformas de mensajería y redes que el cliente conecta
+        (como Meta y WhatsApp Business), proveedores de IA y de telefonía, y analítica del sitio.
+        Cada proveedor procesa los datos bajo sus propios términos de servicio empresariales. No
         vendemos datos personales.
       </P>
 
@@ -134,10 +134,7 @@ export default function Page() {
       </P>
 
       <H2>11. Contacto</H2>
-      <P>
-        MiAgentIA · {site.email} · www.miagentia.com. Operamos para clientes en Guatemala, El
-        Salvador y el resto de Latinoamérica.
-      </P>
+      <P>MiAgentIA · {site.email} · www.miagentia.com</P>
     </LegalPage>
   )
 }
