@@ -32,7 +32,11 @@ export default function Footer() {
               <ul className="mt-4 space-y-3">
                 {col.links.map((link) => (
                   <li key={link.label}>
-                    <a href={`${base}${link.href}`} className="text-sm text-muted transition-colors hover:text-ink">
+                    {/* Anclas se resuelven contra el home del idioma; rutas van tal cual. */}
+                    <a
+                      href={link.href.startsWith('#') ? `${base}${link.href}` : link.href}
+                      className="text-sm text-muted transition-colors hover:text-ink"
+                    >
                       {link.label}
                     </a>
                   </li>
