@@ -17,14 +17,15 @@ export default function Page() {
     <LegalPage
       lang="es"
       title="Política de Privacidad"
-      updated="Última actualización: 16 de julio de 2026"
+      updated="Última actualización: 23 de julio de 2026"
     >
       <P>
         MiAgentIA (&quot;nosotros&quot;) ofrece agentes de inteligencia artificial de voz y
-        WhatsApp, y paneles de comunicación omnicanal para negocios. Esta política explica qué
-        datos recopilamos, cómo los usamos y qué derechos tienes. Aplica al sitio
-        www.miagentia.com, a nuestros paneles (por ejemplo, los alojados en subdominios de
-        miagentia.com) y a los servicios que prestamos a nuestros clientes.
+        WhatsApp, y paneles de comunicación omnicanal para negocios. Por el momento, el servicio
+        está disponible para negocios en El Salvador y Guatemala. Esta política explica qué datos
+        recopilamos, cómo los usamos y qué derechos tienes. Aplica al sitio www.miagentia.com, a
+        nuestros paneles (por ejemplo, los alojados en subdominios de miagentia.com) y a los
+        servicios que prestamos a nuestros clientes.
       </P>
 
       <H2>1. Datos que recopilamos</H2>
@@ -88,14 +89,29 @@ export default function Page() {
         vendemos datos personales.
       </P>
 
-      <H2>6. Conservación y seguridad</H2>
+      <H2>6. Transferencias internacionales</H2>
       <P>
-        Conservamos los datos mientras exista la relación de servicio con el cliente o mientras
-        sean necesarios para los fines descritos. Usamos cifrado en tránsito (HTTPS), control de
-        acceso a los sistemas y almacenamiento seguro de credenciales y tokens.
+        Algunos de los proveedores descritos en la sección anterior pueden procesar datos en
+        países distintos al tuyo. Si tu organización requiere mecanismos específicos de
+        transferencia internacional (por ejemplo, Cláusulas Contractuales Tipo u otras
+        salvaguardas equivalentes conforme al RGPD, la LGPD u otra ley aplicable), podemos
+        incorporarlos en el Acuerdo de Procesamiento de Datos descrito en la sección 10.
       </P>
 
-      <H2>7. Eliminación de datos y revocación de acceso</H2>
+      <H2>7. Conservación y seguridad</H2>
+      <P>
+        Conservamos los datos mientras exista la relación de servicio con el cliente o mientras
+        sean necesarios para los fines descritos; los períodos exactos por tipo de dato (por
+        ejemplo, grabaciones de llamadas o historiales de conversación) pueden pactarse en el
+        contrato o el Acuerdo de Procesamiento de Datos. Usamos cifrado en tránsito (HTTPS),
+        control de acceso a los sistemas, autenticación de dos factores mediante aplicación
+        autenticadora para el acceso al panel, y almacenamiento seguro de credenciales y tokens.
+        Ante un incidente de seguridad que afecte datos personales, notificamos a los clientes
+        afectados y, cuando la ley lo exija, a la autoridad competente, dentro de los plazos
+        aplicables.
+      </P>
+
+      <H2>8. Eliminación de datos y revocación de acceso</H2>
       <P>Puedes pedir la eliminación de tus datos de dos formas:</P>
       <UL
         items={[
@@ -114,26 +130,68 @@ export default function Page() {
         ]}
       />
 
-      <H2>8. Tus derechos</H2>
+      <H2>9. Tus derechos</H2>
       <P>
-        Puedes solicitar acceso, corrección o eliminación de tus datos personales, y oponerte a
-        ciertos usos, escribiendo a {site.email}. Si nos escribiste por WhatsApp, también puedes
-        pedirnos ahí que dejemos de contactarte.
+        Dependiendo de tu ubicación y la ley que te aplique (por ejemplo, el RGPD/GDPR en la Unión
+        Europea y el Reino Unido, la CCPA/CPRA en California, la LGPD en Brasil, u otras leyes
+        locales de protección de datos), puedes tener derecho a:
+      </P>
+      <UL
+        items={[
+          <>
+            <strong>Acceso:</strong> saber qué datos tenemos sobre ti.
+          </>,
+          <>
+            <strong>Rectificación:</strong> corregir datos inexactos o incompletos.
+          </>,
+          <>
+            <strong>Eliminación:</strong> pedir que borremos tus datos (ver sección 8).
+          </>,
+          <>
+            <strong>Portabilidad:</strong> recibir tus datos en un formato estructurado.
+          </>,
+          <>
+            <strong>Oposición y limitación:</strong> oponerte a ciertos usos o pedir que
+            limitemos el tratamiento.
+          </>,
+          <>
+            <strong>No discriminación y no venta:</strong> no vendemos ni compartimos datos
+            personales con fines publicitarios de terceros, y no recibirás un trato desfavorable
+            por ejercer estos derechos.
+          </>,
+        ]}
+      />
+      <P>
+        Para ejercer cualquiera de estos derechos, escríbenos a {site.email}. Si nos escribiste
+        por WhatsApp, también puedes pedirnos ahí que dejemos de contactarte. Si no estás de
+        acuerdo con nuestra respuesta, puedes presentar una queja ante la autoridad de protección
+        de datos que corresponda a tu país.
       </P>
 
-      <H2>9. Menores de edad</H2>
+      <H2>10. Clientes empresariales y Acuerdo de Procesamiento de Datos (DPA)</H2>
+      <P>
+        Si tu organización evalúa o contrata MiAgentIA para desplegar agentes que interactuarán
+        con tus propios clientes, entendemos que tu equipo legal o de compliance puede requerir
+        más que esta política pública. Bajo solicitud, podemos proporcionar un Acuerdo de
+        Procesamiento de Datos (DPA) que defina roles de responsable/encargado, instrucciones de
+        tratamiento, una lista de subencargados con aviso previo ante cambios materiales,
+        mecanismos de transferencia internacional, y respuesta a cuestionarios razonables de
+        seguridad y compliance. Escríbenos a {site.email} para coordinarlo.
+      </P>
+
+      <H2>11. Menores de edad</H2>
       <P>
         Nuestros servicios están dirigidos a negocios y no están diseñados para menores de 18
         años. No recopilamos datos de menores a sabiendas.
       </P>
 
-      <H2>10. Cambios a esta política</H2>
+      <H2>12. Cambios a esta política</H2>
       <P>
         Si cambiamos esta política, publicaremos la versión nueva en esta misma página con su
         fecha de actualización. Los cambios importantes se avisan a los clientes activos.
       </P>
 
-      <H2>11. Contacto</H2>
+      <H2>13. Contacto</H2>
       <P>MiAgentIA · {site.email} · www.miagentia.com</P>
     </LegalPage>
   )

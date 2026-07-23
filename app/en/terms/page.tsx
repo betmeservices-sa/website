@@ -26,7 +26,8 @@ export default function Page() {
         MiAgentIA designs, configures, and operates AI agents that handle conversations and calls
         from your business's end customers, plus dashboards where your team manages those
         conversations, contacts, posts, and statistics. The specific scope (channels, volumes,
-        integrations) is the one agreed in your proposal or purchased plan.
+        integrations) is the one agreed in your proposal or purchased plan. At this time, the
+        service is available to businesses in El Salvador and Guatemala.
       </P>
 
       <H2>2. Accounts and authorized access</H2>
@@ -35,7 +36,7 @@ export default function Page() {
           'You own your accounts and assets (Facebook pages, Instagram accounts, WhatsApp numbers, phone lines). MiAgentIA never claims ownership over them.',
           'You grant us access through each platform’s official mechanisms (for example, Meta OAuth) solely to provide the service.',
           'You can revoke that access at any time from your account settings; features that depend on it will stop working.',
-          'You are responsible for keeping credentials secure and ensuring your team uses the dashboard according to these terms.',
+          'You are responsible for keeping credentials secure, enabling two-factor authentication via an authenticator app on the dashboard, and ensuring your team uses it according to these terms.',
         ]}
       />
 

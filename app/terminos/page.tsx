@@ -30,7 +30,8 @@ export default function Page() {
         MiAgentIA diseña, configura y opera agentes de IA que atienden conversaciones y llamadas
         de los clientes finales de tu negocio, y paneles donde tu equipo administra esas
         conversaciones, contactos, publicaciones y estadísticas. El alcance concreto (canales,
-        volúmenes, integraciones) es el acordado en la propuesta o plan contratado.
+        volúmenes, integraciones) es el acordado en la propuesta o plan contratado. Por el
+        momento, el servicio está disponible para negocios en El Salvador y Guatemala.
       </P>
 
       <H2>2. Cuentas y accesos autorizados</H2>
@@ -39,7 +40,7 @@ export default function Page() {
           'Tú eres el titular de tus cuentas y activos (páginas de Facebook, cuentas de Instagram, números de WhatsApp, líneas telefónicas). MiAgentIA nunca reclama propiedad sobre ellos.',
           'Nos autorizas el acceso mediante los mecanismos oficiales de cada plataforma (por ejemplo, OAuth de Meta) únicamente para prestar el servicio.',
           'Puedes revocar ese acceso en cualquier momento desde la configuración de tus cuentas; al hacerlo, las funciones que dependen de él dejan de operar.',
-          'Eres responsable de mantener credenciales seguras y de que las personas de tu equipo con acceso al panel usen el servicio conforme a estas condiciones.',
+          'Eres responsable de mantener credenciales seguras, de activar la autenticación de dos factores mediante aplicación autenticadora en el panel, y de que las personas de tu equipo con acceso lo usen conforme a estas condiciones.',
         ]}
       />
 

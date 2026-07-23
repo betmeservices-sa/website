@@ -14,10 +14,11 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <LegalPage lang="en" title="Privacy Policy" updated="Last updated: July 16, 2026">
+    <LegalPage lang="en" title="Privacy Policy" updated="Last updated: July 23, 2026">
       <P>
         MiAgentIA (&quot;we&quot;) provides AI voice and WhatsApp agents and omnichannel
-        communication dashboards for businesses. This policy explains what data we collect, how
+        communication dashboards for businesses. At this time, the service is available to
+        businesses in El Salvador and Guatemala. This policy explains what data we collect, how
         we use it, and your rights. It applies to www.miagentia.com, our dashboards (for example,
         those hosted on miagentia.com subdomains), and the services we provide to our clients.
       </P>
@@ -81,14 +82,27 @@ export default function Page() {
         processes data under its own business terms. We do not sell personal data.
       </P>
 
-      <H2>6. Retention and security</H2>
+      <H2>6. International transfers</H2>
       <P>
-        We keep data for as long as the service relationship exists or as needed for the purposes
-        described. We use encryption in transit (HTTPS), access controls, and secure storage of
-        credentials and tokens.
+        Some of the providers described above may process data in countries other than your own.
+        If your organization requires specific international transfer mechanisms (for example,
+        Standard Contractual Clauses or other equivalent safeguards under the GDPR, LGPD, or other
+        applicable law), we can incorporate them into the Data Processing Agreement described in
+        section 10.
       </P>
 
-      <H2>7. Data deletion and access revocation</H2>
+      <H2>7. Retention and security</H2>
+      <P>
+        We keep data for as long as the service relationship exists or as needed for the purposes
+        described; exact retention periods per data type (for example, call recordings or
+        conversation history) can be agreed in the contract or the Data Processing Agreement. We
+        use encryption in transit (HTTPS), access controls, two-factor authentication via an
+        authenticator app for dashboard access, and secure storage of credentials and tokens. In
+        the event of a security incident affecting personal data, we notify affected clients and,
+        where required by law, the competent authority, within applicable deadlines.
+      </P>
+
+      <H2>8. Data deletion and access revocation</H2>
       <P>You can request deletion of your data in two ways:</P>
       <UL
         items={[
@@ -106,26 +120,67 @@ export default function Page() {
         ]}
       />
 
-      <H2>8. Your rights</H2>
+      <H2>9. Your rights</H2>
       <P>
-        You can request access, correction, or deletion of your personal data, and object to
-        certain uses, by writing to {site.email}. If you contacted us on WhatsApp, you can also
-        ask us there to stop contacting you.
+        Depending on your location and the law that applies to you (for example, the GDPR in the
+        EU/UK, the CCPA/CPRA in California, the LGPD in Brazil, or other local data protection
+        laws), you may have the right to:
+      </P>
+      <UL
+        items={[
+          <>
+            <strong>Access:</strong> know what data we hold about you.
+          </>,
+          <>
+            <strong>Rectification:</strong> correct inaccurate or incomplete data.
+          </>,
+          <>
+            <strong>Erasure:</strong> ask us to delete your data (see section 8).
+          </>,
+          <>
+            <strong>Portability:</strong> receive your data in a structured format.
+          </>,
+          <>
+            <strong>Objection and restriction:</strong> object to certain uses or ask us to
+            limit processing.
+          </>,
+          <>
+            <strong>Non-discrimination and no sale:</strong> we do not sell or share personal
+            data for third-party advertising purposes, and you will not receive unfavorable
+            treatment for exercising these rights.
+          </>,
+        ]}
+      />
+      <P>
+        To exercise any of these rights, email us at {site.email}. If you contacted us on
+        WhatsApp, you can also ask us there to stop contacting you. If you disagree with our
+        response, you may file a complaint with the data protection authority in your country.
       </P>
 
-      <H2>9. Minors</H2>
+      <H2>10. Enterprise customers and Data Processing Agreement (DPA)</H2>
+      <P>
+        If your organization is evaluating or contracting MiAgentIA to deploy agents that will
+        interact with your own customers, we understand your legal or compliance team may need
+        more than this public policy. Upon request, we can provide a Data Processing Agreement
+        (DPA) defining controller/processor roles, processing instructions, a subprocessor list
+        with advance notice of material changes, international transfer mechanisms, and responses
+        to reasonable security and compliance questionnaires. Email us at {site.email} to
+        coordinate this.
+      </P>
+
+      <H2>11. Minors</H2>
       <P>
         Our services are aimed at businesses and are not designed for people under 18. We do not
         knowingly collect data from minors.
       </P>
 
-      <H2>10. Changes to this policy</H2>
+      <H2>12. Changes to this policy</H2>
       <P>
         If we change this policy, we will publish the new version on this page with its update
         date. Significant changes are notified to active clients.
       </P>
 
-      <H2>11. Contact</H2>
+      <H2>13. Contact</H2>
       <P>MiAgentIA · {site.email} · www.miagentia.com</P>
     </LegalPage>
   )
