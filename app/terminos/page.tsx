@@ -17,7 +17,7 @@ export default function Page() {
     <LegalPage
       lang="es"
       title="Condiciones de Servicio"
-      updated="Última actualización: 16 de julio de 2026"
+      updated="Última actualización: 24 de julio de 2026"
     >
       <P>
         Estas condiciones regulan el uso de los servicios de MiAgentIA: agentes de inteligencia
@@ -44,7 +44,22 @@ export default function Page() {
         ]}
       />
 
-      <H2>3. Uso aceptable</H2>
+      <H2>3. Naturaleza del servicio y responsabilidad por su uso</H2>
+      <P>
+        MiAgentIA es un proveedor de infraestructura tecnológica basada en inteligencia artificial:
+        no somos un operador de telecomunicaciones, ni una agencia de cobranza, ni un asesor legal,
+        médico o financiero, y no somos parte de la relación comercial entre tu negocio y tus
+        propios clientes finales. Tú defines los guiones, límites y políticas de contacto del
+        agente, y eres el único responsable de: cumplir la normativa aplicable a tu propio sector
+        (protección al consumidor, cobranza, telemercadeo, horarios de contacto, y similares); el
+        contenido y las consecuencias de las conversaciones que el agente sostenga siguiendo tus
+        instrucciones; y contar con base legal para contactar a tus clientes finales, incluyendo
+        honrar sus solicitudes de no ser contactados. No supervisamos, filtramos ni analizamos el
+        contenido de tus conversaciones salvo lo estrictamente necesario para operar y dar soporte
+        al servicio.
+      </P>
+
+      <H2>4. Uso aceptable</H2>
       <UL
         items={[
           'No usar el servicio para spam, acoso, fraude, contenido ilegal o engañoso.',
@@ -58,16 +73,18 @@ export default function Page() {
         conectadas o a MiAgentIA, avisándote y explicando el motivo.
       </P>
 
-      <H2>4. Inteligencia artificial y supervisión</H2>
+      <H2>5. Inteligencia artificial y supervisión</H2>
       <P>
         Los agentes de IA generan respuestas automáticas que pueden contener errores. El servicio
         se configura con reglas y límites acordados contigo, pero la supervisión del negocio es
         tuya: debes revisar la operación, corregir información de tu catálogo y escalar a
         personas cuando corresponda. Las respuestas de la IA no constituyen consejo legal, médico
-        ni financiero.
+        ni financiero. Si un cliente final pregunta directamente si está hablando con una
+        inteligencia artificial, el agente responde con la verdad; no la anunciamos de forma
+        proactiva por defecto, salvo que tú lo instruyas o tu mercado lo exija.
       </P>
 
-      <H2>5. Pagos</H2>
+      <H2>6. Pagos</H2>
       <P>
         Los precios, la moneda, el ciclo de cobro y lo que incluye cada plan son los de tu
         propuesta o plan contratado. Los cargos de terceros derivados de tu operación (por
@@ -75,14 +92,14 @@ export default function Page() {
         rigen por las tarifas de esos proveedores, salvo pacto distinto en la propuesta.
       </P>
 
-      <H2>6. Propiedad intelectual</H2>
+      <H2>7. Propiedad intelectual</H2>
       <P>
         El software, los paneles y los materiales de MiAgentIA son nuestros o de nuestros
         licenciantes. Tus datos, tus marcas y el contenido de tus conversaciones son tuyos. Nos
         das licencia para procesarlos únicamente para prestarte el servicio.
       </P>
 
-      <H2>7. Disponibilidad</H2>
+      <H2>8. Disponibilidad</H2>
       <P>
         Trabajamos para mantener el servicio disponible de forma continua, pero depende también
         de plataformas de terceros (Meta, proveedores de IA, telefonía y alojamiento), por lo que
@@ -90,28 +107,29 @@ export default function Page() {
         anticipación razonable.
       </P>
 
-      <H2>8. Limitación de responsabilidad</H2>
+      <H2>9. Limitación de responsabilidad</H2>
       <P>
-        En la medida permitida por la ley, la responsabilidad total de MiAgentIA por reclamos
-        derivados del servicio se limita al monto pagado por el cliente en los tres meses
-        anteriores al hecho que origina el reclamo, y no respondemos por daños indirectos, lucro
-        cesante o pérdida de datos causada por terceros.
+        En la medida permitida por la ley, y sin perjuicio de lo señalado en la sección 3, la
+        responsabilidad total de MiAgentIA por reclamos derivados del servicio se limita al monto
+        pagado por el cliente en los tres meses anteriores al hecho que origina el reclamo. No
+        respondemos por daños indirectos, lucro cesante, sanciones regulatorias derivadas del uso
+        que le des al servicio, ni pérdida de datos causada por terceros.
       </P>
 
-      <H2>9. Terminación</H2>
+      <H2>10. Terminación</H2>
       <P>
         Puedes terminar el servicio según lo pactado en tu propuesta o plan. Al terminar,
         revocamos y eliminamos los tokens de acceso a tus cuentas y, a tu solicitud, eliminamos
         los datos almacenados (ver la Política de Privacidad, sección de eliminación de datos).
       </P>
 
-      <H2>10. Ley aplicable</H2>
+      <H2>11. Ley aplicable</H2>
       <P>
         Estas condiciones se rigen por las leyes de la República de El Salvador, sin perjuicio de
         las protecciones que apliquen en el país del cliente.
       </P>
 
-      <H2>11. Contacto</H2>
+      <H2>12. Contacto</H2>
       <P>MiAgentIA · {site.email} · www.miagentia.com</P>
     </LegalPage>
   )

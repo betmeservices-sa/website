@@ -165,7 +165,10 @@ export default function Page() {
         Para ejercer cualquiera de estos derechos, escríbenos a {site.email}. Si nos escribiste
         por WhatsApp, también puedes pedirnos ahí que dejemos de contactarte. Si no estás de
         acuerdo con nuestra respuesta, puedes presentar una queja ante la autoridad de protección
-        de datos que corresponda a tu país.
+        de datos que corresponda a tu país. Si eres cliente final de una empresa que usa MiAgentIA
+        y nos escribes directamente para saber o eliminar qué información tenemos sobre ti,
+        atenderemos tu solicitud y avisaremos a la empresa correspondiente, sin perjuicio de que
+        dicha empresa siga siendo la responsable principal del tratamiento de tus datos.
       </P>
 
       <H2>10. Clientes empresariales y Acuerdo de Procesamiento de Datos (DPA)</H2>

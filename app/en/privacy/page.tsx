@@ -154,7 +154,11 @@ export default function Page() {
       <P>
         To exercise any of these rights, email us at {site.email}. If you contacted us on
         WhatsApp, you can also ask us there to stop contacting you. If you disagree with our
-        response, you may file a complaint with the data protection authority in your country.
+        response, you may file a complaint with the data protection authority in your country. If
+        you are an end customer of a business that uses MiAgentIA and you email us directly to
+        know or delete what information we hold about you, we will handle your request and notify
+        the relevant business, without prejudice to that business remaining the primary
+        controller of your data.
       </P>
 
       <H2>10. Enterprise customers and Data Processing Agreement (DPA)</H2>
