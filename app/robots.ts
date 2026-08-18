@@ -11,6 +11,7 @@ export default function robots(): MetadataRoute.Robots {
         // noindex de la propia página es el que manda; esto le evita el rastreo.
         '/como-funciona',
         '/en/how-it-works',
+        '/interno-arquitectura-2c456d0b006c',
         '/confianza-5da3ff939845',
         '/hospital-propuesta-4e91c7a3b6d8.html',
         '/content-calendar-8ef21efd3853.html',
