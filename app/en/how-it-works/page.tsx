@@ -24,7 +24,7 @@ const contenido: ContenidoHowItWorks = {
     eyebrow: 'How it works',
     titulo: 'What happens between your customer’s message and',
     tituloGrad: 'the reply they get',
-    sub: 'No cloud metaphors, no inflated words. Three diagrams you can follow with your finger, plus answers to what we get asked in almost every meeting.',
+    sub: 'Three diagrams and the questions that come up in every meeting. They are nearly always the same ones, so we wrote them down.',
   },
   indice: 'Sections on this page',
   bloques: [
@@ -33,7 +33,7 @@ const contenido: ContenidoHowItWorks = {
       eyebrow: 'The path',
       titulo: 'Where a message travels',
       intro:
-        'Nearly every security question is really the same one: where does my customer’s information go? This is the full path, and everything else on this page hangs off it.',
+        'Nearly every security question is the same one underneath: where does my customer’s information end up. This is the path a message takes, start to finish.',
       diagrama: (
         <FlujoRecorrido
           t={{
@@ -52,34 +52,34 @@ const contenido: ContenidoHowItWorks = {
       ),
       puntos: [
         {
-          titulo: 'The number stays yours',
+          titulo: 'The number is yours',
           texto:
-            'It is your WhatsApp Business number, connected to your own Meta account. If you stop working with us tomorrow, the number and its history stay with you.',
+            'It is your WhatsApp Business number and it lives in your own Meta account. If you stop working with us one day, it stays with you along with its history.',
         },
         {
-          titulo: 'Nothing gets in unsigned',
+          titulo: 'We check it came from WhatsApp',
           texto:
-            'Every incoming message carries a signature from Meta that is verified before anything touches it. A message that did not come from WhatsApp is rejected unprocessed.',
+            'Every message carries a signature from Meta and gets checked before it is processed. If it did not come from WhatsApp, it is discarded.',
         },
         {
-          titulo: 'The AI does not see everything',
+          titulo: 'The AI reads very little',
           texto:
-            'It reads the recent conversation, not two years of messages. After several quiet hours the thread starts clean again.',
+            'It sees the recent conversation, not the whole history. After several quiet hours the thread starts from scratch.',
         },
         {
-          titulo: 'You hold the switch',
+          titulo: 'It can be switched off',
           texto:
-            'You can turn the AI off for the whole business or for a single conversation. While it is off, messages still land in the inbox, they just are not answered automatically.',
+            'There is a switch for the whole business and another for a single conversation. Switched off, messages keep landing in the inbox with nobody answering them automatically.',
         },
         {
-          titulo: 'A person can step in anytime',
+          titulo: 'If your team steps in, the agent stops',
           texto:
-            'The moment someone on your team writes in a thread, the agent goes quiet there. They never compete over the same conversation.',
+            'It takes one message from someone on your team. From then on the agent no longer replies in that conversation.',
         },
         {
-          titulo: 'Everything is on the record',
+          titulo: 'There is a record',
           texto:
-            'Every message, your customer’s and the agent’s, is stored with its timestamp. What the agent said can be read back later.',
+            'Every message is stored with its timestamp, your customer’s and the agent’s. You can go back later and check what it said.',
         },
       ],
     },
@@ -88,7 +88,7 @@ const contenido: ContenidoHowItWorks = {
       eyebrow: 'Security',
       titulo: 'Who provides each layer',
       intro:
-        'Here is the short answer to the question we get most: we do not run our own firewall. A message crosses three doors before it reaches your agent, and the outer one is not ours.',
+        'The question we get most is what our firewall is. We do not have one of our own. A message crosses three doors before it reaches your agent and only the last one is ours.',
       diagrama: (
         <FlujoSeguridad
           t={{
@@ -125,34 +125,34 @@ const contenido: ContenidoHowItWorks = {
       ),
       puntos: [
         {
-          titulo: 'Why we run no firewall of our own',
+          titulo: 'Why we do not run our own',
           texto:
-            'For the same reason an office in a corporate building does not hire its own guard for the building entrance. Writing and maintaining a firewall is a full-time trade. We would rather use the one built by people who do it for a living.',
+            'An office in a corporate building does not put its own guard at the building entrance. Maintaining a firewall is full-time work and there are people who do only that, so we use theirs.',
         },
         {
-          titulo: 'What we do handle',
+          titulo: 'What we take care of',
           texto:
-            'The part nobody can handle for us: who has access to what, keeping integration keys out of the code, and making sure each client can only reach their own data.',
+            'Who has access to what, keeping integration keys out of the code, and making sure one client cannot reach another one’s data.',
         },
         {
-          titulo: 'Each client’s data is walled off',
+          titulo: 'One client cannot reach another',
           texto:
-            'The separation is enforced by the database, not by the screen. Even if someone managed to ask for another business’s data, the query comes back empty.',
+            'The rule lives in the database, not in the screen. A query asking for another business’s data comes back empty.',
         },
         {
-          titulo: 'Second factor on the dashboard',
+          titulo: 'Second factor',
           texto:
-            'Dashboard access can require a code from an authenticator app on top of the password. A leaked password on its own opens nothing.',
+            'The dashboard can ask for a code from an authenticator app on top of the password. With that, a leaked password is not enough to get in.',
         },
         {
-          titulo: 'We store the minimum',
+          titulo: 'What we store',
           texto:
-            'The conversations and contact details the agent needs to do its job. We neither ask for nor store card numbers, and the agent is instructed to stop anyone trying to dictate them.',
+            'The conversations and contact details the agent needs to do its job. Card numbers, no, and the agent is instructed to stop anyone trying to dictate them.',
         },
         {
-          titulo: 'What this is not',
+          titulo: 'What we do not have',
           texto:
-            'This is not a certification. It is how the thing is built. If your technology team needs to review something specific, we would rather sit down with them than send them a badge.',
+            'Certifications. This is how the thing is built, not a badge somebody handed us. If your technology team needs to review something specific, we would rather get on a call with them.',
         },
       ],
     },
@@ -161,7 +161,7 @@ const contenido: ContenidoHowItWorks = {
       eyebrow: 'Continuity',
       titulo: 'What happens if an AI provider goes down',
       intro:
-        'The AI models are not ours, we rent them, and sometimes they go down. That is why the agent does not depend on a single one. If the primary stops answering, it moves to the next without your customer noticing.',
+        'The AI models are not ours, we rent them, and sometimes they go down. That is why the agent does not depend on a single one: if the primary stops answering, it moves to the next.',
       diagrama: (
         <FlujoFallback
           t={{
@@ -180,34 +180,34 @@ const contenido: ContenidoHowItWorks = {
       ),
       puntos: [
         {
-          titulo: 'No human decides the switch',
+          titulo: 'Nobody has to be awake',
           texto:
-            'Nobody has to wake up at three in the morning to flip something. If the provider does not answer in time, the system moves on by itself.',
+            'If the provider does not answer in time, the system moves on by itself, at whatever hour it happens.',
         },
         {
-          titulo: 'Three providers, not one',
+          titulo: 'Three separate companies',
           texto:
-            'Anthropic, Google and OpenAI. Different companies, different infrastructure. All three down at once is a different class of problem.',
+            'Anthropic, Google and OpenAI, each on its own infrastructure. All three down at once would already be a different class of problem.',
         },
         {
-          titulo: 'The script does not change',
+          titulo: 'The script stays put',
           texto:
-            'Your agent’s instructions do not live at the provider, they live in your configuration. The fallback answers in the same voice, under the same rules.',
+            'Your agent’s instructions sit in your configuration, not at the provider. The fallback answers in the same voice, under the same rules.',
         },
         {
-          titulo: 'If none of them answer, you are not left hanging',
+          titulo: 'If none of them answer',
           texto:
-            'The conversation goes to someone on your team instead of falling silent. A customer waiting on nothing is worse than a customer helped by a person.',
+            'The conversation goes to someone on your team instead of falling silent.',
         },
         {
-          titulo: 'This does not cover WhatsApp',
+          titulo: 'WhatsApp has no fallback',
           texto:
-            'If WhatsApp itself is down there is no fallback to be had, it is the channel. Messages are delivered once the service returns, and the agent picks them up then.',
+            'If WhatsApp itself is down there is nowhere to go, because it is the channel. Messages arrive once the service is back and the agent picks them up then.',
         },
         {
-          titulo: 'What switching costs',
+          titulo: 'They cost different amounts',
           texto:
-            'Providers price differently from one another. A fallback can cost more per message than the primary, which is exactly why it is the fallback and not the default.',
+            'Each provider has its own rate, and a fallback can run more per message than the primary. That is why it is the fallback.',
         },
       ],
     },
@@ -215,54 +215,54 @@ const contenido: ContenidoHowItWorks = {
   faq: {
     eyebrow: 'Questions',
     titulo: 'What we get asked in the meeting',
-    sub: 'The same answers we give in person, so you have them in writing.',
+    sub: 'The same answers we give in person, in case someone asks you.',
     items: [
       {
         p: 'What is your firewall?',
-        r: 'We do not have one of our own, and that is deliberate. The system runs behind the firewall of the platform hosting it, which has teams working on that full time. Rolling our own would be worse: one more layer to get wrong, built by people whose trade is something else. Our job starts where theirs ends: permissions, keys, and what data gets stored.',
+        r: 'We do not have one of our own. The system runs behind the firewall of the platform hosting it, which has teams working on that full time. Rolling our own would be one more layer to maintain, built by people whose trade is something else. From there inward it is on us: permissions, keys, and what data gets stored.',
       },
       {
         p: 'Can you read my customers’ messages?',
-        r: 'Technically yes, like any provider running your inbox: you have to be able to see a conversation to fix a problem with it. In practice we only go in when you ask us to or when there is a failure to deal with. If that does not sit right with you, it can be settled in the contract.',
+        r: 'Yes, like any provider running your inbox. To fix a problem in a conversation you have to be able to see it. In practice we go in when you ask us to or when there is a failure to deal with. If you would rather narrow that down, it goes in the contract.',
       },
       {
         p: 'Are messages end-to-end encrypted?',
-        r: 'Up to Meta, yes, and past that we have to be precise, because plenty of people in this business promise more than is true. When two people message each other on WhatsApp, the encryption runs from one phone to the other. When someone messages a business through the official API, the message travels encrypted as far as Meta, and Meta decrypts it in order to hand it to the business. Their own documentation says so. It has to work that way: if nobody could read it, no business could reply. What we can state is that it is encrypted in transit, that it does not pass through an unofficial middleman, and that Meta keeps it for at most 30 days.',
+        r: 'Up to Meta, yes. Past that it pays to be exact, because it is where plenty of people promise more than is true. Between two people, WhatsApp encrypts from one phone to the other. When someone messages a business through the official API, the message travels encrypted as far as Meta and Meta decrypts it in order to hand it over. Their documentation says so. It has to work that way, because if nobody could read it the business could not reply. What we can say: it is encrypted in transit, it does not pass through an unofficial middleman, and Meta keeps it 30 days at most.',
       },
       {
         p: 'Is the AI trained on my conversations?',
-        r: 'We do not use your conversations to train anything. The models we use are consumed through their business interfaces, not through the consumer products people use in a browser, which is where the policies that worry people usually live.',
+        r: 'We do not use them to train anything. The models are consumed through their business interfaces, not the consumer products people use in a browser, which is where the policies that tend to worry people live.',
       },
       {
         p: 'Can the agent make things up?',
-        r: 'It is the real risk with this technology, and you do not solve it by asking the model to behave. You solve it by removing the opportunity: available times are looked up against your actual calendar instead of recalled from memory, and certain fixed replies never reach the model at all. Even so, where your business depends on a detail, the instruction is to say a person will confirm it.',
+        r: 'It can, and it is the real risk with this technology. You do not fix it by asking the model to behave, you fix it by removing the opportunity: available times are looked up against your calendar instead of recalled from memory, and several fixed replies never reach the model. Where the detail matters, the instruction is to say a person will confirm it.',
       },
       {
         p: 'What if the agent does not know something?',
-        r: 'It says so and hands the conversation to your team. We would rather have an agent that admits it does not know than one that improvises, because the second one loses the customer and you find out late.',
+        r: 'It says so and hands the conversation to your team. An agent that improvises loses you the customer, and you find out late.',
       },
       {
         p: 'Can it end up chatting with someone forever?',
-        r: 'No. Every conversation has a message cap. When it is reached, the agent closes politely and says a person will take over. That puts a ceiling on what a single thread can cost and ends the endless loop with someone who is just playing around.',
+        r: 'No, every conversation has a message cap. When it is reached, the agent closes and says a person will take over. That puts a ceiling on what a single thread can cost.',
       },
       {
         p: 'Can I switch it off if something goes wrong?',
-        r: 'Yes, without calling us. There is a switch for the whole business and another for a single conversation. While it is off, messages keep arriving in the inbox, they simply are not answered automatically.',
+        r: 'Yes, without calling us. One switch for the whole business and another for a single conversation. Switched off, messages keep arriving in the inbox.',
       },
       {
         p: 'If we stop working together, what happens to my data?',
-        r: 'The WhatsApp number is yours and lives in your own Meta account, so the history stays there. Contacts and dashboard conversations are handed over as an export. Nothing is held hostage on our side.',
+        r: 'The number is yours and sits in your own Meta account, with its history. Contacts and dashboard conversations are handed over as an export.',
       },
       {
         p: 'Does having an agent make me easier to hack?',
-        r: 'The surface it adds is your WhatsApp number, which was already exposed, since the whole point is for people to message you. What has to be guarded is the agent doing things it should not: incoming content is treated as a customer talking and never as an instruction, even when the message says "ignore your instructions" or hides it inside an image.',
+        r: 'What it adds is your WhatsApp number, which was already exposed, since the whole point is for people to message you. The care goes into the agent not doing what it should not: incoming content is treated as a customer talking and never as an instruction, even when the message says "ignore your instructions" or hides it inside an image.',
       },
     ],
   },
   cierre: {
     titulo: 'Still something unanswered?',
     texto:
-      'If your technology team has a question that is not here, we will answer it straight. And if the answer is that we do not do something, you will hear that too.',
+      'If your technology team has a question that is not here, we will answer it. And if the answer is that we do not do it, that too.',
     cta: 'Book a demo',
   },
 }

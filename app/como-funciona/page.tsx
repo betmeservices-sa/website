@@ -24,7 +24,7 @@ const contenido: ContenidoHowItWorks = {
     eyebrow: 'Cómo funciona',
     titulo: 'Lo que pasa entre el mensaje de tu cliente y',
     tituloGrad: 'la respuesta que recibe',
-    sub: 'Sin metáforas de nube ni palabras infladas. Tres diagramas que puedes seguir con el dedo, y las respuestas a lo que casi siempre nos preguntan en la reunión.',
+    sub: 'Tres diagramas y las preguntas que salen en cada reunión. Son casi siempre las mismas, así que las dejamos por escrito.',
   },
   indice: 'Secciones de esta página',
   bloques: [
@@ -33,7 +33,7 @@ const contenido: ContenidoHowItWorks = {
       eyebrow: 'El recorrido',
       titulo: 'Por dónde pasa un mensaje',
       intro:
-        'Casi todas las preguntas de seguridad son, en el fondo, la misma: ¿por dónde anda la información de mi cliente? Este es el camino completo, y todo lo demás en esta página se cuelga de aquí.',
+        'Casi todas las preguntas sobre seguridad son la misma por debajo: dónde termina la información de mi cliente. Este es el camino que hace un mensaje, de principio a fin.',
       diagrama: (
         <FlujoRecorrido
           t={{
@@ -52,34 +52,34 @@ const contenido: ContenidoHowItWorks = {
       ),
       puntos: [
         {
-          titulo: 'El número sigue siendo tuyo',
+          titulo: 'El número es tuyo',
           texto:
-            'Es tu número de WhatsApp Business, conectado a tu cuenta de Meta. Si mañana dejas de trabajar con nosotros, el número y su historial se quedan contigo.',
+            'Es tu número de WhatsApp Business y vive en tu cuenta de Meta. Si un día dejas de trabajar con nosotros, se queda contigo con todo su historial.',
         },
         {
-          titulo: 'Nada entra sin firma',
+          titulo: 'Verificamos que venga de WhatsApp',
           texto:
-            'Cada mensaje que llega trae una firma de Meta que se verifica antes de tocarlo. Un mensaje que no venga de WhatsApp se rechaza sin procesarse.',
+            'Cada mensaje trae una firma de Meta y se revisa antes de procesarlo. Si no viene de WhatsApp, se descarta.',
         },
         {
-          titulo: 'La IA no ve todo el historial',
+          titulo: 'La IA lee poco',
           texto:
-            'Solo lee la conversación reciente, no dos años de mensajes. Después de varias horas de silencio, el hilo arranca en limpio otra vez.',
+            'Ve la conversación reciente, no el historial completo. Después de varias horas sin mensajes, el hilo empieza de cero.',
         },
         {
-          titulo: 'El interruptor lo tienes tú',
+          titulo: 'Se puede apagar',
           texto:
-            'Puedes apagar la IA para todo el negocio o para una sola conversación. Cuando está apagada, el mensaje entra a la bandeja y no se contesta solo.',
+            'Hay un interruptor para todo el negocio y otro para una conversación suelta. Apagado, los mensajes siguen llegando a la bandeja sin que nadie los conteste solo.',
         },
         {
-          titulo: 'Una persona puede entrar cuando quiera',
+          titulo: 'Si entra tu equipo, el agente se calla',
           texto:
-            'Si alguien de tu equipo escribe en el hilo, el agente se calla y deja de responder ahí. No compiten por la misma conversación.',
+            'Basta con que alguien escriba en el hilo. De ahí en adelante el agente ya no contesta en esa conversación.',
         },
         {
-          titulo: 'Todo queda escrito',
+          titulo: 'Queda el registro',
           texto:
-            'Cada mensaje, el de tu cliente y el del agente, queda en la conversación con su hora. Lo que contestó el agente se puede leer después.',
+            'Cada mensaje se guarda con su hora, los de tu cliente y los del agente. Después se puede revisar qué fue lo que contestó.',
         },
       ],
     },
@@ -88,7 +88,7 @@ const contenido: ContenidoHowItWorks = {
       eyebrow: 'Seguridad',
       titulo: 'Quién pone cada capa',
       intro:
-        'Aquí va la respuesta corta a la pregunta que más nos hacen: no operamos un firewall propio. Un mensaje atraviesa tres puertas antes de llegar a tu agente, y la del perímetro no la ponemos nosotros.',
+        'La pregunta que más nos hacen es cuál es nuestro firewall. No tenemos uno propio. Un mensaje pasa por tres puertas antes de llegar a tu agente y solo la última es nuestra.',
       diagrama: (
         <FlujoSeguridad
           t={{
@@ -125,34 +125,34 @@ const contenido: ContenidoHowItWorks = {
       ),
       puntos: [
         {
-          titulo: 'Por qué no tenemos firewall propio',
+          titulo: 'Por qué no montamos el nuestro',
           texto:
-            'Por la misma razón que una oficina en un edificio corporativo no contrata su propio guardia para la entrada del edificio. Escribir y mantener un firewall es un oficio de tiempo completo. Preferimos usar el de quien vive de eso.',
+            'Una oficina en un edificio corporativo no pone su propio guardia en la entrada del edificio. Mantener un firewall es un trabajo de tiempo completo y hay gente que se dedica solo a eso, así que usamos el suyo.',
         },
         {
-          titulo: 'Qué sí hacemos nosotros',
+          titulo: 'De qué nos encargamos',
           texto:
-            'Lo que nadie puede hacer por nosotros: quién tiene acceso a qué, que las llaves de las integraciones no vivan en el código, y que cada cliente solo pueda ver lo suyo.',
+            'Quién tiene acceso a qué, que las llaves de las integraciones no queden escritas en el código, y que un cliente no pueda alcanzar los datos de otro.',
         },
         {
-          titulo: 'Los datos de cada cliente están separados',
+          titulo: 'Un cliente no alcanza lo de otro',
           texto:
-            'La base de datos aplica la separación por cliente, no la pantalla. Aunque alguien lograra pedir datos de otro negocio, la consulta vuelve vacía.',
+            'La regla vive en la base de datos y no en la pantalla. Una consulta que pida datos de otro negocio vuelve vacía.',
         },
         {
-          titulo: 'Segundo factor en el panel',
+          titulo: 'Segundo factor',
           texto:
-            'El acceso al panel puede pedir un código de una app de autenticación, además de la contraseña. Una contraseña filtrada por sí sola no abre nada.',
+            'El panel puede pedir un código de una app de autenticación además de la contraseña. Con eso, una contraseña filtrada no alcanza para entrar.',
         },
         {
-          titulo: 'Guardamos lo mínimo',
+          titulo: 'Qué guardamos',
           texto:
-            'Las conversaciones y los datos de contacto que el agente necesita para atender. No pedimos ni almacenamos números de tarjeta, y el agente tiene instrucción de cortar a quien intente dictárselos.',
+            'Las conversaciones y los datos de contacto que el agente necesita para atender. Números de tarjeta no, y el agente tiene instrucción de frenar a quien intente dictárselos.',
         },
         {
-          titulo: 'Lo que esto no es',
+          titulo: 'Lo que no tenemos',
           texto:
-            'No es una certificación. Es cómo está construido. Si tu área de tecnología necesita revisar algo en concreto, preferimos sentarnos con ellos antes que mandarles un sello.',
+            'Certificaciones. Esto es cómo está construido, no un sello que alguien nos dio. Si tu área de tecnología necesita revisar algo puntual, preferimos una llamada con ellos.',
         },
       ],
     },
@@ -161,7 +161,7 @@ const contenido: ContenidoHowItWorks = {
       eyebrow: 'Continuidad',
       titulo: 'Qué pasa si un proveedor de IA se cae',
       intro:
-        'Los modelos de IA no son nuestros: los alquilamos, y a veces se caen. Por eso el agente no depende de uno solo. Si el principal no contesta, pasa al siguiente sin que tu cliente se entere.',
+        'Los modelos de IA no son nuestros, los alquilamos, y a veces se caen. Por eso el agente no depende de uno solo: si el principal no contesta, pasa al siguiente.',
       diagrama: (
         <FlujoFallback
           t={{
@@ -180,34 +180,34 @@ const contenido: ContenidoHowItWorks = {
       ),
       puntos: [
         {
-          titulo: 'El cambio no lo decide una persona',
+          titulo: 'Nadie tiene que estar despierto',
           texto:
-            'Nadie tiene que despertarse a las tres de la mañana a mover algo. Si el proveedor no responde a tiempo, el sistema toma el siguiente por su cuenta.',
+            'Si el proveedor no responde a tiempo, el sistema pasa al siguiente por su cuenta, a la hora que sea.',
         },
         {
-          titulo: 'Tres proveedores, no uno',
+          titulo: 'Tres empresas distintas',
           texto:
-            'Anthropic, Google y OpenAI. Son empresas distintas, con infraestructura distinta. Que las tres estén caídas al mismo tiempo es otra clase de problema.',
+            'Anthropic, Google y OpenAI, cada una con su propia infraestructura. Que las tres estén caídas a la vez ya sería otra clase de problema.',
         },
         {
-          titulo: 'El guion es el mismo',
+          titulo: 'El guion no cambia',
           texto:
-            'Las instrucciones de tu agente no viven en el proveedor, viven en tu configuración. El respaldo contesta con el mismo tono y las mismas reglas.',
+            'Las instrucciones de tu agente están en tu configuración, no en el proveedor. El respaldo contesta con el mismo tono y las mismas reglas.',
         },
         {
-          titulo: 'Si ninguno responde, no te deja colgado',
+          titulo: 'Si ninguno responde',
           texto:
-            'La conversación pasa a una persona de tu equipo en vez de quedarse en silencio. Un cliente esperando sin respuesta es peor que un cliente atendido por alguien.',
+            'La conversación pasa a alguien de tu equipo en vez de quedarse muda.',
         },
         {
-          titulo: 'Esto no cubre a WhatsApp',
+          titulo: 'WhatsApp no tiene respaldo',
           texto:
-            'Si el que se cae es WhatsApp, no hay respaldo posible: es el canal. Los mensajes se entregan cuando el servicio vuelve, y ahí el agente los contesta.',
+            'Si el que se cae es WhatsApp no hay a dónde ir, porque es el canal. Los mensajes entran cuando el servicio vuelve y ahí el agente los contesta.',
         },
         {
-          titulo: 'Cuánto cuesta cambiar',
+          titulo: 'Cuestan distinto entre sí',
           texto:
-            'Los proveedores cobran distinto entre sí. Un respaldo puede costar más por mensaje que el principal, y por eso es respaldo y no el de siempre.',
+            'Cada proveedor tiene su tarifa, y un respaldo puede salir más caro por mensaje que el principal. Por eso es respaldo.',
         },
       ],
     },
@@ -215,54 +215,54 @@ const contenido: ContenidoHowItWorks = {
   faq: {
     eyebrow: 'Preguntas',
     titulo: 'Lo que nos preguntan en la reunión',
-    sub: 'Las mismas respuestas que damos en persona, para que las tengas por escrito.',
+    sub: 'Las mismas respuestas que damos en persona, por si te las preguntan a ti.',
     items: [
       {
         p: '¿Cuál es su firewall?',
-        r: 'No tenemos uno propio, y es a propósito. El sistema corre detrás del firewall de la plataforma donde está alojado, que tiene equipos dedicados a eso a tiempo completo. Montar y mantener el nuestro sería peor: sería una capa más para equivocarnos, hecha por gente cuyo oficio es otro. Nuestro trabajo empieza donde termina el de ellos: permisos, llaves y qué datos se guardan.',
+        r: 'No tenemos uno propio. El sistema corre detrás del firewall de la plataforma donde está alojado, que tiene equipos dedicados a eso a tiempo completo. Montar el nuestro sería una capa más que mantener, hecha por gente cuyo oficio es otro. De ahí para adentro sí es cosa nuestra: permisos, llaves y qué datos se guardan.'
       },
       {
         p: '¿Ustedes pueden leer los mensajes de mis clientes?',
-        r: 'Técnicamente sí, igual que cualquier proveedor que opera tu bandeja: hay que poder ver una conversación para arreglar un problema. En la práctica solo entramos cuando nos lo pides o cuando hay una falla que atender. Si eso no te acomoda, se puede acordar por contrato.',
+        r: 'Sí, igual que cualquier proveedor que opera tu bandeja. Para arreglar un problema en una conversación hay que poder verla. En la práctica entramos cuando nos lo pides o cuando hay una falla que atender. Si prefieres acotarlo, se pone en el contrato.'
       },
       {
         p: '¿Los mensajes van cifrados de extremo a extremo?',
-        r: 'Hasta Meta sí, y de ahí en adelante hay que ser preciso, porque acá mucha gente promete de más. Cuando dos personas se escriben por WhatsApp, el cifrado va de un teléfono al otro. Cuando alguien le escribe a un negocio por la API oficial, el mensaje viaja cifrado hasta Meta, y Meta lo descifra para poder entregárselo al negocio. Lo dice su propia documentación. Tiene que ser así: si nadie pudiera leerlo, ningún negocio podría contestar. Lo que sí te podemos afirmar es que va cifrado en el camino, que no pasa por un intermediario no oficial, y que Meta lo conserva un máximo de 30 días.',
+        r: 'Hasta Meta sí. De ahí en adelante conviene ser exacto, porque es donde muchos prometen de más. Entre dos personas, WhatsApp cifra de un teléfono al otro. Cuando alguien le escribe a un negocio por la API oficial, el mensaje viaja cifrado hasta Meta y Meta lo descifra para poder entregarlo. Está en su documentación. Tiene que ser así, porque si nadie pudiera leerlo el negocio no podría contestar. Lo que sí: va cifrado en el camino, no pasa por un intermediario no oficial, y Meta lo guarda 30 días como máximo.'
       },
       {
         p: '¿La IA se entrena con mis conversaciones?',
-        r: 'Nosotros no usamos tus conversaciones para entrenar nada. Los modelos que usamos se consumen por sus interfaces para empresas, no por los productos de consumo que la gente usa en el navegador, que es donde suelen estar las políticas que preocupan a la gente.',
+        r: 'No las usamos para entrenar nada. Los modelos se consumen por sus interfaces para empresas, no por los productos de consumo que se usan en el navegador, que es donde están las políticas que suelen preocupar.'
       },
       {
         p: '¿El agente puede inventar cosas?',
-        r: 'Es el riesgo real de esta tecnología y no se resuelve pidiéndole que se porte bien. Se resuelve quitándole la oportunidad: los horarios disponibles los consulta contra tu agenda en vez de proponerlos de memoria, y ciertas respuestas fijas ni siquiera pasan por el modelo. Aun así, si el negocio depende de un dato, la instrucción es decir que lo confirma una persona.',
+        r: 'Puede, y es el riesgo real de esta tecnología. No se arregla pidiéndole que se porte bien, sino quitándole la oportunidad: los horarios los consulta contra tu agenda en vez de proponerlos de memoria, y varias respuestas fijas ni pasan por el modelo. Donde el dato importa, la instrucción es decir que lo confirma una persona.'
       },
       {
         p: '¿Qué pasa si el agente no sabe algo?',
-        r: 'Lo dice y pasa la conversación a tu equipo. Preferimos un agente que admita que no sabe antes que uno que improvise, porque el segundo te hace perder al cliente y encima te enteras tarde.',
+        r: 'Lo dice y pasa la conversación a tu equipo. Un agente que improvisa te hace perder al cliente y encima te enteras tarde.'
       },
       {
         p: '¿Se puede quedar conversando para siempre con alguien?',
-        r: 'No. Cada conversación tiene un tope de mensajes. Al llegar, el agente cierra con cortesía y avisa que sigue una persona. Eso pone un techo a lo que puede costar un solo hilo y evita el ciclo eterno con alguien que solo está jugando.',
+        r: 'No, cada conversación tiene un tope de mensajes. Al llegar, el agente cierra y avisa que sigue una persona. Eso le pone techo a lo que puede costar un solo hilo.'
       },
       {
         p: '¿Puedo apagarlo si algo sale mal?',
-        r: 'Sí, y sin llamarnos. Hay un interruptor para todo el negocio y otro para una conversación puntual. Cuando está apagado los mensajes siguen llegando a la bandeja, simplemente no se contestan solos.',
+        r: 'Sí, y sin llamarnos. Un interruptor para todo el negocio y otro para una conversación puntual. Apagado, los mensajes siguen entrando a la bandeja.'
       },
       {
         p: 'Si dejamos de trabajar con ustedes, ¿qué pasa con mi información?',
-        r: 'El número de WhatsApp es tuyo y vive en tu cuenta de Meta, así que el historial se queda ahí. Los contactos y las conversaciones del panel te los entregamos exportados. No hay nada que quede secuestrado de nuestro lado.',
+        r: 'El número es tuyo y está en tu cuenta de Meta, con su historial. Los contactos y las conversaciones del panel te los entregamos exportados.'
       },
       {
         p: '¿Me pueden hackear por tener un agente conectado?',
-        r: 'La superficie que se agrega es tu número de WhatsApp, que ya estaba expuesto porque el punto es que la gente te escriba. Lo que hay que cuidar es que el agente no haga cosas que no debe: por eso lo que llega se trata como conversación de un cliente y nunca como una orden, aunque el mensaje diga "ignora tus instrucciones" o lo traiga escrito dentro de una imagen.',
+        r: 'Lo que se agrega es tu número de WhatsApp, que ya estaba expuesto porque el punto es que te escriban. El cuidado va en que el agente no haga lo que no debe: lo que llega se trata como conversación de un cliente y nunca como una orden, aunque el mensaje diga "ignora tus instrucciones" o lo traiga escrito dentro de una imagen.',
       },
     ],
   },
   cierre: {
     titulo: '¿Quedó algo sin responder?',
     texto:
-      'Si tu equipo de tecnología tiene una pregunta que no está aquí, la contestamos de frente. Y si la respuesta es que algo no lo hacemos, también lo vas a escuchar.',
+      'Si tu equipo de tecnología tiene una pregunta que no está aquí, la contestamos. Y si la respuesta es que no lo hacemos, también.',
     cta: 'Agenda una demo',
   },
 }
