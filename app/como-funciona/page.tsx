@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title: 'Cómo funciona',
   description:
     'El recorrido de un mensaje, quién pone cada capa de seguridad y qué pasa cuando un proveedor de IA deja de responder. Explicado con flujogramas.',
+  // Pagina INTERNA por ahora: no se indexa, no esta en el sitemap y no la
+  // enlaza nada del sitio. Se llega solo con el enlace directo.
+  robots: { index: false, follow: false },
   alternates: {
     canonical: '/como-funciona',
     languages: { es: '/como-funciona', en: '/en/how-it-works' },
@@ -90,19 +93,32 @@ const contenido: ContenidoHowItWorks = {
         <FlujoSeguridad
           t={{
             titulo: 'Capas por las que pasa una petición antes de llegar al agente',
-            internet: ['Una petición desde internet'],
-            meta: ['Cifrado y perímetro', 'de WhatsApp'],
-            metaPie: 'Lo opera Meta',
-            plataforma: ['Firewall, certificados', 'y parches del servidor'],
-            plataformaPie: 'Lo opera la plataforma',
-            nosotros: ['Quién puede entrar, dónde', 'viven las llaves, qué se guarda'],
-            nosotrosPie: 'Esto sí es nuestro',
+            internet: ['Un mensaje que entra desde internet'],
+            meta: [
+              'Usamos la API oficial de WhatsApp, no un atajo:',
+              'el mensaje viaja cifrado por la red de Meta y tu',
+              'número no queda en riesgo de que lo bloqueen',
+            ],
+            metaPie: 'Lo pone Meta',
+            plataforma: [
+              'Firewall, certificado y parches del servidor,',
+              'atendidos por gente dedicada a eso a toda hora.',
+              'Filtra el ataque antes de que llegue a tu agente',
+            ],
+            plataformaPie: 'Lo pone la plataforma',
+            nosotros: [
+              'Contraseña y segundo factor para entrar al panel.',
+              'Las llaves de tus integraciones nunca viven en el',
+              'código. Tus datos, separados de los de otro cliente',
+            ],
+            nosotrosPie: 'Esto lo hacemos nosotros',
             destino: ['Tu agente y tus conversaciones'],
             nota: [
-              '¿Cuál es su firewall? Este.',
-              'Y no lo operamos nosotros: viene de la',
-              'plataforma, con gente dedicada a eso',
-              'las 24 horas.',
+              '¿Cuál es su firewall? Este de aquí.',
+              'No escribimos uno propio, y es a propósito:',
+              'preferimos el de quien tiene un equipo',
+              'cuidándolo día y noche. Nuestro trabajo',
+              'empieza en la capa de abajo.',
             ],
           }}
         />
@@ -208,6 +224,10 @@ const contenido: ContenidoHowItWorks = {
       {
         p: '¿Ustedes pueden leer los mensajes de mis clientes?',
         r: 'Técnicamente sí, igual que cualquier proveedor que opera tu bandeja: hay que poder ver una conversación para arreglar un problema. En la práctica solo entramos cuando nos lo pides o cuando hay una falla que atender. Si eso no te acomoda, se puede acordar por contrato.',
+      },
+      {
+        p: '¿Los mensajes van cifrados de extremo a extremo?',
+        r: 'Hasta Meta sí, y de ahí en adelante hay que ser preciso, porque acá mucha gente promete de más. Cuando dos personas se escriben por WhatsApp, el cifrado va de un teléfono al otro. Cuando alguien le escribe a un negocio por la API oficial, el mensaje viaja cifrado hasta Meta, y Meta lo descifra para poder entregárselo al negocio. Lo dice su propia documentación. Tiene que ser así: si nadie pudiera leerlo, ningún negocio podría contestar. Lo que sí te podemos afirmar es que va cifrado en el camino, que no pasa por un intermediario no oficial, y que Meta lo conserva un máximo de 30 días.',
       },
       {
         p: '¿La IA se entrena con mis conversaciones?',

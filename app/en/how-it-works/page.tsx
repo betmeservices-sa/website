@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title: 'How it works',
   description:
     'The path a message takes, who provides each security layer, and what happens when an AI provider stops responding. Explained with flowcharts.',
+  // Pagina INTERNA por ahora: no se indexa, no esta en el sitemap y no la
+  // enlaza nada del sitio. Se llega solo con el enlace directo.
+  robots: { index: false, follow: false },
   alternates: {
     canonical: '/en/how-it-works',
     languages: { es: '/como-funciona', en: '/en/how-it-works' },
@@ -90,19 +93,32 @@ const contenido: ContenidoHowItWorks = {
         <FlujoSeguridad
           t={{
             titulo: 'Layers a request crosses before reaching the agent',
-            internet: ['A request from the internet'],
-            meta: ['WhatsApp encryption', 'and perimeter'],
-            metaPie: 'Operated by Meta',
-            plataforma: ['Firewall, certificates', 'and server patching'],
-            plataformaPie: 'Operated by the platform',
-            nosotros: ['Who gets in, where the keys', 'live, what gets stored'],
-            nosotrosPie: 'This part is ours',
+            internet: ['A message arriving from the internet'],
+            meta: [
+              'We use the official WhatsApp API, not a shortcut:',
+              'the message travels encrypted across Meta’s network',
+              'and your number is never at risk of being banned',
+            ],
+            metaPie: 'Provided by Meta',
+            plataforma: [
+              'Firewall, certificate and server patching, handled',
+              'by people dedicated to it around the clock.',
+              'It stops an attack before it reaches your agent',
+            ],
+            plataformaPie: 'Provided by the platform',
+            nosotros: [
+              'Password and second factor to reach the dashboard.',
+              'Your integration keys never live in the code.',
+              'Your data, walled off from every other client’s',
+            ],
+            nosotrosPie: 'This part we do ourselves',
             destino: ['Your agent and your conversations'],
             nota: [
-              'What is your firewall? This one.',
-              'And we do not operate it: it comes',
-              'from the platform, with people on it',
-              'around the clock.',
+              'What is your firewall? This one here.',
+              'We do not write our own, and that is',
+              'deliberate: we would rather use the one',
+              'with a team guarding it day and night.',
+              'Our job starts at the layer below.',
             ],
           }}
         />
@@ -208,6 +224,10 @@ const contenido: ContenidoHowItWorks = {
       {
         p: 'Can you read my customers’ messages?',
         r: 'Technically yes, like any provider running your inbox: you have to be able to see a conversation to fix a problem with it. In practice we only go in when you ask us to or when there is a failure to deal with. If that does not sit right with you, it can be settled in the contract.',
+      },
+      {
+        p: 'Are messages end-to-end encrypted?',
+        r: 'Up to Meta, yes, and past that we have to be precise, because plenty of people in this business promise more than is true. When two people message each other on WhatsApp, the encryption runs from one phone to the other. When someone messages a business through the official API, the message travels encrypted as far as Meta, and Meta decrypts it in order to hand it to the business. Their own documentation says so. It has to work that way: if nobody could read it, no business could reply. What we can state is that it is encrypted in transit, that it does not pass through an unofficial middleman, and that Meta keeps it for at most 30 days.',
       },
       {
         p: 'Is the AI trained on my conversations?',

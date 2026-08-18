@@ -157,7 +157,53 @@ html.lenis, html.lenis body { height: auto; }
 .marquee-track { display: flex; width: max-content; animation: marquee 32s linear infinite; }
 .marquee-track:hover { animation-play-state: paused; }
 
+/* ══ Flujogramas animados (página Cómo funciona) ══
+   La secuencia arranca cuando el diagrama entra en pantalla: el contenedor
+   recibe .fx-on y cada pieza corre con su propio animation-delay en linea.
+
+   El truco de las lineas es pathLength="1" en el <path>: normaliza el largo,
+   asi el mismo dasharray sirve para una flecha corta y para una larga, sin
+   medirlas. La linea se dibuja sola, y despues un "cometa" (un guion que recorre
+   el mismo trazo) pasa unas cuantas veces y se apaga. */
+.fx .fx-caja { opacity: 0; }
+.fx .fx-linea { stroke-dasharray: 1; stroke-dashoffset: 1; }
+/* El guion ocupa un tercio del trazo: con menos, en las flechas cortas el
+   neon quedaba de tres pixeles y no se leia como algo que viaja. */
+.fx .fx-cometa { opacity: 0; stroke-dasharray: 0.34 0.66; stroke-dashoffset: 1; }
+/* El halo es un trazo ancho y translúcido bajo el cometa. Antes esto era un
+   feGaussianBlur, pero un filtro SVG animándose repinta en cada frame, y este
+   sitio evita justamente eso (ver la nota de la aurora más arriba). */
+.fx .fx-halo { opacity: 0; stroke-dasharray: 0.34 0.66; stroke-dashoffset: 1; }
+
+@keyframes fx-entrar {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes fx-dibujar {
+  from { stroke-dashoffset: 1; }
+  to   { stroke-dashoffset: 0; }
+}
+/* El cometa nace y muere transparente: si no, aparece de golpe en el origen. */
+@keyframes fx-cometa {
+  0%        { opacity: 0; stroke-dashoffset: 1; }
+  12%, 82%  { opacity: 1; }
+  100%      { opacity: 0; stroke-dashoffset: 0; }
+}
+
+/* El cometa pasa tres veces y se apaga. Dejarlo en bucle infinito mantiene el
+   diagrama repintando para siempre, y en un teléfono eso se siente. */
+.fx.fx-on .fx-caja   { animation: fx-entrar .45s ease-out both; }
+.fx.fx-on .fx-linea  { animation: fx-dibujar .4s ease-in-out both; }
+.fx.fx-on .fx-cometa { animation: fx-cometa 2.6s linear 3 both; }
+.fx.fx-on .fx-halo   { animation: fx-cometa 2.6s linear 3 both; }
+
 @media (prefers-reduced-motion: reduce) {
   .animate-float, .animate-drift, .animate-spin-slow, .marquee-track, .shiny { animation: none !important; }
   html { scroll-behavior: auto; }
+
+  /* Sin movimiento el diagrama tiene que verse ENTERO, no a medio dibujar. */
+  .fx .fx-caja, .fx.fx-on .fx-caja { opacity: 1; animation: none !important; }
+  .fx .fx-linea, .fx.fx-on .fx-linea { stroke-dashoffset: 0; animation: none !important; }
+  .fx .fx-cometa, .fx.fx-on .fx-cometa,
+  .fx .fx-halo, .fx.fx-on .fx-halo { display: none; }
 }
