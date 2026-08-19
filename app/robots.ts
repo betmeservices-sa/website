@@ -15,6 +15,7 @@ export default function robots(): MetadataRoute.Robots {
         '/confianza-5da3ff939845',
         '/hospital-propuesta-4e91c7a3b6d8.html',
         '/content-calendar-8ef21efd3853.html',
+        '/yali-propuesta-d6c5d46bd219.html',
       ],
     },
     sitemap: 'https://www.miagentia.com/sitemap.xml',
