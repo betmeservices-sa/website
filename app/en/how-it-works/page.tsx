@@ -3,6 +3,7 @@ import HowItWorksPage, { type ContenidoHowItWorks } from '@/components/howitwork
 import {
   FlujoRecorrido,
   FlujoSeguridad,
+  FlujoVoz,
   FlujoFallback,
 } from '@/components/howitworks/Flujogramas'
 
@@ -80,6 +81,62 @@ const contenido: ContenidoHowItWorks = {
           titulo: 'There is a record',
           texto:
             'Every message is stored with its timestamp, your customer’s and the agent’s. You can go back later and check what it said.',
+        },
+      ],
+    },
+    {
+      id: 'voz',
+      eyebrow: 'Voice',
+      titulo: 'And when they call instead of typing',
+      intro:
+        'Above is the written message. A call is the same agent through another door: it listens, understands and answers out loud, and when it cannot handle something it hands the call to a person without dropping it.',
+      diagrama: (
+        <FlujoVoz
+          t={{
+            titulo: 'How a call travels, from the moment it comes in to hang-up',
+            cliente: ['Your customer calls', 'the same number as always'],
+            entra: ['The call comes in', 'to your business line'],
+            escucha: ['The agent listens and turns', 'what it hears into text, live'],
+            entiende: ['The AI understands the request', 'and looks up what it needs'],
+            decision: ['Can it', 'handle it?'],
+            contesta: ['It answers out loud', 'and books the appointment'],
+            transfiere: ['It hands the call', 'to your team'],
+            cierre: ['On hang-up you keep the recording,', 'the transcript and the summary'],
+            si: 'Yes',
+            no: 'No',
+          }}
+        />
+      ),
+      puntos: [
+        {
+          titulo: 'The number stays the same',
+          texto:
+            'You forward the line you already use. Your customer dials what they always dialed, and the agent picks up.',
+        },
+        {
+          titulo: 'You can cut it off mid-sentence',
+          texto:
+            'It does not wait for you to finish before it starts understanding. Talk over it and it stops and listens, the way a person does.',
+        },
+        {
+          titulo: 'It transfers without dropping the call',
+          texto:
+            'If your customer asks for a person, or the request falls outside what it knows, the call moves to your team on the same line.',
+        },
+        {
+          titulo: 'It books while it talks',
+          texto:
+            'It checks availability and leaves the appointment set during the call, so nobody has to enter it afterwards.',
+        },
+        {
+          titulo: 'Everything is recorded',
+          texto:
+            'On hang-up you keep the audio, the transcript and a summary of what they asked for. Your team picks it up without asking the same thing twice.',
+        },
+        {
+          titulo: 'It switches off like the chat does',
+          texto:
+            'Same toggle. Switched off, calls go straight to your team and nothing answers on its own.',
         },
       ],
     },

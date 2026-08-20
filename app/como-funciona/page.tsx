@@ -3,6 +3,7 @@ import HowItWorksPage, { type ContenidoHowItWorks } from '@/components/howitwork
 import {
   FlujoRecorrido,
   FlujoSeguridad,
+  FlujoVoz,
   FlujoFallback,
 } from '@/components/howitworks/Flujogramas'
 
@@ -80,6 +81,62 @@ const contenido: ContenidoHowItWorks = {
           titulo: 'Queda el registro',
           texto:
             'Cada mensaje se guarda con su hora, los de tu cliente y los del agente. Después se puede revisar qué fue lo que contestó.',
+        },
+      ],
+    },
+    {
+      id: 'voz',
+      eyebrow: 'La voz',
+      titulo: 'Y cuando en vez de escribir, llaman',
+      intro:
+        'Arriba está el mensaje escrito. La llamada es el mismo agente con otra puerta de entrada: escucha, entiende y contesta hablando, y cuando no le da, pasa la llamada a una persona sin cortarla.',
+      diagrama: (
+        <FlujoVoz
+          t={{
+            titulo: 'Recorrido de una llamada, desde que entra hasta que se cuelga',
+            cliente: ['Tu cliente llama', 'al número de siempre'],
+            entra: ['La llamada entra', 'a tu línea de negocio'],
+            escucha: ['El agente escucha y convierte', 'en texto lo que oye, mientras habla'],
+            entiende: ['La IA entiende el pedido', 'y consulta lo que le falte'],
+            decision: ['¿Lo puede', 'resolver?'],
+            contesta: ['Contesta hablando', 'y deja la cita puesta'],
+            transfiere: ['Pasa la llamada', 'a tu equipo'],
+            cierre: ['Al colgar quedan la grabación,', 'la transcripción y el resumen'],
+            si: 'Sí',
+            no: 'No',
+          }}
+        />
+      ),
+      puntos: [
+        {
+          titulo: 'El número no cambia',
+          texto:
+            'Se desvía el que ya usás. Tu cliente marca lo mismo de siempre y del otro lado atiende el agente.',
+        },
+        {
+          titulo: 'Se le puede interrumpir',
+          texto:
+            'No espera a que termines la frase para empezar a entender. Si le hablás encima, se calla y escucha, como una persona.',
+        },
+        {
+          titulo: 'Transfiere sin cortar',
+          texto:
+            'Si tu cliente pide hablar con alguien, o el pedido se sale de lo que sabe hacer, la llamada pasa a tu equipo en la misma línea.',
+        },
+        {
+          titulo: 'Agenda mientras habla',
+          texto:
+            'Consulta la disponibilidad y deja la cita puesta durante la llamada, sin que nadie tenga que cargarla después.',
+        },
+        {
+          titulo: 'Queda todo grabado',
+          texto:
+            'Al colgar quedan el audio, la transcripción y un resumen de qué pidió. Tu equipo retoma sin volver a preguntar lo mismo.',
+        },
+        {
+          titulo: 'Se apaga igual que el chat',
+          texto:
+            'Mismo interruptor. Apagado, las llamadas entran directo a tu equipo y nadie las contesta solo.',
         },
       ],
     },

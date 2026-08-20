@@ -572,3 +572,73 @@ export function FlujoFallback({ t }: { t: TextosFallback }) {
     </Lienzo>
   )
 }
+
+// ── 4. Una llamada de voz ─────────────────────────────────────────────────────
+
+export interface TextosVoz {
+  titulo: string
+  cliente: string[]
+  entra: string[]
+  escucha: string[]
+  entiende: string[]
+  decision: string[]
+  contesta: string[]
+  transfiere: string[]
+  cierre: string[]
+  si: string
+  no: string
+}
+
+export function FlujoVoz({ t }: { t: TextosVoz }) {
+  const id = 'voz'
+  const X = 60
+  const XR = 440
+  const cx = X + ANCHO / 2
+
+  return (
+    <Lienzo id={id} titulo={t.titulo} ancho={760} alto={790}>
+      <Caja x={X} y={16} lineas={t.cliente} tono="cliente" paso={0} />
+      <Flecha id={id} d={`M ${cx} 78 L ${cx} 122`} paso={0} />
+
+      <Caja x={X} y={124} lineas={t.entra} tono="tercero" paso={1} />
+      <Flecha id={id} d={`M ${cx} 186 L ${cx} 230`} paso={1} />
+
+      <Caja x={X} y={232} lineas={t.escucha} paso={2} />
+      <Flecha id={id} d={`M ${cx} 294 L ${cx} 338`} paso={2} color="#8B5CF6" />
+
+      <Caja x={X} y={340} lineas={t.entiende} paso={3} />
+      <Flecha id={id} d={`M ${cx} 402 L ${cx} 438`} paso={3} color="#8B5CF6" />
+
+      <Rombo cx={cx} cy={496} lineas={t.decision} paso={4} />
+
+      {/* Sí: sigue hablando con el cliente */}
+      <Flecha
+        id={id}
+        d={`M ${cx} 548 L ${cx} 594`}
+        paso={5}
+        color="#8B5CF6"
+        etiqueta={{ x: cx + 16, y: 576, texto: t.si }}
+      />
+      <Caja x={X} y={596} lineas={t.contesta} paso={5} />
+      <Flecha id={id} d={`M ${cx} 658 L ${cx} 704`} paso={6} color="#8B5CF6" />
+
+      {/* No: la llamada pasa a una persona y vuelve a caer en el mismo cierre */}
+      <Flecha
+        id={id}
+        d={`M ${X + ANCHO} 496 L ${XR} 496`}
+        paso={5}
+        color="#E879F9"
+        etiqueta={{ x: (X + ANCHO + XR) / 2, y: 484, texto: t.no }}
+      />
+      <Caja x={XR} y={465} lineas={t.transfiere} tono="persona" paso={6} />
+      <Flecha
+        id={id}
+        d={`M ${XR + ANCHO / 2} 527 L ${XR + ANCHO / 2} 737 L ${X + ANCHO + 4} 737`}
+        paso={7}
+        color="#E879F9"
+      />
+
+      <Caja x={X} y={706} lineas={t.cierre} tono="cliente" paso={7} />
+    </Lienzo>
+  )
+}
