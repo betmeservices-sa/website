@@ -7,8 +7,13 @@
 //
 // Entonces esto es una lista de cosas por hacer, pensada para recorrerse en una
 // llamada: cada punto dice quién lo hace, por qué hace falta y cómo se hace.
-// Solo se escribe donde de verdad hay que escribir algo, y son respuestas
-// cortas, no credenciales.
+//
+// REGLA al agregar un punto: no se pregunta nada que vayamos a ver nosotros
+// una vez que tengamos el acceso. El ID del Business Manager, los enlaces de
+// las páginas o los permisos con los que quedó el usuario aparecen solos apenas
+// nos agregan. Preguntarlos es hacerles buscar un dato que ya vamos a tener, y
+// eso alarga la lista sin aportar. Solo se pregunta lo que de verdad no
+// podemos averiguar por nuestra cuenta.
 
 export type Quien = 'ellos' | 'nosotros' | 'juntos'
 
@@ -63,7 +68,6 @@ export const GRUPOS_YALI: Grupo[] = [
           'Darle acceso a las tres propiedades: Yalí, Costa del Surf y la tercera',
           'Con eso generamos nosotros la credencial de la integración y nunca viaja por correo ni por chat',
         ],
-        nota: '¿Con qué permisos quedó? ¿Solo lectura, o también puede crear reservas?',
       },
       {
         id: 'cbPermiso',
@@ -83,7 +87,6 @@ export const GRUPOS_YALI: Grupo[] = [
           `Configuración del negocio, Usuarios, Personas, Agregar: ${CORREO_ACCESOS}`,
           'Darle acceso a las páginas de Facebook y a las cuentas de Instagram de las tres sedes',
         ],
-        nota: '¿Cuál es el ID del Business Manager? (aparece en Información del negocio)',
       },
       {
         id: 'waNumero',
@@ -104,7 +107,7 @@ export const GRUPOS_YALI: Grupo[] = [
         quien: 'ellos',
         porque:
           'Los mensajes de Instagram entran por la página. Si el Instagram no está vinculado, esa sede queda muda aunque todo lo demás esté bien.',
-        nota: '¿Cuáles son los enlaces de las tres páginas y los tres Instagram?',
+        nota: '¿Alguna de las cuentas quedó fuera del Business Manager? Esa no la vemos y es la que se queda muda',
       },
       {
         id: 'verificacion',
