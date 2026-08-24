@@ -197,6 +197,13 @@ export const GRUPOS_YALI: Grupo[] = [
     decisiones: [
       { id: 'checkin', pregunta: 'Check in y check out' },
       { id: 'pagos', pregunta: 'Formas de pago que aceptan' },
+      {
+        id: 'linksPago',
+        pregunta: '¿Tienen links de pago? ¿Cuáles son?',
+        pista: 'Si el agente puede mandar el link al momento, la reserva se cierra en la misma conversación. Si hay uno por sede o por tipo de habitación, pásennos todos.',
+        abierta: true,
+        filas: 3,
+      },
       { id: 'cancelacion', pregunta: 'Política de cancelación', abierta: true, filas: 2 },
       { id: 'mascotas', pregunta: 'Mascotas, niños y visitas', abierta: true, filas: 2 },
       {
