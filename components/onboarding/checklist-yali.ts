@@ -217,7 +217,7 @@ export const GRUPOS_YALI: Grupo[] = [
   },
   {
     id: 'cierre',
-    titulo: 'Administración',
+    titulo: 'Quién lo va a usar',
     intro: 'Lo último, y lo más rápido.',
     tareas: [
       {
@@ -226,13 +226,6 @@ export const GRUPOS_YALI: Grupo[] = [
         quien: 'ellos',
         porque: 'Cada persona entra con su propio usuario, así queda claro quién atendió qué.',
         nota: 'Nombre y correo de cada uno',
-      },
-      {
-        id: 'facturacion',
-        titulo: 'Datos de facturación',
-        quien: 'ellos',
-        porque: 'Para dejar la parte administrativa lista desde el arranque y que no frene nada después.',
-        nota: 'A nombre de quién, NIT o NRC, y a qué correo se manda',
       },
     ],
   },
