@@ -174,13 +174,6 @@ export const GRUPOS_YALI: Grupo[] = [
         filas: 2,
       },
       {
-        id: 'quejas',
-        pregunta: 'Alguien se queja en un comentario de Instagram o Facebook, donde todos lo ven. ¿Qué hace el agente?',
-        pista: 'Por ejemplo: "Estuve el fin de semana y el aire no servía". ¿Contesta algo corto en público y sigue por privado, o mejor no responde nada y les avisa a ustedes?',
-        abierta: true,
-        filas: 2,
-      },
-      {
         id: 'faq',
         pregunta: 'Las cinco preguntas que más les hacen, con su respuesta',
         pista: 'Es lo que más rápido mejora al agente. Escríbanlas como las contestan hoy.',
