@@ -1,4 +1,4 @@
-// Checklist de puesta en marcha de Yali Hospitality.
+// Checklist del kickoff de Yali Hospitality.
 //
 // NO es un formulario. La primera versión lo era y estaba mal pensada: pedía
 // que escribieran una API key de Cloudbeds en un campo de una página web, y eso

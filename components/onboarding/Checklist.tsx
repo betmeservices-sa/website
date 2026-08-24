@@ -1,6 +1,6 @@
 'use client'
 
-// Checklist de puesta en marcha.
+// Checklist del kickoff.
 //
 // Está pensado para recorrerse EN UNA LLAMADA, no para que alguien lo llene
 // solo. Por eso cada punto dice quién lo hace y por qué hace falta: son las dos
@@ -99,7 +99,7 @@ export default function Checklist({
 
   const resumen = useMemo(() => {
     const hoy = new Date().toLocaleDateString('es-SV', { day: 'numeric', month: 'long', year: 'numeric' })
-    let t = `PUESTA EN MARCHA ${tituloGrad.toUpperCase()}\n${hoy}\n${'='.repeat(48)}\n`
+    let t = `KICKOFF ${tituloGrad.toUpperCase()}\n${hoy}\n${'='.repeat(48)}\n`
     for (const g of grupos) {
       t += `\n${g.titulo.toUpperCase()}\n`
       for (const x of g.tareas ?? []) {
@@ -168,7 +168,7 @@ export default function Checklist({
 
       <div className="relative mx-auto max-w-3xl px-5 pb-40 pt-28 sm:px-8 sm:pt-36">
         <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-cyan-soft">
-          MiAgentIA · puesta en marcha
+          MiAgentIA · kickoff
         </p>
         <h1 className="mt-4 font-display text-4xl font-bold leading-[1.06] tracking-tight text-ink sm:text-5xl">
           {titulo} <span className="text-grad">{tituloGrad}</span>
