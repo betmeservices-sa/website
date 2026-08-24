@@ -17,6 +17,7 @@ export default function robots(): MetadataRoute.Robots {
         '/content-calendar-8ef21efd3853.html',
         '/yali-propuesta-d6c5d46bd219.html',
         // Formularios de onboarding: los llena el cliente por enlace directo.
+        // El noindex de cada pagina es el que manda; esto le evita el rastreo.
         '/onboarding/',
       ],
     },
