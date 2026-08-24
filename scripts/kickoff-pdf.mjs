@@ -7,7 +7,7 @@
 // Uso: npx tsx scripts/kickoff-pdf.mjs [carpeta de destino]
 
 import { execFileSync } from 'node:child_process'
-import { existsSync, mkdirSync, writeFileSync, rmSync } from 'node:fs'
+import { existsSync, mkdirSync, renameSync, statSync, writeFileSync, rmSync } from 'node:fs'
 import { homedir, tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { pathToFileURL } from 'node:url'
@@ -25,7 +25,25 @@ if (!existsSync(destino)) mkdirSync(destino, { recursive: true })
 const temporal = process.env.GUARDAR_HTML || join(tmpdir(), `kickoff-yali-${process.pid}.html`)
 writeFileSync(temporal, html, 'utf8')
 
-const pdf = join(destino, `Kickoff - ${CLIENTE}.pdf`)
+// Si el PDF anterior quedo abierto en un visor, el archivo esta tomado y
+// Chrome no lo puede sobreescribir. Sin este chequeo el script daba por bueno
+// el archivo viejo, porque solo miraba que existiera.
+function tomado(ruta) {
+  if (!existsSync(ruta)) return false
+  try {
+    renameSync(ruta, ruta)
+    return false
+  } catch {
+    return true
+  }
+}
+
+let pdf = join(destino, `Kickoff - ${CLIENTE}.pdf`)
+if (tomado(pdf)) {
+  pdf = join(destino, `Kickoff - ${CLIENTE} (nuevo).pdf`)
+  console.error('El anterior esta abierto, asi que este va aparte.')
+}
+const antes = existsSync(pdf) ? statSync(pdf).mtimeMs : 0
 const navegadores = [
   'C:/Program Files/Google/Chrome/Application/chrome.exe',
   'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe',
@@ -58,7 +76,7 @@ try {
   if (!process.env.GUARDAR_HTML) rmSync(temporal, { force: true })
 }
 
-if (!existsSync(pdf)) {
+if (!existsSync(pdf) || statSync(pdf).mtimeMs === antes) {
   console.error('El navegador no escribió el PDF.')
   process.exit(1)
 }
