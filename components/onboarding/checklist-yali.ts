@@ -175,7 +175,7 @@ export const GRUPOS_YALI: Grupo[] = [
       },
       {
         id: 'proceso',
-        pregunta: '¿Cómo venden hoy? Contennos el paso a paso',
+        pregunta: '¿Cómo venden hoy?',
         pista: 'Desde que alguien pregunta hasta que la reserva queda hecha: qué le contestan primero, qué le preguntan, cuándo mandan el precio, cómo cierran y qué hacen si no responde. El agente va a seguir ESE proceso, así que mientras más detallado, mejor.',
         abierta: true,
         filas: 5,
