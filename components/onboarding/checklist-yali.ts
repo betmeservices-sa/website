@@ -47,7 +47,7 @@ export interface Grupo {
   decisiones?: Decision[]
 }
 
-export const CORREO_ACCESOS = 'accesos@miagentia.com'
+export const CORREO_ACCESOS = 'marketing@betmeservices.com'
 
 export const GRUPOS_YALI: Grupo[] = [
   {
