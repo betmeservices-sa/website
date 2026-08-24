@@ -59,6 +59,13 @@ export interface Grupo {
   urgente?: boolean
   tareas?: Tarea[]
   decisiones?: Decision[]
+  /**
+   * Espacio para que el cliente escriba, no cosas que le estemos pidiendo.
+   *
+   * No cuenta para el avance ni para "lo que falta decidir": si contara, el
+   * documento diria que faltan cinco puntos cuando en realidad faltan dos.
+   */
+  feedback?: boolean
 }
 
 export const CORREO_ACCESOS = 'marketing@betmeservices.com'
@@ -85,7 +92,7 @@ export const GRUPOS_YALI: Grupo[] = [
         ],
         nota: 'Cómo quedó',
         respuesta:
-          'Se trabó a media llamada (Cloudbeds tiró una alerta de seguridad y soporte le respondía hasta el día siguiente), pero se resolvió antes de colgar: Jaime creó los usuarios y llegaron Playa Linda, Yalí y Costa del Surf, con perfil de administrador. Falta confirmar que las tres propiedades quedaron con el mismo nivel de acceso.',
+          'Solucionado en la llamada: los usuarios quedaron creados con perfil de administrador para Yalí, Costa del Surf y Playa Linda. Falta confirmar que las tres quedaron con el mismo nivel de acceso.',
       },
       {
         id: 'cbPermiso',
@@ -421,3 +428,41 @@ export const GRUPOS_YALI: Grupo[] = [
     ],
   },
 ]
+
+/**
+ * El espacio para que contesten de vuelta.
+ *
+ * Va aparte de los grupos porque no es una decisión pendiente ni una tarea: no
+ * cuenta para el avance ni entra en la lista de "lo que falta decidir". En el
+ * documento impreso sale como renglón en blanco para escribir a mano.
+ */
+export const FEEDBACK_YALI: Grupo = {
+  id: 'feedback',
+  titulo: 'Lo que nos quieran decir',
+  feedback: true,
+  intro:
+    'Este documento lo escribimos nosotros, así que seguro hay cosas que entendimos a medias. Acá abajo hay espacio para eso.',
+  decisiones: [
+    {
+      id: 'fbCorregir',
+      pregunta: '¿Qué quedó mal escrito?',
+      pista: 'Cualquier cosa que digamos acá y que no sea así. Vale con señalar la parte.',
+      abierta: true,
+      filas: 4,
+    },
+    {
+      id: 'fbFalta',
+      pregunta: '¿Qué le van a preguntar a Sofía que no esté acá?',
+      pista:
+        'Lo que ustedes contestan todos los días y a nosotros se nos pasó preguntar. Es lo que más rápido la mejora.',
+      abierta: true,
+      filas: 4,
+    },
+    {
+      id: 'fbLibre',
+      pregunta: 'Cualquier otra cosa',
+      abierta: true,
+      filas: 4,
+    },
+  ],
+}

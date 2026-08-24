@@ -74,7 +74,13 @@ export default function Checklist({
   const [error, setError] = useState<string | null>(null)
 
   const tareas = useMemo(() => grupos.flatMap((g) => g.tareas ?? []), [grupos])
-  const decisiones = useMemo(() => grupos.flatMap((g) => g.decisiones ?? []), [grupos])
+  // Lo del bloque de feedback no cuenta: son renglones para que escriban, no
+  // decisiones que les estemos pidiendo. Si contaran, el pie diria que faltan
+  // cinco cuando en realidad faltan dos.
+  const decisiones = useMemo(
+    () => grupos.filter((g) => !g.feedback).flatMap((g) => g.decisiones ?? []),
+    [grupos],
+  )
 
   // Se recorre en varias sesiones: nadie cierra un onboarding de una sentada.
   useEffect(() => {
