@@ -92,7 +92,7 @@ export const GRUPOS_YALI: Grupo[] = [
         ],
         nota: 'Cómo quedó',
         respuesta:
-          'Solucionado en la llamada: los usuarios quedaron creados con perfil de administrador para Yalí, Costa del Surf y Playa Linda. Falta confirmar que las tres quedaron con el mismo nivel de acceso.',
+          'Solucionado. Los usuarios quedaron creados con perfil de administrador para las tres propiedades.',
       },
       {
         id: 'cbPermiso',
@@ -119,7 +119,7 @@ export const GRUPOS_YALI: Grupo[] = [
         ],
         nota: 'Cómo quedó',
         respuesta:
-          'Hecho en la llamada por Verónica, con acceso completo a la página y al Instagram de Yali. El negocio ya aparece verificado. OJO: del lado nuestro entró UNA sola página (YALI Hotel & Resort, con el Instagram yali_hotel). Si Costa del Surf y Playa Linda tienen página o Instagram propios, hay que agregarlos también, o esas dos sedes quedan mudas.',
+          'Solucionado. Verónica dio acceso a la página y al Instagram de Yali.',
       },
       {
         id: 'waNumero',
@@ -134,7 +134,7 @@ export const GRUPOS_YALI: Grupo[] = [
         ],
         nota: '¿Qué número es y en qué estado está?',
         respuesta:
-          'Es el número de reservas que atiende Verónica hoy, el mismo que está en los anuncios. En el Business Manager todavía aparece como no asociado, y se resuelve al desconectarlo del teléfono para conectarlo acá.',
+          'Es el número de reservas que atiende Verónica hoy, el mismo que está en los anuncios. Se conecta al desconectarlo del teléfono.',
       },
       {
         id: 'waMigracion',
@@ -149,7 +149,7 @@ export const GRUPOS_YALI: Grupo[] = [
         ],
         nota: '¿Qué día y a qué hora?',
         respuesta:
-          'Dos cosas que Verónica preguntó y conviene dejar por escrito: al migrar se deja de usar la aplicación web de WhatsApp y se pasa a atender desde el panel, y los chats empiezan de nuevo (por eso el respaldo antes). La migración no se hace hasta tener el número verificado. En la llamada se apuntó a hacerla el martes a las 5 de la tarde, sujeto a que Cloudbeds quedara conectado.',
+          'Al migrar se deja de usar la aplicación web de WhatsApp y se pasa a atender desde el panel. Los chats empiezan de nuevo, por eso el respaldo antes. Se apuntó al martes a las 5 de la tarde.',
       },
       {
         id: 'igPaginas',
@@ -158,9 +158,9 @@ export const GRUPOS_YALI: Grupo[] = [
         hecho: true,
         porque:
           'Los mensajes de Instagram entran por la página. Si el Instagram no está vinculado, esa sede queda muda aunque todo lo demás esté bien.',
-        nota: '¿Alguna de las cuentas quedó fuera del Business Manager? Esa no la vemos y es la que se queda muda',
+        nota: 'Cómo quedó',
         respuesta:
-          'Instagram y Facebook de Yali quedaron conectados y visibles. Falta confirmar si Costa del Surf y Playa Linda manejan cuentas propias o si todo va por la misma.',
+          'Solucionado. Instagram y Facebook de Yali quedaron conectados.',
       },
       {
         id: 'verificacion',
@@ -170,7 +170,7 @@ export const GRUPOS_YALI: Grupo[] = [
         porque:
           'Sin verificar, Meta limita cuántos mensajes se pueden mandar por día. Se puede arrancar sin esto, pero conviene empezarlo ya porque tarda.',
         nota: 'Cómo quedó',
-        respuesta: 'Ya estaba verificado. Se revisó en pantalla durante la llamada.',
+        respuesta: 'Ya estaba verificado.',
       },
       {
         id: 'olgaLinea',
@@ -185,7 +185,7 @@ export const GRUPOS_YALI: Grupo[] = [
         ],
         nota: '¿Cuál es el número de membresías?',
         respuesta:
-          'En la llamada se dictó como 7878 5675 8, y ahí hay un dígito de más: confírmennos el número correcto. Se detectó además que la línea ya está vinculada a otra cuenta comercial, la de Sunsal Beach Club, así que hay que desvincularla de ahí o darnos acceso a ese perfil también. Esto NO frena el arranque: se puede sumar después.',
+          'La línea ya es WhatsApp Business y está vinculada a la cuenta de Sunsal Beach Club. Se suma después, no frena el arranque.',
       },
       {
         id: 'docsPendientes',
@@ -199,7 +199,7 @@ export const GRUPOS_YALI: Grupo[] = [
         ],
         nota: 'Cómo quedó',
         respuesta:
-          'Ya recibido: el contrato con las cuatro membresías y sus beneficios (por correo), el menú y la ubicación (por WhatsApp). Falta el Day Pass con habitación y el Premium.',
+          'Ya recibido el contrato de las membresías, el menú y la ubicación. Falta el Day Pass con habitación y el Premium.',
       },
     ],
   },
@@ -225,7 +225,7 @@ export const GRUPOS_YALI: Grupo[] = [
         id: 'idiomas',
         pregunta: '¿En qué idiomas contesta?',
         pista:
-          'Alex hizo ver que les escriben bastante en inglés. Aun así quedó en español, porque el cliente es principalmente nacional. Si quieren revisarlo, este es el punto.',
+          'Quedó en español porque el cliente es principalmente nacional.',
         opciones: ['Solo español', 'Español e inglés', 'Español, inglés y otro'],
         respuesta: 'Solo español',
       },
@@ -258,7 +258,7 @@ export const GRUPOS_YALI: Grupo[] = [
         id: 'otas',
         pregunta: 'Alguien escribe por WhatsApp, pero reservó por Booking o Airbnb. ¿Qué hace el agente?',
         pista:
-          'Esto quedó SIN definir en la llamada y hace falta. Lo que sí quedó claro es que la política de cancelación cambia según por dónde reservó: en Airbnb es moderada (hasta 7 días antes sin penalidad, y dentro de los 7 días se cobra la primera noche más impuestos), mientras que lo que se reserva por aquí no es reembolsable. La pregunta es si Sofía lo atiende igual que a cualquier huésped o si le dice que ese cambio se hace desde la plataforma.',
+          '¿Lo atiende igual que a cualquier huésped, o le dice que eso se maneja desde la plataforma?',
         abierta: true,
         filas: 2,
       },
@@ -279,7 +279,7 @@ export const GRUPOS_YALI: Grupo[] = [
         abierta: true,
         filas: 5,
         respuesta:
-          '1. Lo primero que se pregunta es la fecha y cuántas personas.\n2. Se revisa disponibilidad y se le ofrece lo que hay, con fotos del catálogo. Si lo que pidió no está libre, se le ofrece lo de arriba y lo de abajo, y el cliente decide.\n3. El precio se da DESPUÉS de que elige la habitación, no antes.\n4. Si quiere proceder, se le piden nombre, correo, se confirman fechas y cantidad de personas.\n5. Se le manda el método de pago: transferencia o enlace. Ahí mismo se le avisa que la tarifa no es reembolsable.\n6. La habitación le queda apartada UNA HORA desde que se le manda el enlace (antes eran 4, se bajó en la llamada porque el primer pago es el que interesa). Si pasa la hora sin pagar, se le escribe una vez y el caso pasa a Verónica.\n7. Se pide siempre el comprobante. Se compara el monto contra la reserva. Si cuadra, se pone la reserva en Cloudbeds con su nota; si no cuadra, lo ve una persona.\n\nEl agente trabaja fuera de horario también: se puede reservar para el mismo día a cualquier hora, porque el check in es desde las 3 y el hotel no cierra.',
+          '1. Lo primero que se pregunta es la fecha y cuántas personas.\n2. Se revisa disponibilidad y se le ofrece lo que hay, con fotos del catálogo. Si lo que pidió no está libre, se le ofrece lo de arriba y lo de abajo, y el cliente decide.\n3. El precio se da DESPUÉS de que elige la habitación, no antes.\n4. Si quiere proceder, se le piden nombre, correo, se confirman fechas y cantidad de personas.\n5. Se le manda el método de pago: transferencia o enlace. Ahí mismo se le avisa que la tarifa no es reembolsable.\n6. La habitación le queda apartada UNA HORA desde que se le manda el enlace. Si pasa la hora sin pagar, se le escribe una vez y el caso pasa a Verónica.\n7. Se pide siempre el comprobante. Se compara el monto contra la reserva. Si cuadra, se pone la reserva en Cloudbeds con su nota; si no cuadra, lo ve una persona.\n\nEl agente trabaja fuera de horario también: se puede reservar para el mismo día a cualquier hora, porque el check in es desde las 3 y el hotel no cierra.',
       },
       {
         id: 'membresia',
@@ -288,7 +288,7 @@ export const GRUPOS_YALI: Grupo[] = [
         abierta: true,
         filas: 4,
         respuesta:
-          'Sofía pregunta si es socio ANTES de dar cualquier precio. Jaime lo pidió así, como parte aguas, porque además sirve para que más gente se entere de que existe la posibilidad de afiliarse.\n\nSi es socio: no se le da tarifa, ni disponibilidad, ni Day Pass. Pasa a Olga, que es quien atiende ese canal.\n\nSi no es socio pero le interesa: Sofía solo puede decir tres cosas, que los socios no pagan Day Pass, que tienen descuento en hospedaje y en los restaurantes, y que los planes empiezan en $55 mensuales. Nada de los otros planes ni de los beneficios por nivel. De ahí pasa a Olga.\n\nSe queda para más adelante: pasarnos la lista de socios para que Sofía los reconozca por su número sin tener que preguntar.',
+          'Sofía pregunta si es socio ANTES de dar cualquier precio. Es la primera pregunta de toda conversación, y además sirve para que más gente se entere de que existe la membresía.\n\nSi es socio: no se le da tarifa, ni disponibilidad, ni Day Pass. Pasa a Olga, que es quien atiende ese canal.\n\nSi no es socio pero le interesa: Sofía solo puede decir tres cosas, que los socios no pagan Day Pass, que tienen descuento en hospedaje y en los restaurantes, y que los planes empiezan en $55 mensuales. Nada de los otros planes ni de los beneficios por nivel. De ahí pasa a Olga.\n\nPara más adelante: la lista de socios, para que Sofía los reconozca por su número sin tener que preguntar.',
       },
       {
         id: 'faq',
@@ -331,7 +331,7 @@ export const GRUPOS_YALI: Grupo[] = [
         abierta: true,
         filas: 3,
         respuesta:
-          'Uno solo, con nombre propio, y el monto va en blanco: lo digita el cliente. La aplicación genera un voucher que el huésped comparte.\n\nJaime señaló el hueco: hoy alguien podría pagar un dólar y mandar el comprobante. Por eso Sofía compara el monto contra la reserva y no confirma si no cuadra. Cerrar el enlace con el monto fijo quedó para una segunda etapa.',
+          'Uno solo, con nombre propio, y el monto va en blanco: lo digita el cliente. La aplicación genera un voucher que el huésped comparte.\n\nComo el monto queda abierto, Sofía compara lo pagado contra la reserva y no confirma si no cuadra. Cerrar el enlace con el monto fijo queda para una segunda etapa.',
       },
       {
         id: 'cancelacion',
@@ -382,7 +382,7 @@ export const GRUPOS_YALI: Grupo[] = [
         abierta: true,
         filas: 3,
         respuesta:
-          'Verónica compartió la ubicación por WhatsApp durante la llamada. Falta tenerla de las tres sedes, con la referencia que usan cuando lo explican por escrito y el tiempo aproximado desde San Salvador.',
+          'Falta la de las tres sedes, con la referencia que usan cuando lo explican por escrito y el tiempo aproximado desde San Salvador.',
       },
     ],
   },
@@ -399,7 +399,7 @@ export const GRUPOS_YALI: Grupo[] = [
         porque: 'Cada persona entra con su propio usuario, así queda claro quién atendió qué.',
         nota: 'Nombre y correo de cada uno',
         respuesta:
-          'Jaime Quintanilla, Verónica Viches (reservas), Olga (membresías), Dino Safie y José Mauricio. Los correos se pusieron en el chat de la reunión; falta confirmar que estén completos.\n\nHorarios: reservas de 8:00 a 17:00, membresías de 9:00 a 20:00. Las notificaciones le llegan a Verónica al 6061 4885, y las de membresías a Olga. Jaime pidió no recibirlas.\n\nEl panel no es una aplicación que se descarga: se abre en el navegador y se deja como acceso directo en la pantalla del teléfono. Se ve igual desde la computadora.',
+          'Jaime Quintanilla, Verónica Viches (reservas), Olga (membresías), Dino Safie y José Mauricio.\n\nHorarios: reservas de 8:00 a 17:00, membresías de 9:00 a 20:00. Las notificaciones le llegan a Verónica al 6061 4885, y las de membresías a Olga. Jaime pidió no recibirlas.\n\nEl panel no es una aplicación que se descarga: se abre en el navegador y se deja como acceso directo en la pantalla del teléfono. Se ve igual desde la computadora.',
       },
       {
         id: 'pruebas',
@@ -423,7 +423,7 @@ export const GRUPOS_YALI: Grupo[] = [
           'Es lo que convierte una estadía buena en la siguiente reserva, pero hay que decidirlo bien porque toca la reputación.',
         nota: 'Cómo quedó',
         respuesta:
-          'SIN DEFINIR. Jaime dijo que no quiere empujar reseñas públicas de Google salvo que sean buenas. Olga propuso que la opinión le llegue a ella para entrar con la venta de la membresía cuando el huésped quedó contento. Sandra hizo ver que una opinión a la que te contestan se siente como una confrontación y que no es lo mismo que dejarla escrita. Quedó para una conversación aparte, junto con el seguimiento mensual a los interesados en membresía que no cerraron.',
+          'Sin definir. No se quieren empujar reseñas públicas de Google salvo que sean buenas. Se propuso que la opinión llegue a membresías, para entrar con la venta cuando el huésped quedó contento. Queda para una conversación aparte, junto con el seguimiento a los interesados en membresía que no cerraron.',
       },
     ],
   },

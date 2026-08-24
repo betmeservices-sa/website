@@ -10,7 +10,7 @@
 // Uso: npx tsx scripts/kickoff-doc.mjs [carpeta de destino]
 
 import { execFileSync } from 'node:child_process'
-import { existsSync, mkdirSync, writeFileSync, rmSync } from 'node:fs'
+import { existsSync, mkdirSync, renameSync, writeFileSync, rmSync } from 'node:fs'
 import { homedir, tmpdir } from 'node:os'
 import { join } from 'node:path'
 
@@ -26,7 +26,24 @@ if (!existsSync(destino)) mkdirSync(destino, { recursive: true })
 const temporal = join(tmpdir(), `kickoff-yali-${process.pid}.htm`)
 writeFileSync(temporal, html, 'utf8')
 
-const docx = join(destino, `Kickoff - ${CLIENTE}.docx`)
+let docx = join(destino, `Kickoff - ${CLIENTE}.docx`)
+
+// Si el documento anterior quedo abierto en Word, el archivo esta tomado y
+// SaveAs2 se cae. Antes que dejar al usuario sin la version corregida, se
+// escribe al lado con otro nombre y se avisa cual es el nuevo.
+function tomado(ruta) {
+  if (!existsSync(ruta)) return false
+  try {
+    renameSync(ruta, ruta)
+    return false
+  } catch {
+    return true
+  }
+}
+if (tomado(docx)) {
+  docx = join(destino, `Kickoff - ${CLIENTE} (nuevo).docx`)
+  console.error('El anterior esta abierto en Word, asi que este va aparte.')
+}
 
 // SaveAs2 con formato 16 es wdFormatDocumentDefault, o sea .docx.
 // DisplayAlerts en cero para que no se cuelgue esperando un cuadro de dialogo,
