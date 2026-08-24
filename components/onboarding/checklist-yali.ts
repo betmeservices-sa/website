@@ -161,8 +161,8 @@ export const GRUPOS_YALI: Grupo[] = [
       },
       {
         id: 'otas',
-        pregunta: '¿Qué hace con quien reservó por Booking, Airbnb o Expedia?',
-        pista: 'Cloudbeds sincroniza esos canales, así que va a llegar gente por WhatsApp preguntando por una reserva hecha ahí. Si no se define, el agente improvisa.',
+        pregunta: 'Alguien escribe por WhatsApp, pero reservó por Booking o Airbnb. ¿Qué hace el agente?',
+        pista: 'Por ejemplo: "Hola, reservé por Booking para el sábado, ¿me pueden dar la habitación con vista al mar?". ¿Lo atiende igual que a cualquier huésped, o le dice que eso se maneja desde Booking?',
         abierta: true,
         filas: 2,
       },
@@ -175,8 +175,8 @@ export const GRUPOS_YALI: Grupo[] = [
       },
       {
         id: 'quejas',
-        pregunta: '¿Y con una queja pública, debajo de una publicación?',
-        pista: 'Es la decisión más delicada. ¿Responde algo breve y pasa al privado, o no toca nada y les avisa?',
+        pregunta: 'Alguien se queja en un comentario de Instagram o Facebook, donde todos lo ven. ¿Qué hace el agente?',
+        pista: 'Por ejemplo: "Estuve el fin de semana y el aire no servía". ¿Contesta algo corto en público y sigue por privado, o mejor no responde nada y les avisa a ustedes?',
         abierta: true,
         filas: 2,
       },
@@ -217,21 +217,9 @@ export const GRUPOS_YALI: Grupo[] = [
   },
   {
     id: 'cierre',
-    titulo: 'Material y administración',
-    intro: 'Lo último, y lo más fácil.',
+    titulo: 'Administración',
+    intro: 'Lo último, y lo más rápido.',
     tareas: [
-      {
-        id: 'fotos',
-        titulo: 'Pasarnos una carpeta con fotos y el logo',
-        quien: 'ellos',
-        porque: 'Es lo que hace que el panel y las publicaciones se vean como ustedes y no como una plantilla.',
-        pasos: [
-          'Fotos por sede y por tipo de habitación',
-          'El logo en alta resolución, con fondo transparente si lo tienen',
-          'Un enlace de Drive o Dropbox alcanza',
-        ],
-        nota: '¿Cuál es el enlace?',
-      },
       {
         id: 'usuarios',
         titulo: 'Decirnos quiénes van a usar el panel',
@@ -246,14 +234,6 @@ export const GRUPOS_YALI: Grupo[] = [
         porque: 'Para dejar la parte administrativa lista desde el arranque y que no frene nada después.',
         nota: 'A nombre de quién, NIT o NRC, y a qué correo se manda',
       },
-    ],
-    decisiones: [
-      {
-        id: 'volumen',
-        pregunta: '¿Cuántos mensajes reciben al mes, más o menos?',
-        pista: 'Aunque sea un estimado. Sirve para dimensionar y para que no haya sorpresas en la cuenta.',
-      },
-      { id: 'otros', pregunta: '¿Algo más que debamos saber?', abierta: true, filas: 2 },
     ],
   },
 ]
