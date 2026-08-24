@@ -17,7 +17,7 @@ export default function OnboardingYaliPage() {
       cliente="yali"
       titulo="Puesta en marcha de"
       tituloGrad="Yali Hospitality"
-      bajada="Esto es una lista para recorrer juntos en una llamada, no un formulario para llenar solos. Cada punto dice quién lo hace y por qué hace falta. Se guarda en este navegador, así que pueden ir avanzando de a poco."
+      bajada="Esto es lo que entendimos de la llamada del 24 de agosto, ya escrito. No hay que llenarlo desde cero: léanlo, corrijan lo que esté mal y agreguen lo que falte. Lo que quedó sin definir aparece en blanco a propósito. Se guarda en este navegador, así que pueden ir de a poco."
       grupos={GRUPOS_YALI}
     />
   )

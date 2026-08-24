@@ -23,6 +23,18 @@ const QUIEN: Record<Quien, { texto: string; clase: string }> = {
 
 type Estado = 'quieto' | 'enviando' | 'enviado' | 'error'
 
+/**
+ * Cuántas filas necesita un texto que ya viene escrito.
+ *
+ * Las respuestas vienen prellenadas desde la llamada, así que una caja de tres
+ * filas obligaría a leer un párrafo largo por una rendija. Cuenta los saltos de
+ * línea propios y estima los que va a provocar el ancho.
+ */
+function alto(texto: string, columnas: number, minimo: number, maximo: number): number {
+  const saltos = texto.split('\n').length - 1
+  return Math.min(maximo, Math.max(minimo, saltos + Math.ceil(texto.length / columnas)))
+}
+
 export default function Checklist({
   cliente,
   titulo,
@@ -37,8 +49,27 @@ export default function Checklist({
   grupos: Grupo[]
 }) {
   const llave = `checklist.${cliente}`
-  const [hechas, setHechas] = useState<Record<string, boolean>>({})
-  const [notas, setNotas] = useState<Record<string, string>>({})
+
+  // Arranca con lo que ya se contestó en la llamada. El cliente no llena esto
+  // desde cero: revisa y corrige, que es lo que se le prometió. Lo que quedó
+  // sin respuesta se queda vacío, para que se vea que falta.
+  const previo = useMemo(() => {
+    const h: Record<string, boolean> = {}
+    const n: Record<string, string> = {}
+    for (const g of grupos) {
+      for (const t of g.tareas ?? []) {
+        if (t.hecho) h[t.id] = true
+        if (t.respuesta) n[t.id] = t.respuesta
+      }
+      for (const d of g.decisiones ?? []) {
+        if (d.respuesta) n[d.id] = d.respuesta
+      }
+    }
+    return { hechas: h, notas: n }
+  }, [grupos])
+
+  const [hechas, setHechas] = useState<Record<string, boolean>>(previo.hechas)
+  const [notas, setNotas] = useState<Record<string, string>>(previo.notas)
   const [estado, setEstado] = useState<Estado>('quieto')
   const [error, setError] = useState<string | null>(null)
 
@@ -49,8 +80,10 @@ export default function Checklist({
   useEffect(() => {
     try {
       const g = JSON.parse(localStorage.getItem(llave) || '{}')
-      if (g.hechas) setHechas(g.hechas)
-      if (g.notas) setNotas(g.notas)
+      // Lo guardado pisa al prellenado, nunca al revés: si alguien ya corrigió
+      // una respuesta, no se la volvemos a cambiar por la nuestra.
+      if (g.hechas) setHechas((h) => ({ ...h, ...g.hechas }))
+      if (g.notas) setNotas((n) => ({ ...n, ...g.notas }))
     } catch {}
   }, [llave])
 
@@ -289,13 +322,14 @@ function Punto({
         </ol>
       )}
 
-      {t.nota && (
+      {(t.nota || nota) && (
         <div className="mt-3 pl-[29px]">
-          <label className="block text-[12.5px] text-muted">{t.nota}</label>
-          <input
+          <label className="block text-[12.5px] text-muted">{t.nota ?? 'Cómo quedó'}</label>
+          <textarea
             value={nota}
             onChange={(e) => onNota(e.target.value)}
-            className="mt-1.5 w-full rounded-xl border border-white/[0.08] bg-bg-soft px-3 py-2 text-[13.5px] text-ink outline-none transition focus-visible:border-cyan focus-visible:ring-2 focus-visible:ring-cyan/25"
+            rows={alto(nota, 78, 1, 6)}
+            className="mt-1.5 w-full resize-y rounded-xl border border-white/[0.08] bg-bg-soft px-3 py-2 text-[13.5px] leading-relaxed text-ink outline-none transition focus-visible:border-cyan focus-visible:ring-2 focus-visible:ring-cyan/25"
           />
         </div>
       )}
@@ -325,7 +359,7 @@ function Pregunta({ d, valor, onCambio }: { d: Decision; valor: string; onCambio
         ) : d.abierta ? (
           <textarea
             id={d.id}
-            rows={d.filas ?? 3}
+            rows={alto(valor, 90, d.filas ?? 3, 14)}
             value={valor}
             onChange={(e) => onCambio(e.target.value)}
             className={`${base} resize-y leading-relaxed`}
