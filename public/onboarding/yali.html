@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="no-referrer">
+<title>Onboarding Yali Hospitality &middot; MiAgentIA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap">
+<style>
+/* Paleta de MiAgentIA, tomada de app/globals.css del sitio. Es una marca
+   deliberadamente oscura: no hay variante clara, así que todo se pinta
+   explícito para que no dependa del tema del visor. */
+:root{
+  --bg:#05050A; --bg-soft:#0A0A14; --bg-card:#0D0D18;
+  --line:rgba(255,255,255,.08); --line-2:rgba(255,255,255,.16);
+  --cyan:#22D3EE; --cyan-soft:#67E8F9; --violet:#8B5CF6; --magenta:#E879F9;
+  --ink:#EDEDF5; --muted:#9A9AB0;
+  --grad:linear-gradient(120deg,#22D3EE 0%,#8B5CF6 48%,#E879F9 100%);
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+h1,h2,h3{font-family:"Space Grotesk",Inter,sans-serif;font-weight:600;margin:0;text-wrap:balance;letter-spacing:-.02em}
+p{margin:0}
+
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.blob{position:fixed;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0}
+.b1{top:-16%;left:-8%;width:46vw;height:38vw;background:rgba(34,211,238,.13)}
+.b2{top:-6%;right:-10%;width:40vw;height:34vw;background:rgba(232,121,249,.11)}
+.rejilla{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(to right,rgba(255,255,255,.04) 1px,transparent 1px),
+                   linear-gradient(to bottom,rgba(255,255,255,.04) 1px,transparent 1px);
+  background-size:56px 56px;
+  mask-image:radial-gradient(ellipse 80% 55% at 50% 0%,#000 35%,transparent 100%);
+  -webkit-mask-image:radial-gradient(ellipse 80% 55% at 50% 0%,#000 35%,transparent 100%)}
+
+.hoja{position:relative;z-index:1;max-width:840px;margin:0 auto;
+  padding:clamp(32px,6vw,72px) clamp(16px,4vw,28px) 130px;display:flex;flex-direction:column;gap:clamp(26px,4vw,40px)}
+
+.eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan-soft);font-weight:600}
+.cab h1{font-size:clamp(2.1rem,6.2vw,3.1rem);line-height:1.06;margin-top:16px}
+.bajada{max-width:60ch;color:var(--muted);font-size:1.02rem;margin-top:16px}
+
+.nota{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);
+  background:var(--bg-card);border-radius:16px;padding:15px 17px;font-size:.93rem;color:var(--muted)}
+.nota b,.nota strong{color:var(--ink);font-weight:600}
+.nota .pip{width:6px;align-self:stretch;border-radius:99px;background:var(--grad);flex:0 0 6px}
+
+.bloque{position:relative;background:var(--bg-card);border:1px solid var(--line);border-radius:20px;
+  padding:clamp(20px,3.4vw,30px);display:flex;flex-direction:column;gap:17px;scroll-margin-top:16px}
+.bloque::before{content:"";position:absolute;inset:0 0 auto 0;height:1px;border-radius:20px 20px 0 0;background:var(--grad);opacity:.55}
+.bloque>header{display:flex;flex-direction:column;gap:7px}
+.bloque h2{font-size:1.4rem}
+.num{font-family:"Space Grotesk",sans-serif;font-size:.76rem;letter-spacing:.14em;color:var(--muted)}
+.porque{font-size:.92rem;color:var(--muted);max-width:64ch}
+.porque b{color:var(--ink);font-weight:600}
+
+.campo{display:flex;flex-direction:column;gap:6px}
+.campo>label{font-size:.87rem;font-weight:600}
+.pista{font-size:.79rem;color:var(--muted);line-height:1.55}
+input[type=text],input[type=email],input[type=tel],input[type=url],input[type=password],textarea,select{
+  width:100%;font:inherit;font-size:.93rem;color:var(--ink);background:var(--bg-soft);
+  border:1px solid var(--line);border-radius:11px;padding:10px 12px;transition:border-color .15s ease}
+textarea{min-height:80px;resize:vertical;line-height:1.6}
+input::placeholder,textarea::placeholder{color:#5C5C70}
+input:hover,textarea:hover,select:hover{border-color:var(--line-2)}
+input:focus-visible,textarea:focus-visible,select:focus-visible{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(34,211,238,.16)}
+.par{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:620px){.par{grid-template-columns:1fr}}
+
+fieldset{border:1px solid var(--line);border-radius:14px;padding:15px 17px;margin:0;display:flex;flex-direction:column;gap:11px;background:rgba(255,255,255,.014)}
+legend{font-size:.74rem;text-transform:uppercase;letter-spacing:.11em;color:var(--cyan-soft);font-weight:600;padding:0 8px}
+.chks{display:flex;flex-direction:column;gap:9px}
+.chk{display:flex;align-items:flex-start;gap:9px;font-size:.9rem;color:var(--ink)}
+.chk input{margin-top:4px;accent-color:var(--violet);width:15px;height:15px;flex:0 0 15px}
+
+.barra{position:sticky;bottom:0;z-index:2;background:rgba(10,10,20,.9);backdrop-filter:blur(12px);
+  border-top:1px solid var(--line);padding:14px clamp(16px,4vw,28px);
+  display:flex;align-items:center;gap:15px;flex-wrap:wrap}
+.progreso{flex:1 1 180px;min-width:140px}
+.riel{height:5px;background:rgba(255,255,255,.09);border-radius:99px;overflow:hidden}
+.lleno{height:100%;background:var(--grad);width:0%;transition:width .35s ease}
+.txt{font-size:.77rem;color:var(--muted);margin-top:6px}
+button{font:inherit;font-size:.89rem;font-weight:600;border-radius:11px;padding:10px 19px;cursor:pointer;border:1px solid transparent;transition:opacity .15s ease}
+.primario{background:var(--grad);color:#06060C}
+.secundario{background:transparent;color:var(--ink);border-color:var(--line-2)}
+button:hover{opacity:.87}
+button:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+.guardado{font-size:.78rem;color:var(--cyan-soft)}
+
+.resultado{display:none;flex-direction:column;gap:14px}
+.resultado.visible{display:flex}
+pre{margin:0;max-height:400px;overflow:auto;background:var(--bg-soft);border:1px solid var(--line);
+  border-radius:14px;padding:16px;font-family:ui-monospace,Menlo,monospace;font-size:.81rem;line-height:1.65;white-space:pre-wrap;color:var(--ink)}
+.pie{color:var(--muted);font-size:.83rem;border-top:1px solid var(--line);padding-top:22px;max-width:70ch}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="blob b1"></div>
+<div class="blob b2"></div>
+<div class="rejilla"></div>
+
+<form class="hoja" id="f" autocomplete="off">
+  <header class="cab">
+    <p class="eyebrow">MiAgentIA &middot; puesta en marcha</p>
+    <h1>Lo que necesitamos de <span class="grad">Yali Hospitality</span></h1>
+    <p class="bajada">
+      Cinco bloques. Lo que se llene acá es literalmente lo que el agente va a saber y a decirle a
+      sus huéspedes. Se guarda solo en este navegador mientras escriben: pueden cerrar y volver
+      después.
+    </p>
+  </header>
+
+  <p class="nota">
+    <span class="pip"></span>
+    <span>
+      <strong>Lo más urgente son los accesos de Cloudbeds y de Meta.</strong> Son los dos que
+      desbloquean todo lo demás: sin Cloudbeds el agente no puede ver tarifas ni disponibilidad
+      reales, y sin Meta no puede contestar por WhatsApp ni redes.
+    </span>
+  </p>
+
+  <!-- ── 1. Cloudbeds ──────────────────────────────────────────────────── -->
+  <section class="bloque">
+    <header>
+      <p class="num">01</p>
+      <h2>Acceso a Cloudbeds</h2>
+      <p class="porque">
+        <b>No hace falta que nos pasen listas de precios.</b> El agente consulta Cloudbeds en vivo,
+        así que cotiza con la tarifa y la disponibilidad del momento, y nunca queda desactualizado.
+        Hoy está corriendo con datos de demostración y lo aclara en voz alta; con estas credenciales
+        pasa a datos reales.
+      </p>
+    </header>
+    <div class="par">
+      <div class="campo">
+        <label for="cbKey">API key de Cloudbeds</label>
+        <p class="pista">En Cloudbeds: Configuración &rarr; Integraciones (API). Si prefieren no escribirla acá, díganlo y coordinamos otro canal.</p>
+        <input type="password" id="cbKey" name="API key de Cloudbeds">
+      </div>
+      <div class="campo">
+        <label for="cbProps">Property ID de cada sede</label>
+        <p class="pista">Uno por propiedad. Son las tres: Yalí, Costa del Surf y la tercera.</p>
+        <textarea id="cbProps" name="Property IDs de Cloudbeds" rows="3"></textarea>
+      </div>
+    </div>
+    <div class="campo">
+      <label for="cbTipos">¿Los tipos de habitación en Cloudbeds se llaman igual que en su sitio?</label>
+      <p class="pista">Nosotros cargamos Bungalow, Bungalow Familiar, Planta Baja, Planta Alta (estándar, vista al mar, frente al mar), Sencilla, Doble y Garden View. Si en Cloudbeds tienen otro nombre, díganos cuál es cuál.</p>
+      <textarea id="cbTipos" name="Nombres de habitación en Cloudbeds" rows="3"></textarea>
+    </div>
+    <div class="par">
+      <div class="campo">
+        <label for="cbPaquetes">Lo que NO está en Cloudbeds</label>
+        <p class="pista">Paquetes, tours, traslados o cualquier cosa que se cotice aparte.</p>
+        <textarea id="cbPaquetes" name="Lo que no está en Cloudbeds"></textarea>
+      </div>
+      <div class="campo">
+        <label for="cbReserva">¿El agente puede reservar en Cloudbeds o solo consultar?</label>
+        <p class="pista">Consultar es inmediato. Reservar y cobrar el anticipo se habilita cuando ustedes lo decidan.</p>
+        <select id="cbReserva" name="Permiso en Cloudbeds">
+          <option value="">Elegir</option>
+          <option>Solo consultar disponibilidad y tarifas</option>
+          <option>Consultar y crear la reserva</option>
+          <option>Consultar, reservar y cobrar el anticipo</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 2. El agente ──────────────────────────────────────────────────── -->
+  <section class="bloque">
+    <header>
+      <p class="num">02</p>
+      <h2>Cómo quieren que sea el agente</h2>
+      <p class="porque">
+        Esto define cómo le habla a sus huéspedes. <b>No hace falta que escriban un guion</b>: con
+        que nos digan cómo atienden ustedes en recepción, nosotros lo convertimos en el guion.
+      </p>
+    </header>
+    <div class="par">
+      <div class="campo">
+        <label for="nombreAgente">¿Cómo se llama?</label>
+        <p class="pista">Hoy está como Sofía. Si prefieren otro nombre, este es el momento.</p>
+        <input type="text" id="nombreAgente" name="Nombre del agente" placeholder="Sofía">
+      </div>
+      <div class="campo">
+        <label for="trato">¿De usted o de vos?</label>
+        <select id="trato" name="Trato">
+          <option value="">Elegir</option>
+          <option>De usted, siempre</option>
+          <option>De vos, más cercano</option>
+          <option>De usted al inicio, de vos si el huésped lo hace</option>
+        </select>
+      </div>
+    </div>
+    <div class="campo">
+      <label for="tono">Tono y personalidad</label>
+      <p class="pista">Descríbanlo como se lo explicarían a alguien nuevo en recepción. Ejemplo: cálida, muy salvadoreña, relajada como la playa, nunca vendedora agresiva.</p>
+      <textarea id="tono" name="Tono y personalidad"></textarea>
+    </div>
+    <div class="campo">
+      <label for="saludo">Cómo debe saludar</label>
+      <p class="pista">La primera frase de cada conversación. Si tienen una que ya usan, escríbanla tal cual.</p>
+      <textarea id="saludo" name="Saludo" rows="2"></textarea>
+    </div>
+    <fieldset>
+      <legend>Qué SÍ puede hacer solo</legend>
+      <div class="chks">
+        <label class="chk"><input type="checkbox" value="Dar disponibilidad y tarifas de Cloudbeds"> Dar disponibilidad y tarifas (de Cloudbeds, en vivo)</label>
+        <label class="chk"><input type="checkbox" value="Crear la reserva"> Crear la reserva</label>
+        <label class="chk"><input type="checkbox" value="Cobrar el anticipo"> Cobrar el anticipo</label>
+        <label class="chk"><input type="checkbox" value="Cambiar o cancelar una reserva"> Cambiar o cancelar una reserva</label>
+        <label class="chk"><input type="checkbox" value="Dar indicaciones para llegar"> Dar indicaciones para llegar</label>
+        <label class="chk"><input type="checkbox" value="Recomendar tours y restaurantes"> Recomendar tours y restaurantes</label>
+        <label class="chk"><input type="checkbox" value="Atender reclamos"> Atender reclamos</label>
+      </div>
+    </fieldset>
+    <div class="par">
+      <div class="campo">
+        <label for="noHace">Qué NO debe hacer nunca</label>
+        <p class="pista">Lo que prefieren que pase a una persona sí o sí.</p>
+        <textarea id="noHace" name="Qué NO debe hacer"></textarea>
+      </div>
+      <div class="campo">
+        <label for="noDice">Qué NO debe decir nunca</label>
+        <p class="pista">Descuentos no autorizados, comparaciones con otros hoteles, promesas de upgrade.</p>
+        <textarea id="noDice" name="Qué NO debe decir"></textarea>
+      </div>
+    </div>
+    <div class="campo">
+      <label for="traspaso">Cuándo pasa la conversación a una persona, y a quién</label>
+      <p class="pista">Nombre, teléfono y horario de quien recibe. Si es distinto por sede, díganlo.</p>
+      <textarea id="traspaso" name="Traspaso a una persona"></textarea>
+    </div>
+    <div class="campo">
+      <label for="faq">Las cinco preguntas que más les hacen, con su respuesta</label>
+      <p class="pista">Esto es lo que más rápido mejora al agente. Escríbanlas como las contestan hoy.</p>
+      <textarea id="faq" name="Preguntas frecuentes" rows="5"></textarea>
+    </div>
+    <p class="nota">
+      <span class="pip"></span>
+      <span>Las <b>promociones</b> no van acá: se cargan y se apagan desde el panel, en su pestaña
+      Promociones, y el agente las toma en vivo. Así ustedes lanzan una oferta sin depender de nosotros.</span>
+    </p>
+  </section>
+
+  <!-- ── 3. Reglas de la casa ──────────────────────────────────────────── -->
+  <section class="bloque">
+    <header>
+      <p class="num">03</p>
+      <h2>Reglas de la casa</h2>
+      <p class="porque">
+        Lo que un huésped pregunta antes de decidirse y que Cloudbeds no contesta.
+        <b>Si el agente no lo sabe, tiene que decir que no lo sabe</b>, y eso enfría la conversación
+        justo cuando estaba por reservar.
+      </p>
+    </header>
+    <div class="par">
+      <div class="campo">
+        <label for="checkin">Check in y check out</label>
+        <input type="text" id="checkin" name="Check in y check out" placeholder="Entrada 3:00 p.m., salida 12:00 m.">
+      </div>
+      <div class="campo">
+        <label for="pagos">Formas de pago que aceptan</label>
+        <input type="text" id="pagos" name="Formas de pago" placeholder="Efectivo, tarjeta, transferencia">
+      </div>
+    </div>
+    <div class="campo">
+      <label for="cancelacion">Política de cancelación</label>
+      <textarea id="cancelacion" name="Política de cancelación" rows="2"></textarea>
+    </div>
+    <div class="par">
+      <div class="campo">
+        <label for="mascotas">Mascotas, niños y visitas</label>
+        <textarea id="mascotas" name="Mascotas, niños y visitas"></textarea>
+      </div>
+      <div class="campo">
+        <label for="servicios">Servicios de cada sede</label>
+        <p class="pista">Piscina, restaurante, wifi, aire, parqueo, clases de surf.</p>
+        <textarea id="servicios" name="Servicios por sede"></textarea>
+      </div>
+    </div>
+    <div class="campo">
+      <label for="llegar">Cómo llegar a cada sede</label>
+      <p class="pista">Referencia, tiempo desde San Salvador, enlace de Google Maps.</p>
+      <textarea id="llegar" name="Cómo llegar"></textarea>
+    </div>
+  </section>
+
+  <!-- ── 4. Meta ───────────────────────────────────────────────────────── -->
+  <section class="bloque">
+    <header>
+      <p class="num">04</p>
+      <h2>WhatsApp y redes</h2>
+      <p class="porque">
+        Para que el agente conteste por WhatsApp, Instagram y Facebook necesitamos permiso sobre sus
+        cuentas. <b>No nos den contraseñas</b>: se hace agregándonos como administradores desde su
+        Business Manager, y ustedes nos pueden quitar el acceso cuando quieran.
+      </p>
+    </header>
+    <p class="nota">
+      <span class="pip"></span>
+      <span><strong>Nuestra app todavía está en revisión de Meta</strong>, así que la conexión
+      automática no está disponible. Este primer tramo va con un token de página que se genera una
+      vez y se pega en el panel. Cuando la aprobación salga, se migra sin que ustedes vuelvan a
+      hacer nada.</span>
+    </p>
+    <div class="par">
+      <div class="campo">
+        <label for="bmId">ID del Business Manager</label>
+        <p class="pista">business.facebook.com &rarr; Configuración &rarr; Información del negocio.</p>
+        <input type="text" id="bmId" name="ID del Business Manager">
+      </div>
+      <div class="campo">
+        <label for="waNumero">Número de WhatsApp del hotel</label>
+        <p class="pista">El que quieren que atienda el agente. ¿Es uno solo para las tres sedes?</p>
+        <input type="tel" id="waNumero" name="Número de WhatsApp">
+      </div>
+    </div>
+    <div class="campo">
+      <label for="paginas">Páginas de Facebook e Instagram, por sede</label>
+      <p class="pista">Peguen los enlaces. Sabemos que hay un Instagram por sede y un solo WhatsApp: por eso los enlaces de cada perfil llevan una marca distinta, para saber de qué sede viene cada quien.</p>
+      <textarea id="paginas" name="Páginas de Facebook e Instagram" rows="4"></textarea>
+    </div>
+    <fieldset>
+      <legend>Lo que hay que hacer de su lado</legend>
+      <div class="chks">
+        <label class="chk"><input type="checkbox" value="Agregarnos como admin del Business Manager"> Agregarnos como administradores del Business Manager</label>
+        <label class="chk"><input type="checkbox" value="Confirmar que el numero de WhatsApp no esta en la app de WhatsApp Business"> Confirmar que el número de WhatsApp <b>no</b> esté usándose en la app de WhatsApp Business del teléfono</label>
+        <label class="chk"><input type="checkbox" value="Verificar el negocio en Meta"> Verificar el negocio en Meta (si aún no está)</label>
+        <label class="chk"><input type="checkbox" value="Conectar cada Instagram a su pagina de Facebook"> Conectar cada Instagram a su página de Facebook</label>
+      </div>
+    </fieldset>
+    <div class="campo">
+      <label for="contactoTecnico">Quién nos ayuda con esto de su lado</label>
+      <p class="pista">Nombre, correo y WhatsApp de quien tiene acceso a las cuentas.</p>
+      <input type="text" id="contactoTecnico" name="Contacto técnico">
+    </div>
+    <fieldset>
+      <legend>Comentarios en sus publicaciones</legend>
+      <p class="pista">El agente también puede contestar los comentarios de sus posts. Ahí es donde se pierden más reservas: alguien pregunta el precio en un comentario, nadie contesta en dos días, y se fue.</p>
+      <div class="chks">
+        <label class="chk"><input type="checkbox" value="Responder en publico precio y disponibilidad"> Responder en público las preguntas de precio y disponibilidad</label>
+        <label class="chk"><input type="checkbox" value="Invitar al privado"> Invitar al privado para cerrar la reserva</label>
+        <label class="chk"><input type="checkbox" value="Agradecer los comentarios positivos"> Agradecer los comentarios positivos</label>
+        <label class="chk"><input type="checkbox" value="Avisar y no responder las quejas"> Avisarle a una persona y NO responder solo, si es una queja</label>
+        <label class="chk"><input type="checkbox" value="Ocultar spam"> Ocultar spam y groserías</label>
+      </div>
+    </fieldset>
+    <div class="campo">
+      <label for="quejas">Qué hacer con una queja pública</label>
+      <p class="pista">Es la decisión más delicada. Díganos si prefieren que responda algo breve y pase al privado, o que no toque nada y les avise.</p>
+      <textarea id="quejas" name="Quejas públicas" rows="2"></textarea>
+    </div>
+  </section>
+
+  <!-- ── 5. Material ───────────────────────────────────────────────────── -->
+  <section class="bloque">
+    <header>
+      <p class="num">05</p>
+      <h2>Material y cierre</h2>
+      <p class="porque">Lo que hace que el panel y las publicaciones se vean como ustedes y no como una plantilla.</p>
+    </header>
+    <div class="campo">
+      <label for="material">Enlace a una carpeta con fotos y logo</label>
+      <p class="pista">Drive o Dropbox. Fotos por sede y por tipo de habitación, y el logo en alta resolución con fondo transparente.</p>
+      <input type="url" id="material" name="Carpeta de material" placeholder="https://">
+    </div>
+    <div class="par">
+      <div class="campo">
+        <label for="usuarios">Quiénes van a usar el panel</label>
+        <p class="pista">Nombre y correo de cada uno. Cada persona entra con su usuario.</p>
+        <textarea id="usuarios" name="Usuarios del panel"></textarea>
+      </div>
+      <div class="campo">
+        <label for="quienRecibe">Quién firma y aprueba de su lado</label>
+        <input type="text" id="quienRecibe" name="Quién aprueba">
+      </div>
+    </div>
+    <div class="campo">
+      <label for="otros">Cualquier otra cosa que debamos saber</label>
+      <textarea id="otros" name="Otros"></textarea>
+    </div>
+  </section>
+
+  <div class="resultado" id="resultado">
+    <h3>Listo. Copien esto y mándenlo.</h3>
+    <pre id="salida"></pre>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <button type="button" class="primario" id="copiar">Copiar todo</button>
+      <button type="button" class="secundario" id="cerrar">Seguir editando</button>
+    </div>
+  </div>
+
+  <p class="pie">
+    Nada de lo que escriban acá sale de su navegador hasta que aprieten copiar. Si prefieren
+    mandarnos las cosas por partes, también sirve: empecemos por Cloudbeds y Meta, que es lo que
+    desbloquea todo lo demás.
+  </p>
+
+  <div class="barra">
+    <div class="progreso">
+      <div class="riel"><div class="lleno" id="lleno"></div></div>
+      <p class="txt" id="txt">0 de 0 respondidas</p>
+    </div>
+    <span class="guardado" id="guardado"></span>
+    <button type="button" class="primario" id="generar">Generar el resumen</button>
+  </div>
+</form>
+
+<script>
+const F = document.getElementById("f");
+const LLAVE = "onboarding.yali.v2";
+
+const campos = () => [...F.querySelectorAll("input[name], textarea[name], select[name]")];
+const grupos = () => [...F.querySelectorAll("fieldset")].filter((g) => g.querySelector("input"));
+
+function leer() {
+  const datos = {};
+  for (const c of campos()) if (c.value.trim()) datos[c.name] = c.value.trim();
+  for (const g of grupos()) {
+    const marcadas = [...g.querySelectorAll("input:checked")].map((i) => i.value);
+    if (marcadas.length) datos[g.querySelector("legend").textContent] = marcadas;
+  }
+  return datos;
+}
+
+// El formulario es largo y nadie lo llena de una sentada. Sin esto, cerrar la
+// pestaña por accidente borra media hora de trabajo.
+function guardar() {
+  const estado = { texto: {}, chk: [] };
+  for (const c of campos()) if (c.value) estado.texto[c.id] = c.value;
+  F.querySelectorAll("input[type=checkbox]").forEach((i, n) => { if (i.checked) estado.chk.push(n); });
+  try { localStorage.setItem(LLAVE, JSON.stringify(estado)); } catch {}
+  const g = document.getElementById("guardado");
+  g.textContent = "guardado";
+  clearTimeout(guardar.t);
+  guardar.t = setTimeout(() => (g.textContent = ""), 1600);
+}
+
+function restaurar() {
+  try {
+    const e = JSON.parse(localStorage.getItem(LLAVE) || "{}");
+    for (const [id, v] of Object.entries(e.texto || {})) {
+      const el = document.getElementById(id);
+      if (el) el.value = v;
+    }
+    const chks = F.querySelectorAll("input[type=checkbox]");
+    (e.chk || []).forEach((n) => { if (chks[n]) chks[n].checked = true; });
+  } catch {}
+}
+
+function progreso() {
+  const total = campos().length;
+  const hechos = campos().filter((c) => c.value.trim()).length;
+  document.getElementById("lleno").style.width = Math.round((hechos / total) * 100) + "%";
+  document.getElementById("txt").textContent = `${hechos} de ${total} respondidas`;
+}
+
+F.addEventListener("input", () => { guardar(); progreso(); });
+F.addEventListener("change", () => { guardar(); progreso(); });
+
+document.getElementById("generar").addEventListener("click", () => {
+  const d = leer();
+  const hoy = new Date().toLocaleDateString("es-SV", { day: "numeric", month: "long", year: "numeric" });
+  let t = `ONBOARDING YALI HOSPITALITY\n${hoy}\n${"=".repeat(52)}\n`;
+  for (const [k, v] of Object.entries(d)) {
+    // La API key no viaja en el resumen: se pide por otro canal.
+    const val = /api key/i.test(k) ? "(enviada aparte)" : v;
+    t += `\n${k.toUpperCase()}\n`;
+    t += Array.isArray(val) ? val.map((x) => `  - ${x}`).join("\n") + "\n" : `${val}\n`;
+  }
+  const faltan = campos().filter((c) => !c.value.trim()).map((c) => c.name);
+  if (faltan.length) t += `\n${"=".repeat(52)}\nPENDIENTES (${faltan.length})\n` + faltan.map((x) => `  - ${x}`).join("\n") + "\n";
+  document.getElementById("salida").textContent = t;
+  document.getElementById("resultado").classList.add("visible");
+  document.getElementById("resultado").scrollIntoView({ behavior: "smooth", block: "start" });
+});
+
+document.getElementById("copiar").addEventListener("click", async (e) => {
+  try {
+    await navigator.clipboard.writeText(document.getElementById("salida").textContent);
+    e.target.textContent = "Copiado";
+  } catch {
+    e.target.textContent = "Seleccionalo y copialo a mano";
+  }
+  setTimeout(() => (e.target.textContent = "Copiar todo"), 2200);
+});
+
+document.getElementById("cerrar").addEventListener("click", () => {
+  document.getElementById("resultado").classList.remove("visible");
+});
+
+F.addEventListener("submit", (e) => e.preventDefault());
+restaurar();
+progreso();
+</script>
+</body>
+</html>
