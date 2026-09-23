@@ -62,9 +62,11 @@ document.getElementById('f').addEventListener('submit',async function(e){
     var key=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(CFG.salt),iterations:CFG.iter,hash:'SHA-256'},km,{name:'AES-GCM',length:256},false,['decrypt']);
     var buf=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(CFG.iv)},key,b64(CFG.ct));
     var html=new TextDecoder().decode(buf);
-    var url=URL.createObjectURL(new Blob([html],{type:'text/html'}));
+    /* srcdoc y no un Blob: la CSP del sitio no declara frame-src, asi que aplica
+       default-src 'self' y un iframe blob: queda bloqueado ("this content is blocked").
+       srcdoc hereda el origen y la CSP de la pagina, y si pasa. */
     document.getElementById('gate').remove();
-    var f=document.createElement('iframe');f.id='doc';f.src=url;document.body.appendChild(f);
+    var f=document.createElement('iframe');f.id='doc';f.srcdoc=html;document.body.appendChild(f);
   }catch(_){
     err.textContent='Contrase\u00f1a incorrecta.';
     btn.disabled=false;btn.textContent='Ver propuesta';
