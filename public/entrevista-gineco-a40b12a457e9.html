@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Entrevista · Centro Ginecológico · MiAgentIA</title>
+<style>
+  :root{
+    --bg:#05050A; --bg-soft:#0A0A14; --card:#0D0D18;
+    --cyan:#22D3EE; --violet:#8B5CF6; --magenta:#E879F9;
+    --ink:#EDEDF5; --muted:#9A9AB0; --line:rgba(255,255,255,.09);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:Inter,"Segoe UI",system-ui,-apple-system,sans-serif;
+    line-height:1.55;-webkit-font-smoothing:antialiased;padding-bottom:110px}
+  ::selection{background:rgba(34,211,238,.25)}
+  .wrap{max-width:860px;margin:0 auto;padding:0 24px}
+  h1,h2{font-family:Sora,Inter,"Segoe UI",system-ui,sans-serif;line-height:1.12;letter-spacing:-.025em}
+
+  header{padding:76px 0 34px;position:relative;overflow:hidden}
+  header::before{content:"";position:absolute;inset:-50% 18% auto -18%;height:620px;
+    background:radial-gradient(56% 56% at 32% 42%, rgba(139,92,246,.22), transparent 70%);pointer-events:none}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:600;
+    letter-spacing:.15em;text-transform:uppercase;color:var(--cyan);margin-bottom:20px;position:relative}
+  .eyebrow i{width:6px;height:6px;border-radius:50%;background:var(--cyan);display:block;
+    box-shadow:0 0 0 4px rgba(34,211,238,.15)}
+  h1{font-size:clamp(32px,5.6vw,54px);font-weight:800;position:relative}
+  h1 span{background:linear-gradient(100deg,var(--cyan),var(--violet) 55%,var(--magenta));
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{margin-top:16px;font-size:17px;color:var(--muted);max-width:58ch;position:relative}
+
+  .meta{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:30px;position:relative}
+  @media (max-width:640px){.meta{grid-template-columns:1fr}}
+  .meta label{display:block;font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:6px}
+  .meta input{width:100%;background:var(--card);border:1px solid var(--line);border-radius:11px;
+    color:var(--ink);font:inherit;font-size:14.5px;padding:11px 13px;outline:none}
+  .meta input:focus{border-color:rgba(34,211,238,.5)}
+
+  nav.indice{display:flex;flex-wrap:wrap;gap:7px;padding:22px 0 8px;border-top:1px solid var(--line)}
+  nav.indice a{font-size:12.5px;font-weight:600;color:var(--muted);text-decoration:none;
+    padding:6px 11px;border-radius:999px;border:1px solid var(--line);background:var(--bg-soft)}
+  nav.indice a:hover{color:var(--ink);border-color:rgba(139,92,246,.5)}
+
+  section{padding:46px 0 10px;border-top:1px solid var(--line);scroll-margin-top:16px}
+  section:first-of-type{border-top:0}
+  .num{font-family:Sora,Inter,"Segoe UI",system-ui,sans-serif;font-size:13px;font-weight:700;color:var(--violet);
+    letter-spacing:.1em}
+  h2{font-size:clamp(22px,3vw,29px);font-weight:700;margin:6px 0 4px}
+  .para{font-size:14.5px;color:var(--muted);margin-bottom:22px;max-width:60ch}
+
+  .q{margin-bottom:22px}
+  .q label{display:block;font-size:15.5px;font-weight:600;margin-bottom:8px;line-height:1.4}
+  .q label small{display:block;font-weight:400;font-size:13px;color:var(--muted);margin-top:3px}
+  .q textarea{width:100%;min-height:58px;background:var(--card);border:1px solid var(--line);border-radius:12px;
+    color:var(--ink);font:inherit;font-size:14.5px;line-height:1.5;padding:12px 14px;resize:vertical;outline:none;
+    transition:border-color .15s ease}
+  .q textarea:focus{border-color:rgba(34,211,238,.55)}
+  .q textarea::placeholder{color:rgba(154,154,176,.55)}
+
+  .barra{position:fixed;left:0;right:0;bottom:0;background:rgba(5,5,10,.85);backdrop-filter:blur(10px);
+    border-top:1px solid var(--line);padding:12px 0}
+  .barra .wrap{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+  .barra button{font:inherit;font-size:13.5px;font-weight:600;padding:10px 15px;border-radius:11px;cursor:pointer;
+    border:1px solid var(--line);background:var(--bg-soft);color:var(--ink)}
+  .barra button.principal{background:linear-gradient(100deg,var(--cyan),var(--violet));border-color:transparent;color:#05050A}
+  .barra button:hover{filter:brightness(1.1)}
+  .barra .estado{margin-left:auto;font-size:12.5px;color:var(--muted)}
+
+  @media print{
+    body{background:#fff;color:#111;padding-bottom:0}
+    header::before,.barra,nav.indice{display:none}
+    .meta input,.q textarea{border:1px solid #bbb;background:#fff;color:#111}
+    section{border-color:#ddd;break-inside:avoid}
+    h1 span{color:#111;background:none;-webkit-text-fill-color:#111}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow"><i></i> Entrevista de descubrimiento</div>
+    <h1>Centro <span>Ginecológico</span></h1>
+    <p class="lead">
+      Lo que necesitamos saber para escribir el guion de su agente. Son preguntas para conversar,
+      no para leer en orden. Las notas se guardan solas en este dispositivo.
+    </p>
+    <div class="meta">
+      <div><label for="m-clinica">Clínica</label><input id="m-clinica" data-k="clinica" placeholder="Nombre" /></div>
+      <div><label for="m-con">Con quién hablamos</label><input id="m-con" data-k="con" placeholder="Nombre y cargo" /></div>
+      <div><label for="m-fecha">Fecha</label><input id="m-fecha" data-k="fecha" type="date" /></div>
+    </div>
+    <nav class="indice">
+      <a href="#s1">Hoy</a><a href="#s2">Dónde duele</a><a href="#s3">Qué quieren lograr</a>
+      <a href="#s4">Citas</a><a href="#s5">Lo que debe saber</a><a href="#s6">Lo que nunca hace</a>
+      <a href="#s7">Cómo hablan</a><a href="#s8">Canales</a><a href="#s9">Privacidad</a><a href="#s10">Para arrancar</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section id="s1">
+  <div class="num">01</div>
+  <h2>Cómo funciona hoy</h2>
+  <p class="para">Para dimensionar: cuánta gente, cuántas doctoras, cuánto volumen.</p>
+  <div class="q"><label>¿Cuántas sedes tienen y dónde quedan?</label><textarea data-k="s1q1"></textarea></div>
+  <div class="q"><label>¿Qué doctoras atienden y en qué días y horarios cada una?</label><textarea data-k="s1q2"></textarea></div>
+  <div class="q"><label>¿Qué servicios ofrecen?<small>Consulta, control prenatal, ecografías, citología, colposcopia, planificación, laboratorio, cirugía</small></label><textarea data-k="s1q3"></textarea></div>
+  <div class="q"><label>¿Quién contesta hoy el teléfono y el WhatsApp? ¿Cuántas personas?</label><textarea data-k="s1q4"></textarea></div>
+  <div class="q"><label>¿Cuántas llamadas y mensajes reciben en un día normal? ¿A qué horas se acumulan?</label><textarea data-k="s1q5"></textarea></div>
+</section>
+
+<section id="s2">
+  <div class="num">02</div>
+  <h2>Dónde duele</h2>
+  <p class="para">Lo que se pierde, lo que se repite y lo que cansa.</p>
+  <div class="q"><label>¿Qué llamadas o mensajes se quedan sin contestar? ¿En qué momentos pasa?</label><textarea data-k="s2q1"></textarea></div>
+  <div class="q"><label>¿Qué pregunta les hacen cien veces al día?</label><textarea data-k="s2q2"></textarea></div>
+  <div class="q"><label>¿Cuántas pacientes agendan y no llegan? ¿Les recuerdan la cita? ¿Cómo y cuándo?</label><textarea data-k="s2q3"></textarea></div>
+  <div class="q"><label>¿Qué pasa con los mensajes que llegan de noche, en fin de semana o en feriado?</label><textarea data-k="s2q4"></textarea></div>
+  <div class="q"><label>¿Qué es lo que más tiempo le quita a recepción y no debería?</label><textarea data-k="s2q5"></textarea></div>
+  <div class="q"><label>¿Han perdido pacientes por no contestar a tiempo? ¿Cómo se enteraron?</label><textarea data-k="s2q6"></textarea></div>
+</section>
+
+<section id="s3">
+  <div class="num">03</div>
+  <h2>Qué quieren lograr</h2>
+  <p class="para">Esto define qué mide el agente y qué reporta.</p>
+  <div class="q"><label>Si esto funciona perfecto, ¿qué cambia en la clínica en tres meses?</label><textarea data-k="s3q1"></textarea></div>
+  <div class="q"><label>¿Más citas, menos ausencias, atender fuera de horario, liberar a recepción? ¿Cuál va primero?</label><textarea data-k="s3q2"></textarea></div>
+  <div class="q"><label>¿Con qué número van a saber que funcionó?<small>Citas por semana, ausencias, mensajes contestados, tiempo de respuesta</small></label><textarea data-k="s3q3"></textarea></div>
+  <div class="q"><label>¿Hay algo que hoy no hacen y quisieran empezar a hacer?<small>Recordatorios, seguimiento después de la consulta, campañas a pacientes que no volvieron</small></label><textarea data-k="s3q4"></textarea></div>
+</section>
+
+<section id="s4">
+  <div class="num">04</div>
+  <h2>Las citas</h2>
+  <p class="para">El corazón del guion. Cada regla de acá es una regla del agente.</p>
+  <div class="q"><label>¿Dónde viven las citas hoy?<small>Agenda física, software, calendario compartido, hoja de cálculo</small></label><textarea data-k="s4q1"></textarea></div>
+  <div class="q"><label>¿Qué datos piden para agendar?<small>Nombre, teléfono, fecha de nacimiento, motivo, doctora, seguro, primera vez o control</small></label><textarea data-k="s4q2"></textarea></div>
+  <div class="q"><label>¿Cuánto dura cada tipo de cita? ¿Cambia entre primera vez y control?</label><textarea data-k="s4q3"></textarea></div>
+  <div class="q"><label>¿Qué reglas tienen?<small>Embarazadas con prioridad, urgencias el mismo día, cupos por doctora, mínimo de anticipación</small></label><textarea data-k="s4q4"></textarea></div>
+  <div class="q"><label>¿Cómo se reagenda o se cancela? ¿Con cuánta anticipación? ¿Hay penalidad?</label><textarea data-k="s4q5"></textarea></div>
+  <div class="q"><label>¿Se paga al agendar, en la clínica, o por seguro? ¿Qué seguros aceptan?</label><textarea data-k="s4q6"></textarea></div>
+  <div class="q"><label>¿Qué le confirman a la paciente después de agendar y por dónde?</label><textarea data-k="s4q7"></textarea></div>
+</section>
+
+<section id="s5">
+  <div class="num">05</div>
+  <h2>Lo que el agente tiene que saber</h2>
+  <p class="para">Las respuestas que hoy da recepción de memoria.</p>
+  <div class="q"><label>Precios de referencia por servicio. ¿Cuáles se dicen por teléfono y cuáles no?</label><textarea data-k="s5q1"></textarea></div>
+  <div class="q"><label>Preparación para cada estudio<small>Ayuno, vejiga llena, no estar en el periodo, qué traer</small></label><textarea data-k="s5q2"></textarea></div>
+  <div class="q"><label>Direcciones, referencias para llegar y parqueo</label><textarea data-k="s5q3"></textarea></div>
+  <div class="q"><label>¿Cómo se entregan los resultados de laboratorio? ¿Se mandan por WhatsApp o solo en consulta?</label><textarea data-k="s5q4"></textarea></div>
+  <div class="q"><label>¿Qué documentos o fotos les mandan las pacientes?<small>Recetas, resultados, comprobantes de pago, carnet del seguro</small></label><textarea data-k="s5q5"></textarea></div>
+  <div class="q"><label>¿Qué preguntas quieren que el agente conteste sin pasar con nadie?</label><textarea data-k="s5q6"></textarea></div>
+</section>
+
+<section id="s6">
+  <div class="num">06</div>
+  <h2>Lo que el agente nunca hace</h2>
+  <p class="para">Los límites pesan más que las funciones. Acá no se improvisa.</p>
+  <div class="q"><label>¿Qué situaciones pasan a una persona de inmediato?<small>Sangrado, dolor fuerte, embarazo con síntomas, menores de edad, violencia</small></label><textarea data-k="s6q1"></textarea></div>
+  <div class="q"><label>¿A quién se pasa y por dónde? ¿Cambia según la hora?</label><textarea data-k="s6q2"></textarea></div>
+  <div class="q"><label>¿Qué temas no se tocan por ningún canal?</label><textarea data-k="s6q3"></textarea></div>
+  <div class="q"><label>¿Puede el agente interpretar un resultado, sugerir un medicamento o dar una opinión médica?<small>Esperamos que no. Confirmar dónde está la línea.</small></label><textarea data-k="s6q4"></textarea></div>
+  <div class="q"><label>¿Qué hace el agente si una paciente está angustiada o llorando?</label><textarea data-k="s6q5"></textarea></div>
+</section>
+
+<section id="s7">
+  <div class="num">07</div>
+  <h2>Cómo hablan</h2>
+  <p class="para">El agente tiene que sonar a ellos, no a nosotros.</p>
+  <div class="q"><label>¿Cómo saludan hoy al contestar? La frase exacta.</label><textarea data-k="s7q1"></textarea></div>
+  <div class="q"><label>¿Usted, tú o vos?</label><textarea data-k="s7q2"></textarea></div>
+  <div class="q"><label>¿Cómo se va a llamar el agente? ¿Se presenta como parte de la clínica?</label><textarea data-k="s7q3"></textarea></div>
+  <div class="q"><label>Palabras que usan y palabras que no<small>Paciente o clienta, doctora o doctor, consulta o cita, cómo nombran cada estudio</small></label><textarea data-k="s7q4"></textarea></div>
+  <div class="q"><label>¿Cuándo debe decir que es una inteligencia artificial? ¿Al saludar o solo si preguntan?</label><textarea data-k="s7q5"></textarea></div>
+  <div class="q"><label>¿Cómo se despiden? ¿Qué dicen para cerrar?</label><textarea data-k="s7q6"></textarea></div>
+</section>
+
+<section id="s8">
+  <div class="num">08</div>
+  <h2>Canales</h2>
+  <p class="para">Por dónde entra la gente y quién lo tiene en la mano hoy.</p>
+  <div class="q"><label>Teléfono: ¿qué número? ¿Quién lo contesta? ¿Se puede desviar?</label><textarea data-k="s8q1"></textarea></div>
+  <div class="q"><label>WhatsApp: ¿qué número? ¿Es cuenta de empresa? ¿Desde qué teléfono lo manejan?</label><textarea data-k="s8q2"></textarea></div>
+  <div class="q"><label>Instagram y Facebook: ¿reciben mensajes ahí? ¿Quién los contesta?</label><textarea data-k="s8q3"></textarea></div>
+  <div class="q"><label>¿Correo, página web, formulario? ¿Alguien los revisa?</label><textarea data-k="s8q4"></textarea></div>
+  <div class="q"><label>¿En qué horario hay una persona disponible para tomar lo que el agente pase?</label><textarea data-k="s8q5"></textarea></div>
+</section>
+
+<section id="s9">
+  <div class="num">09</div>
+  <h2>Privacidad</h2>
+  <p class="para">Es información de salud. Esto se define antes de la primera conversación.</p>
+  <div class="q"><label>¿Quién de la clínica puede ver las conversaciones? ¿Todas o solo las de su área?</label><textarea data-k="s9q1"></textarea></div>
+  <div class="q"><label>¿Cómo manejan hoy la información sensible de las pacientes?</label><textarea data-k="s9q2"></textarea></div>
+  <div class="q"><label>¿Piden permiso para escribirles por WhatsApp? ¿Cómo?</label><textarea data-k="s9q3"></textarea></div>
+  <div class="q"><label>¿Cuánto tiempo guardan la información de una paciente?</label><textarea data-k="s9q4"></textarea></div>
+</section>
+
+<section id="s10">
+  <div class="num">10</div>
+  <h2>Para arrancar</h2>
+  <p class="para">Quién decide, con qué empezamos y cuándo probamos.</p>
+  <div class="q"><label>¿Quién es el contacto del día a día? ¿Quién aprueba el guion?</label><textarea data-k="s10q1"></textarea></div>
+  <div class="q"><label>¿Con qué sede, doctora o servicio empezamos?</label><textarea data-k="s10q2"></textarea></div>
+  <div class="q"><label>¿Cuándo podemos probar con llamadas y mensajes reales?</label><textarea data-k="s10q3"></textarea></div>
+  <div class="q"><label>¿Qué tendría que pasar para que digan que no?</label><textarea data-k="s10q4"></textarea></div>
+</section>
+
+</main>
+
+<div class="barra">
+  <div class="wrap">
+    <button class="principal" id="copiar">Copiar notas</button>
+    <button id="descargar">Descargar .txt</button>
+    <button id="limpiar">Limpiar</button>
+    <span class="estado" id="estado"></span>
+  </div>
+</div>
+
+<script>
+(function(){
+  var LLAVE = "miagentia.entrevista.gineco";
+  var campos = Array.prototype.slice.call(document.querySelectorAll("[data-k]"));
+  var estado = document.getElementById("estado");
+
+  function leer(){ try { return JSON.parse(localStorage.getItem(LLAVE) || "{}"); } catch(e){ return {}; } }
+  function guardar(){
+    var d = {};
+    campos.forEach(function(c){ if (c.value.trim()) d[c.dataset.k] = c.value; });
+    try { localStorage.setItem(LLAVE, JSON.stringify(d)); estado.textContent = "Guardado"; } catch(e){ estado.textContent = ""; }
+  }
+  function cargar(){
+    var d = leer();
+    campos.forEach(function(c){ if (d[c.dataset.k]) c.value = d[c.dataset.k]; ajustar(c); });
+  }
+  function ajustar(c){
+    if (c.tagName !== "TEXTAREA") return;
+    c.style.height = "auto"; c.style.height = Math.max(58, c.scrollHeight + 2) + "px";
+  }
+  campos.forEach(function(c){
+    c.addEventListener("input", function(){ ajustar(c); guardar(); });
+  });
+  cargar();
+
+  function texto(){
+    var out = [];
+    var meta = {};
+    campos.forEach(function(c){ if (!c.dataset.k.match(/^s\d/)) meta[c.dataset.k] = c.value.trim(); });
+    out.push("ENTREVISTA · " + (meta.clinica || "Centro Ginecológico"));
+    if (meta.con) out.push("Con: " + meta.con);
+    if (meta.fecha) out.push("Fecha: " + meta.fecha);
+    out.push("");
+    document.querySelectorAll("section").forEach(function(s){
+      var lineas = [];
+      s.querySelectorAll(".q").forEach(function(q){
+        var ta = q.querySelector("textarea");
+        if (!ta.value.trim()) return;
+        var lab = q.querySelector("label").childNodes[0].textContent.trim();
+        lineas.push("• " + lab + "\n  " + ta.value.trim().replace(/\n/g, "\n  "));
+      });
+      if (!lineas.length) return;
+      out.push(s.querySelector(".num").textContent + " " + s.querySelector("h2").textContent.toUpperCase());
+      out = out.concat(lineas);
+      out.push("");
+    });
+    return out.join("\n");
+  }
+
+  document.getElementById("copiar").addEventListener("click", function(){
+    var t = texto();
+    if (navigator.clipboard) navigator.clipboard.writeText(t).then(function(){ estado.textContent = "Copiado"; });
+    else { var a = document.createElement("textarea"); a.value = t; document.body.appendChild(a); a.select(); document.execCommand("copy"); a.remove(); estado.textContent = "Copiado"; }
+  });
+  document.getElementById("descargar").addEventListener("click", function(){
+    var b = new Blob([texto()], {type:"text/plain;charset=utf-8"});
+    var a = document.createElement("a"); a.href = URL.createObjectURL(b);
+    a.download = "entrevista-gineco.txt"; a.click(); URL.revokeObjectURL(a.href);
+  });
+  document.getElementById("limpiar").addEventListener("click", function(){
+    if (!confirm("¿Borrar todas las notas de este dispositivo?")) return;
+    campos.forEach(function(c){ c.value = ""; ajustar(c); });
+    try { localStorage.removeItem(LLAVE); } catch(e){}
+    estado.textContent = "";
+  });
+})();
+</script>
+
+</body>
+</html>
