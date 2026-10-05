@@ -138,7 +138,8 @@ input:focus,select:focus{outline:none;border-color:var(--cyan)}
 <script>
 /* ==========================  CONFIGURACIÓN (editar aquí)  ========================== */
 var CONFIG = {
-  // Datos de la vendedora que se guardan en el teléfono
+  // Datos de la vendedora que se guardan en el teléfono.
+  // Deben coincidir con el .vcf de vcfUrl: si cambian aquí, cambian allá.
   contact: {
     firstName: "Sandra",
     lastName:  "Alvarez",
@@ -154,8 +155,10 @@ var CONFIG = {
   // Endpoint del dev que dispara la llamada saliente (ver llamada-demo-guion.md, sección técnica)
   // POST JSON: { name, phone (E.164), source, consent, ts }  → responde 200 si la llamada se encoló
   demoEndpoint: "",                 // TODO: URL del backend. Vacío = modo simulación (no llama a nadie)
-  // Opcional: si el .vcf se aloja como archivo estático, ponerlo aquí (recomendado en producción)
-  vcfUrl: ""                        // ej. "/contacto-miagentia.vcf"
+  // El .vcf como archivo real del sitio: en iPhone abre la ficha con «Crear contacto nuevo»,
+  // en Android es el respaldo si Chrome no abre Contactos, en computadora se descarga.
+  // Vacío = el vCard se arma en la página (no abre la ficha en iPhone).
+  vcfUrl: "/women-executive-forum/contacto.vcf"
 };
 /* ================================================================================== */
 
@@ -188,12 +191,58 @@ var CONFIG = {
   }
   function fileName(){return ("contacto-"+c.firstName+"-"+c.org).toLowerCase().replace(/[^a-z0-9]+/g,"-")+".vcf"}
 
-  $("optSave").addEventListener("click", function(){
-    var hint = $("saveHint"); hint.style.display="block";
-    if(CONFIG.vcfUrl){ // archivo estático con Content-Type: text/vcard → mejor compatibilidad
-      hint.textContent = isIOS ? "Toca «Crear contacto nuevo» arriba a la derecha." : "Abre el archivo descargado y elige guardar en Contactos.";
-      window.location.href = CONFIG.vcfUrl; return;
+  // Android: intent de Chrome que abre «Crear contacto» ya lleno. Chrome solo lo abre si la
+  // app de Contactos del teléfono acepta abrirse desde el navegador; si no, va solo al .vcf.
+  function intentAndroid(vcfAbs){
+    var p = ["intent://#Intent","action=android.intent.action.INSERT","type=vnd.android.cursor.dir/raw_contact"];
+    function add(k,v){ if(v) p.push(k+"="+encodeURIComponent(v)); }
+    add("S.name", (c.firstName+" "+c.lastName).trim());
+    if(c.phoneMobile){ add("S.phone",c.phoneMobile); p.push("i.phone_type=2"); }          // 2 = móvil
+    if(c.phoneWhatsapp && c.phoneWhatsapp!==c.phoneMobile){
+      add("S.secondary_phone",c.phoneWhatsapp); p.push("i.secondary_phone_type=3");      // 3 = trabajo
     }
+    if(c.email){ add("S.email",c.email); p.push("i.email_type=2"); }                     // 2 = trabajo
+    add("S.company",c.org);
+    add("S.job_title",c.title);
+    add("S.notes",c.note);
+    add("S.browser_fallback_url",vcfAbs);
+    p.push("end");
+    return p.join(";");
+  }
+
+  $("optSave").addEventListener("click", function(){
+    var hint = $("saveHint");
+    function ver(t){hint.textContent=t; hint.style.display="block"}
+    if(CONFIG.vcfUrl){
+      var vcfAbs = new URL(CONFIG.vcfUrl, location.href).href;
+      if(isIOS){
+        // Safari muestra la ficha del contacto al abrir un text/vcard real (no blob ni data:)
+        ver("Se abrirá la ficha del contacto. Toca «Crear contacto nuevo» para guardarlo.");
+        window.location.href = vcfAbs; return;
+      }
+      if(isAndroid && /Chrome\//.test(ua) && !/; wv\)/.test(ua)){ // Chrome y derivados, no el navegador interno de otras apps
+        // Si se abre Contactos, la página queda oculta; si sigue visible, Chrome descargó el .vcf.
+        var salio = false;
+        var alOcultar = function(){ if(document.hidden) salio = true; };
+        document.addEventListener("visibilitychange", alOcultar);
+        hint.style.display = "none";
+        window.location.href = intentAndroid(vcfAbs);
+        setTimeout(function(){
+          document.removeEventListener("visibilitychange", alOcultar);
+          if(!salio) ver("Toca «Abrir» en el aviso de la descarga y guárdalo en tus contactos.");
+        }, 1500);
+        return;
+      }
+      // Computadora y cualquier otro: descarga el .vcf
+      var enlace = document.createElement("a");
+      enlace.href = vcfAbs; enlace.download = fileName();
+      document.body.appendChild(enlace); enlace.click(); enlace.remove();
+      ver(isAndroid
+        ? "Listo. Toca la notificación de descarga (o abre el archivo) y elige «Guardar en Contactos»."
+        : "Se descargó el archivo .vcf. Ábrelo para importarlo a tus contactos.");
+      return;
+    }
+    hint.style.display="block";
     var vcf = buildVcf();
     if(isIOS){
       // Safari iOS abre directamente la ficha "Nuevo contacto" con un data URI text/vcard
