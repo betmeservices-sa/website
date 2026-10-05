@@ -18,6 +18,7 @@ export default function robots(): MetadataRoute.Robots {
         '/yali-propuesta-d6c5d46bd219.html',
         '/big-deals-propuesta-ae480a9debbb.html',
         '/nissan-propuesta-3c886c04d4d4.html',
+        '/imagenologia-propuesta-93e6b577b65d.html',
         // Formularios de onboarding: los llena el cliente por enlace directo.
         // El noindex de cada pagina es el que manda; esto le evita el rastreo.
         '/onboarding/',
