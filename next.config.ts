@@ -80,6 +80,18 @@ const nextConfig: NextConfig = {
       { source: '/terminos-y-condiciones', destination: '/terminos', permanent: true },
     ]
   },
+  async rewrites() {
+    return [
+      // Landing del Women Executive Forum: un HTML hecho aparte, servido tal
+      // cual desde public/ en una URL limpia, sin el layout del sitio. Las
+      // variantes con mayúsculas o espacios (/Women-Executive-Forum,
+      // /Women%20Executive%20Forum) las redirige proxy.ts y NO van en
+      // redirects(): esas reglas no distinguen mayúsculas, así que un redirect
+      // de /Women-Executive-Forum atraparía también a la canónica y la página
+      // quedaría en un bucle.
+      { source: '/women-executive-forum', destination: '/women-executive-forum.html' },
+    ]
+  },
 }
 
 export default nextConfig
