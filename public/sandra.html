@@ -139,7 +139,7 @@ input:focus,select:focus{outline:none;border-color:var(--cyan)}
 /* ==========================  CONFIGURACIÓN (editar aquí)  ========================== */
 var CONFIG = {
   // Datos de la vendedora que se guardan en el teléfono.
-  // Deben coincidir con el .vcf de vcfUrl: si cambian aquí, cambian allá.
+  // El archivo de vcfUrl se genera con estos mismos datos al publicar: se cambian solo aquí.
   contact: {
     firstName: "Sandra",
     lastName:  "Alvarez",
@@ -158,7 +158,7 @@ var CONFIG = {
   // El .vcf como archivo real del sitio: en iPhone abre la ficha con «Crear contacto nuevo»,
   // en Android es el respaldo si Chrome no abre Contactos, en computadora se descarga.
   // Vacío = el vCard se arma en la página (no abre la ficha en iPhone).
-  vcfUrl: "/women-executive-forum/contacto.vcf"
+  vcfUrl: "/sandra/contacto.vcf"
 };
 /* ================================================================================== */
 
@@ -218,7 +218,9 @@ var CONFIG = {
       if(isIOS){
         // Safari muestra la ficha del contacto al abrir un text/vcard real (no blob ni data:)
         ver("Se abrirá la ficha del contacto. Toca «Crear contacto nuevo» para guardarlo.");
-        window.location.href = vcfAbs; return;
+        window.location.href = vcfAbs;
+        if(/CriOS|FxiOS|EdgiOS|FBAN|FBAV|Instagram|Line\//.test(ua)) ver("Si no se abre, ábrela en Safari (menú ··· → Abrir en Safari) y toca de nuevo.");
+        return;
       }
       if(isAndroid && /Chrome\//.test(ua) && !/; wv\)/.test(ua)){ // Chrome y derivados, no el navegador interno de otras apps
         // Si se abre Contactos, la página queda oculta; si sigue visible, Chrome descargó el .vcf.

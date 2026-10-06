@@ -82,14 +82,14 @@ const nextConfig: NextConfig = {
   },
   async rewrites() {
     return [
-      // Landing del Women Executive Forum: un HTML hecho aparte, servido tal
-      // cual desde public/ en una URL limpia, sin el layout del sitio. Las
-      // variantes con mayúsculas o espacios (/Women-Executive-Forum,
-      // /Women%20Executive%20Forum) las redirige proxy.ts y NO van en
+      // Landings de conferencia: un HTML hecho aparte por persona, servido tal
+      // cual desde public/ en una URL limpia, sin el layout del sitio. Su
+      // contacto vive en app/<persona>/contacto.vcf. Las variantes con
+      // mayúsculas (/Sandra, /ANDREA) las redirige proxy.ts y NO van en
       // redirects(): esas reglas no distinguen mayúsculas, así que un redirect
-      // de /Women-Executive-Forum atraparía también a la canónica y la página
-      // quedaría en un bucle.
-      { source: '/women-executive-forum', destination: '/women-executive-forum.html' },
+      // de /Sandra atraparía también a /sandra y la página quedaría en un bucle.
+      { source: '/sandra', destination: '/sandra.html' },
+      { source: '/andrea', destination: '/andrea.html' },
     ]
   },
 }
