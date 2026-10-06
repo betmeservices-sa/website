@@ -152,9 +152,9 @@ var CONFIG = {
     note:      "Conocimos en la conferencia. Agentes de IA de voz y WhatsApp.",
     photoUrl:  ""                   // opcional: URL pública .jpg (la descarga el dev y la incrusta en base64 si se desea)
   },
-  // Endpoint del dev que dispara la llamada saliente (ver llamada-demo-guion.md, sección técnica)
-  // POST JSON: { name, phone (E.164), source, consent, ts }  → responde 200 si la llamada se encoló
-  demoEndpoint: "",                 // TODO: URL del backend. Vacío = modo simulación (no llama a nadie)
+  // Ruta del sitio que hace que Sofía (agente de voz) llame: app/api/llamada-demo/route.ts
+  // POST JSON: { name, phone (E.164), source, asesora, consent, ts }  → responde 200 si la llamada se encoló
+  demoEndpoint: "/api/llamada-demo", // Vacío = modo simulación (no llama a nadie)
   // El .vcf como archivo real del sitio: en iPhone abre la ficha con «Crear contacto nuevo»,
   // en Android es el respaldo si Chrome no abre Contactos, en computadora se descarga.
   // Vacío = el vCard se arma en la página (no abre la ficha en iPhone).
@@ -286,7 +286,7 @@ var CONFIG = {
     if(digits.length<7 || digits.length>12) return msg("Revisa tu número de teléfono.","err");
     if(!$("dConsent").checked) return msg("Necesitamos tu autorización para llamarte.","err");
 
-    var payload = {name:name, phone:cc+digits, source:"conferencia-qr", consent:true, ts:new Date().toISOString()};
+    var payload = {name:name, phone:cc+digits, source:"conferencia-qr", asesora:c.firstName, consent:true, ts:new Date().toISOString()};
     var btn = $("dSubmit"); btn.disabled=true; btn.textContent="Enviando…";
 
     function done(){
