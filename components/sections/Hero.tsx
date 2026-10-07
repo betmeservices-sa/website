@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion, type TargetAndTransition } from 'framer-motion'
 import { useI18n } from '@/lib/i18n'
 import { site, waLink } from '@/lib/site'
 import Aurora from '@/components/reactbits/Aurora'
@@ -12,6 +12,12 @@ import Icon from '@/components/ui/Icon'
 
 export default function Hero() {
   const { t } = useI18n()
+  // Con el movimiento reducido por el sistema, Framer se salta la animación
+  // pero deja puesto el `initial` — y el initial es opacity:0, así que el
+  // contenido se queda invisible. initial={false} arranca directo en el
+  // estado final. Mismo bug que tenía SplitText.
+  const reduce = useReducedMotion()
+  const from = (v: TargetAndTransition) => (reduce ? false : v)
 
   return (
     <section id="top" className="relative flex min-h-screen items-center overflow-hidden pt-28 pb-20">
@@ -22,7 +28,7 @@ export default function Hero() {
         {/* Columna izquierda: texto */}
         <div className="text-center lg:text-left">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={from({ opacity: 0, y: 20 })}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
@@ -35,7 +41,7 @@ export default function Hero() {
           </h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 24 }}
+            initial={from({ opacity: 0, y: 24 })}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1.05 }}
             className="mx-auto mt-7 max-w-xl text-base leading-relaxed text-muted sm:text-lg lg:mx-0"
@@ -44,7 +50,7 @@ export default function Hero() {
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={from({ opacity: 0, y: 24 })}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1.25 }}
             className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start"
@@ -63,7 +69,7 @@ export default function Hero() {
           </motion.div>
 
           <motion.p
-            initial={{ opacity: 0 }}
+            initial={from({ opacity: 0 })}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.7, delay: 1.5 }}
             className="mt-5 flex items-center justify-center gap-1.5 text-xs text-muted lg:justify-start"
@@ -74,7 +80,7 @@ export default function Hero() {
 
           {/* Stats rápidos */}
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={from({ opacity: 0, y: 24 })}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1.65 }}
             className="mx-auto mt-12 grid max-w-xl grid-cols-3 divide-x divide-white/10 rounded-2xl glass lg:mx-0"
@@ -91,7 +97,7 @@ export default function Hero() {
         {/* Columna derecha: los canales girando alrededor de Sofía. Reemplaza al
             robot: dice el mensaje principal como imagen. */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.92 }}
+          initial={from({ opacity: 0, scale: 0.92 })}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           className="order-first flex justify-center lg:order-none"
