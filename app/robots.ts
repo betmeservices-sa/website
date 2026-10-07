@@ -21,6 +21,7 @@ export default function robots(): MetadataRoute.Robots {
         '/imagenologia-propuesta-93e6b577b65d.html',
         // Comparación de tipografías: material de trabajo, no página pública.
         '/tipografias.html',
+        '/_revision.html',
         // Formularios de onboarding: los llena el cliente por enlace directo.
         // El noindex de cada pagina es el que manda; esto le evita el rastreo.
         '/onboarding/',
