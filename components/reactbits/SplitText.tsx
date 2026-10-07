@@ -1,7 +1,7 @@
 'use client'
 
 // React Bits · SplitText — revela palabra por palabra con blur + desplazamiento.
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, useReducedMotion } from 'framer-motion'
 import { useRef } from 'react'
 
 interface Props {
@@ -25,8 +25,27 @@ export default function SplitText({
 }: Props) {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-60px' })
+  const reduce = useReducedMotion()
   const words = text.split(' ')
   const Tag = motion[as]
+
+  // Con el movimiento reducido por el sistema, Framer se salta la animación
+  // pero DEJA PUESTO el estilo inicial — y el inicial es opacity:0, así que el
+  // titular queda invisible. Paso por el que ya se fue la home publicada.
+  // Aquí no se anima nada: se pinta el texto y ya. Mismo criterio que
+  // AnimatedContent, que sale temprano en ese caso.
+  if (reduce) {
+    return (
+      <Tag className={className} aria-label={text}>
+        {words.map((word, i) => (
+          <span key={i} aria-hidden="true" className={`inline-block whitespace-pre ${wordClassName}`}>
+            {word}
+            {i < words.length - 1 ? ' ' : ''}
+          </span>
+        ))}
+      </Tag>
+    )
+  }
 
   return (
     <Tag ref={ref} className={className} aria-label={text}>
