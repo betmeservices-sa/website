@@ -47,7 +47,7 @@ h1 span{background:linear-gradient(90deg,var(--cyan),var(--pink));-webkit-backgr
 .sheet h2{font-size:21px;margin-bottom:6px}
 .sheet p.lead{color:var(--muted);font-size:14.5px;line-height:1.5;margin-bottom:16px}
 label{display:block;font-size:13px;color:var(--muted);margin:12px 0 6px}
-input[type=text],input[type=tel],select{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:12px;color:var(--text);
+input[type=text],input[type=tel],input[type=email],select{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:12px;color:var(--text);
   padding:14px;font-size:16px;font-family:inherit}
 input:focus,select:focus{outline:none;border-color:var(--cyan)}
 .phone-row{display:grid;grid-template-columns:110px 1fr;gap:8px}
@@ -63,6 +63,8 @@ input:focus,select:focus{outline:none;border-color:var(--cyan)}
 .pulse{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--cyan);margin-right:8px;animation:p 1.4s infinite}
 @keyframes p{0%{box-shadow:0 0 0 0 rgba(34,211,238,.6)}100%{box-shadow:0 0 0 14px rgba(34,211,238,0)}}
 .hint{display:none;margin-top:12px;font-size:13px;color:var(--muted);line-height:1.5;text-align:center}
+.dos{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.dos label{margin-top:12px}
 </style>
 </head>
 <body>
@@ -90,7 +92,14 @@ input:focus,select:focus{outline:none;border-color:var(--cyan)}
       <span class="arrow">›</span>
     </button>
 
-    <!-- 3. Guardar contacto -->
+    <!-- 3. Dejar datos -->
+    <button class="opt" id="optDatos" type="button">
+      <span class="ico">📝</span>
+      <span><strong>Déjanos tus datos</strong><small>Te contactamos nosotros para platicar sobre tu negocio</small></span>
+      <span class="arrow">›</span>
+    </button>
+
+    <!-- 4. Guardar contacto -->
     <button class="opt" id="optSave" type="button">
       <span class="ico">👤</span>
       <span><strong id="saveLabel">Guardar contacto</strong><small id="saveName"></small></span>
@@ -127,6 +136,57 @@ input:focus,select:focus{outline:none;border-color:var(--cyan)}
   </div>
 </div>
 
+<!-- Modal datos -->
+<div class="overlay" id="datosOverlay" role="dialog" aria-modal="true" aria-labelledby="datosTitle">
+  <div class="sheet">
+    <h2 id="datosTitle">Déjanos tus datos</h2>
+    <p class="lead">Cuéntanos quién eres y te escribimos nosotros. Sin compromiso.</p>
+    <form id="datosForm" novalidate>
+      <label for="lName">Tu nombre</label>
+      <input type="text" id="lName" name="nombre" autocomplete="name" placeholder="Ej. María López" required>
+      <div class="dos">
+        <div>
+          <label for="lEmpresa">Empresa</label>
+          <input type="text" id="lEmpresa" name="empresa" autocomplete="organization" placeholder="Ej. Clínica Vida">
+        </div>
+        <div>
+          <label for="lCargo">Cargo</label>
+          <input type="text" id="lCargo" name="cargo" autocomplete="organization-title" placeholder="Ej. Gerente">
+        </div>
+      </div>
+      <label for="lPhone">Tu teléfono</label>
+      <div class="phone-row">
+        <select id="lCc" aria-label="Código de país">
+          <option value="+503" selected>🇸🇻 +503</option>
+          <option value="+502">🇬🇹 +502</option>
+          <option value="+504">🇭🇳 +504</option>
+          <option value="+505">🇳🇮 +505</option>
+          <option value="+506">🇨🇷 +506</option>
+          <option value="+507">🇵🇦 +507</option>
+          <option value="+52">🇲🇽 +52</option>
+          <option value="+1">🇺🇸 +1</option>
+        </select>
+        <input type="tel" id="lPhone" name="telefono" inputmode="tel" autocomplete="tel-national" placeholder="Número">
+      </div>
+      <label for="lEmail">Tu correo</label>
+      <input type="email" id="lEmail" name="correo" inputmode="email" autocomplete="email" placeholder="nombre@empresa.com">
+      <label for="lInteres">¿Qué te interesa?</label>
+      <select id="lInteres" name="interes">
+        <option value="">Elige una opción</option>
+        <option>Agente de voz (llamadas)</option>
+        <option>Agente de WhatsApp</option>
+        <option>Voz y WhatsApp</option>
+        <option>Aún no lo sé</option>
+      </select>
+      <label class="check"><input type="checkbox" id="lConsent" required>
+        <span>Acepto que MiAgentIA me contacte por teléfono, WhatsApp o correo sobre sus servicios.</span></label>
+      <button class="btn" id="lSubmit" type="submit">Enviar mis datos</button>
+      <div class="msg" id="lMsg" role="status"></div>
+    </form>
+    <button class="close" type="button" id="datosClose">Cerrar</button>
+  </div>
+</div>
+
 <script>
 /* ==========================  CONFIGURACIÓN (editar aquí)  ========================== */
 var CONFIG = {
@@ -147,6 +207,9 @@ var CONFIG = {
   // Ruta del sitio que hace que Sofía (agente de voz) llame: app/api/llamada-demo/route.ts
   // POST JSON: { name, phone (E.164), source, asesora, consent, ts }  → responde 200 si la llamada se encoló
   demoEndpoint: "/api/llamada-demo", // Vacío = modo simulación (no llama a nadie)
+  // Ruta del sitio que guarda el formulario «Déjanos tus datos»: app/api/leads/route.ts
+  // POST JSON: { nombre, empresa, cargo, telefono (E.164), correo, interes, asesora, source, landing, utm, consent, ts }
+  leadsEndpoint: "/api/leads",
   // El .vcf como archivo real del sitio: en iPhone abre la ficha con «Crear contacto nuevo»,
   // en Android es el respaldo si Chrome no abre Contactos, en computadora se descarga.
   // Vacío = el vCard se arma en la página (no abre la ficha en iPhone).
@@ -160,6 +223,12 @@ var CONFIG = {
   var ua = navigator.userAgent || "";
   var isIOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform==="MacIntel" && navigator.maxTouchPoints>1);
   var isAndroid = /Android/i.test(ua);
+  // Los QR pueden traer utm_* en la URL: van con cada envío para saber de qué QR vino.
+  function utm(){
+    var o = {}, hay = false;
+    new URLSearchParams(location.search).forEach(function(v,k){ if(/^utm_/i.test(k)){ o[k.toLowerCase()] = v; hay = true; } });
+    return hay ? o : null;
+  }
 
   $("saveName").textContent = c.firstName + " " + c.lastName + " · " + c.org;
 
@@ -265,7 +334,7 @@ var CONFIG = {
   $("optDemo").addEventListener("click", openDemo);
   $("demoClose").addEventListener("click", closeDemo);
   ov.addEventListener("click", function(e){if(e.target===ov)closeDemo()});
-  document.addEventListener("keydown", function(e){if(e.key==="Escape")closeDemo()});
+  document.addEventListener("keydown", function(e){if(e.key==="Escape"){closeDemo();closeDatos();}});
 
   function msg(t, kind){var m=$("dMsg");m.className="msg "+kind;m.innerHTML=t}
 
@@ -278,7 +347,7 @@ var CONFIG = {
     if(digits.length<7 || digits.length>12) return msg("Revisa tu número de teléfono.","err");
     if(!$("dConsent").checked) return msg("Necesitamos tu autorización para llamarte.","err");
 
-    var payload = {name:name, phone:cc+digits, source:"conferencia-qr", asesora:c.firstName, consent:true, ts:new Date().toISOString()};
+    var payload = {name:name, phone:cc+digits, source:"conferencia-qr", asesora:c.firstName, landing:location.pathname, utm:utm(), consent:true, ts:new Date().toISOString()};
     var btn = $("dSubmit"); btn.disabled=true; btn.textContent="Enviando…";
 
     function done(){
@@ -292,6 +361,49 @@ var CONFIG = {
 
     if(!CONFIG.demoEndpoint){ console.warn("[demo] demoEndpoint vacío — modo simulación", payload); return setTimeout(done,700); }
     fetch(CONFIG.demoEndpoint,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)})
+      .then(function(r){ if(!r.ok) throw new Error(r.status); done(); })
+      .catch(fail);
+  });
+
+  /* ---------- Déjanos tus datos ---------- */
+  var ovD = $("datosOverlay");
+  function openDatos(){ovD.classList.add("open");setTimeout(function(){$("lName").focus()},200)}
+  function closeDatos(){ovD.classList.remove("open")}
+  $("optDatos").addEventListener("click", openDatos);
+  $("datosClose").addEventListener("click", closeDatos);
+  ovD.addEventListener("click", function(e){if(e.target===ovD)closeDatos()});
+
+  function msgD(t, kind){var m=$("lMsg");m.className="msg "+kind;m.innerHTML=t}
+
+  $("datosForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    var nombre = $("lName").value.trim();
+    var empresa = $("lEmpresa").value.trim();
+    var cargo = $("lCargo").value.trim();
+    var digits = $("lPhone").value.replace(/\D/g,"").replace(/^0+/,"");
+    var cc = $("lCc").value;
+    var correo = $("lEmail").value.trim();
+    var interes = $("lInteres").value;
+    if(nombre.length<2) return msgD("Escribe tu nombre.","err");
+    if(!digits && !correo) return msgD("Déjanos tu teléfono o tu correo para poder contactarte.","err");
+    if(correo && correo.indexOf("@")<0) return msgD("Revisa tu correo.","err");
+    if(!$("lConsent").checked) return msgD("Necesitamos tu autorización para contactarte.","err");
+
+    var payload = {nombre:nombre, empresa:empresa, cargo:cargo, telefono:digits?cc+digits:"", correo:correo, interes:interes,
+                   asesora:c.firstName, source:"conferencia-qr", landing:location.pathname, utm:utm(), consent:true, ts:new Date().toISOString()};
+    var btn = $("lSubmit"); btn.disabled=true; btn.textContent="Enviando…";
+
+    function done(){
+      msgD('¡Gracias, '+nombre.replace(/</g,"&lt;")+'! Ya tenemos tus datos. '+c.firstName+' te contacta pronto.',"ok");
+      btn.textContent="Datos enviados";
+    }
+    function fail(){
+      btn.disabled=false; btn.textContent="Enviar mis datos";
+      msgD('No pudimos guardar tus datos. Intenta de nuevo o escríbenos por <a style="color:#67E8F9" href="https://wa.me/'+c.phoneWhatsapp.replace(/\D/g,"")+'">WhatsApp</a>.',"err");
+    }
+
+    if(!CONFIG.leadsEndpoint){ console.warn("[datos] leadsEndpoint vacío — modo simulación", payload); return setTimeout(done,700); }
+    fetch(CONFIG.leadsEndpoint,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)})
       .then(function(r){ if(!r.ok) throw new Error(r.status); done(); })
       .catch(fail);
   });
