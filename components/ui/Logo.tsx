@@ -1,7 +1,7 @@
 // Logo de MiAgentIA: insignia circular ANIMADA (ecualizador de voz en CSS)
-// en el espacio de la bolita original + wordmark oficial en PNG con alpha real
-// (colorkey sobre el negro; mix-blend no sirve aquí: el header fixed+z-50
-// crea un stacking context que bloquea el fundido).
+// en el espacio de la bolita original + wordmark oficial en SVG: vector, nitido
+// a cualquier zoom. Es el mismo archivo que usan las tarjetas impresas, sin orbe
+// ni tagline: el orbe lo pone el VoiceBadge de al lado.
 
 export default function Logo({ className = '', showText = true }: { className?: string; showText?: boolean }) {
   return (
@@ -11,10 +11,10 @@ export default function Logo({ className = '', showText = true }: { className?: 
       {showText && (
         // eslint-disable-next-line @next/next/no-img-element
         <img
-          src="/brand/wordmark.png"
+          src="/brand/wordmark.svg"
           alt="miagentiA"
-          width={520}
-          height={148}
+          width={940}
+          height={240}
           className="h-[1.85em] w-auto select-none"
           draggable={false}
         />
