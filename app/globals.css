@@ -207,3 +207,116 @@ html.lenis, html.lenis body { height: auto; }
   .fx .fx-cometa, .fx.fx-on .fx-cometa,
   .fx .fx-halo, .fx.fx-on .fx-halo { display: none; }
 }
+
+
+/* ───────────────────────── banda omnicanal ─────────────────────────
+   Mismo recorrido que la tarjeta de presentación: canales → orbe → ventas,
+   con los mismos paths SVG, para que lo impreso y lo digital sean la misma
+   pieza.
+
+   Geometría: cada paso tiene ANCHO FIJO y una caja de icono de alto fijo,
+   así las etiquetas quedan alineadas aunque el orbe sea más grande que los
+   nodos. Los conectores se posicionan en el hueco entre nodos a partir de
+   esos anchos — si cambias un ancho, recalcula el conector o se encabalgan.
+
+   El movimiento es CSS puro: un pulso viaja por cada conector hacia el orbe,
+   el orbe respira y el nodo de ventas se enciende. Nada bajo reduced-motion. */
+.omni-rail {
+  display: flex; align-items: flex-start; justify-content: center;
+  flex-wrap: wrap; gap: 0;
+}
+.omni-step {
+  position: relative; width: 120px; flex: none;
+  display: flex; flex-direction: column; align-items: center;
+}
+.omni-step-hub { width: 140px; }
+
+/* Caja de alto fijo: alinea las etiquetas de nodos de distinto tamaño. */
+.omni-icon { height: 96px; display: grid; place-items: center; }
+
+.omni-node {
+  width: 64px; height: 64px; border-radius: 18px;
+  display: grid; place-items: center;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.035);
+  color: var(--tint, #22D3EE);
+  animation: omni-breathe 4.2s ease-in-out infinite;
+}
+.omni-node svg {
+  width: 28px; height: 28px; fill: none; stroke: currentColor;
+  stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round;
+}
+.omni-node svg .fillcur { fill: currentColor; stroke: none; }
+.omni-node-out { color: #EC4899; width: 72px; height: 72px; border-radius: 20px; }
+.omni-node-out svg { width: 36px; height: 36px; }
+
+.omni-hub {
+  width: 96px; height: 96px; display: grid; place-items: center;
+  animation: omni-breathe 3.4s ease-in-out infinite;
+  filter: drop-shadow(0 0 22px rgba(139,92,246,.55));
+}
+/* orbe.png ya trae alfa por luminancia (el cuadro negro del recorte se
+   eliminó en build), así que no hace falta mix-blend-mode — que además no
+   funcionaría: el padre tiene filter y transform, y eso aísla el blending. */
+.omni-hub img { width: 100%; height: 100%; object-fit: contain; }
+
+.omni-cap {
+  width: 100%; margin-top: 12px; text-align: center;
+  font-size: 10.5px; letter-spacing: .13em; text-transform: uppercase;
+  color: var(--color-muted); font-family: var(--font-display);
+}
+.omni-cap-hub { color: var(--color-ink); }
+
+/* Conectores. 120px de paso con nodo de 64 => hueco de 56 a partir de +32.
+   Hacia el orbe el paso mide 140 y el orbe 96, así que el hueco es de 50. */
+.omni-link {
+  position: absolute; top: 47px; left: calc(50% + 32px);
+  width: 56px; height: 2px; border-radius: 2px;
+  background: linear-gradient(90deg, var(--tint, #22D3EE), var(--tint2, #8B5CF6));
+  opacity: .34;
+}
+.omni-link-tohub { width: 50px; }
+.omni-link-out {
+  left: calc(50% + 48px); width: 46px;
+  background: linear-gradient(90deg, #A855F7, #EC4899); opacity: .5;
+}
+.omni-pulse {
+  position: absolute; top: 50%; left: 0; width: 7px; height: 7px;
+  margin-top: -3.5px; border-radius: 50%;
+  background: var(--tint2, #8B5CF6);
+  box-shadow: 0 0 10px 2px color-mix(in srgb, var(--tint2, #8B5CF6) 70%, transparent);
+  animation: omni-travel 2.8s cubic-bezier(.5,0,.5,1) infinite;
+  animation-delay: var(--delay, 0s);
+}
+.omni-pulse-out {
+  background: #EC4899; box-shadow: 0 0 10px 2px rgba(236,72,153,.7);
+  animation-delay: 1.5s;
+}
+
+@keyframes omni-travel {
+  0%   { left: 0;    opacity: 0; }
+  12%  { opacity: 1; }
+  78%  { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+@keyframes omni-breathe {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.055); }
+}
+
+/* En móvil el riel se apila en rejilla: los conectores horizontales estorban. */
+@media (max-width: 880px) {
+  .omni-rail { gap: 10px 4px; max-width: 420px; margin: 0 auto; }
+  .omni-step, .omni-step-hub { width: 33.333%; }
+  .omni-link { display: none; }
+  .omni-icon { height: 80px; }
+  .omni-node { width: 54px; height: 54px; border-radius: 15px; }
+  .omni-node svg { width: 24px; height: 24px; }
+  .omni-hub { width: 74px; height: 74px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .omni-node, .omni-hub { animation: none !important; }
+  .omni-pulse { display: none; }
+  .omni-link { opacity: .5; }
+}

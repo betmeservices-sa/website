@@ -49,6 +49,49 @@ const es = {
       ],
     },
 
+    // Banda omnicanal — mismo recorrido que la tarjeta de presentación:
+    // canales → orbe (el agente) → ventas. Los iconos son los mismos SVG.
+    omni: {
+      label: 'Omnicanal',
+      titleTop: 'Todos tus canales.',
+      titleGrad: 'Un solo agente.',
+      sub: 'WhatsApp, llamadas, correo y redes entran por donde el cliente quiera. Sofía las atiende todas con el mismo criterio, el mismo guion y el mismo registro.',
+      channels: ['WhatsApp', 'Llamadas', 'Correo', 'Instagram', 'Facebook'],
+      hub: 'Sofía',
+      out: 'Ventas',
+      caption: 'Un cliente, una conversación — sin importar por cuál canal llegó.',
+    },
+
+    sofia: {
+      label: 'Tu agente',
+      titleTop: 'Conoce a',
+      titleGrad: 'Sofía',
+      sub: 'No es un bot de preguntas frecuentes. Es un agente con un guion que tú apruebas, límites que tú defines y una regla clara de cuándo entra tu equipo.',
+      meta: [
+        { k: 'Canales', v: 'Voz + WhatsApp' },
+        { k: 'Idiomas', v: 'Español e inglés' },
+        { k: 'Horario', v: '24 horas, todos los días' },
+      ],
+      doesLabel: 'Qué hace',
+      does: [
+        { s: 'Entra un lead de una campaña', r: 'Contesta al instante con la información vigente que tú cargaste y agenda antes de que el prospecto busque en otro lado.' },
+        { s: 'Llaman de noche o en fin de semana', r: 'Atiende igual que en horario de oficina: toma los datos, agenda y da seguimiento.' },
+        { s: 'El cliente escribe por WhatsApp y después llama', r: 'Retoma la conversación donde quedó. No vuelve a preguntar lo que ya sabe.' },
+        { s: 'La pregunta necesita a una persona', r: 'Captura el contexto completo y transfiere, sin que el cliente tenga que repetir nada.' },
+      ],
+      limitsLabel: 'Qué NO hace',
+      limitsNote: 'Los límites los defines tú en la configuración inicial. Esto es lo que recomendamos por defecto:',
+      limits: [
+        'No cierra la venta ni negocia el precio final. Eso lo hace tu equipo.',
+        'No inventa promociones ni descuentos: solo usa la información que tú cargues y apruebes.',
+        'No aprueba nada que requiera criterio humano. Recopila y transfiere.',
+        'No da asesoría legal, médica ni financiera.',
+      ],
+      escalaLabel: 'Cuándo entra tu equipo',
+      escala: 'Cuando el cliente está listo para avanzar o pide hablar con una persona, Sofía transfiere la conversación con todo el contexto ya capturado.',
+      cta: 'Agenda una demo con Sofía',
+    },
+
     voice: {
       label: 'Demo · Voz',
       title: 'Escúchalo por ti mismo',
@@ -59,7 +102,7 @@ const es = {
       restart: 'Volver a llamar',
       caption: 'Demostración visual. Tu agente real se entrena con la información de tu negocio.',
       transcript: [
-        { who: 'agent', text: 'Gracias por llamar a MiAgentIA, soy Aria. ¿En qué te ayudo?' },
+        { who: 'agent', text: 'Gracias por llamar a MiAgentIA, soy Sofía. ¿En qué te ayudo?' },
         { who: 'user', text: 'Hola, quiero información y agendar una demo.' },
         { who: 'agent', text: 'Con gusto. Tengo espacio mañana a las 10 o el jueves a las 3. ¿Cuál te queda mejor?' },
         { who: 'user', text: 'Mañana a las 10 está perfecto.' },
@@ -267,6 +310,47 @@ const en: Dict = {
       ],
     },
 
+    omni: {
+      label: 'Omnichannel',
+      titleTop: 'Every channel.',
+      titleGrad: 'One agent.',
+      sub: 'WhatsApp, calls, email and social all come in wherever the customer prefers. Sofía handles them with the same judgment, the same script and the same record.',
+      channels: ['WhatsApp', 'Calls', 'Email', 'Instagram', 'Facebook'],
+      hub: 'Sofía',
+      out: 'Sales',
+      caption: 'One customer, one conversation — whichever channel they arrived on.',
+    },
+
+    sofia: {
+      label: 'Your agent',
+      titleTop: 'Meet',
+      titleGrad: 'Sofía',
+      sub: 'Not an FAQ bot. An agent with a script you approve, limits you define, and a clear rule for when your team steps in.',
+      meta: [
+        { k: 'Channels', v: 'Voice + WhatsApp' },
+        { k: 'Languages', v: 'Spanish and English' },
+        { k: 'Hours', v: '24 hours, every day' },
+      ],
+      doesLabel: 'What she does',
+      does: [
+        { s: 'A campaign lead comes in', r: 'Answers instantly with the current information you loaded, and books before the prospect shops elsewhere.' },
+        { s: 'Someone calls at night or on a weekend', r: 'Handles it exactly like office hours: takes the details, books and follows up.' },
+        { s: 'A customer writes on WhatsApp, then calls', r: 'Picks the conversation up where it left off. Never asks again for what she already knows.' },
+        { s: 'The question needs a person', r: 'Captures the full context and transfers, so the customer never repeats themselves.' },
+      ],
+      limitsLabel: 'What she does NOT do',
+      limitsNote: 'You set the limits during setup. These are the defaults we recommend:',
+      limits: [
+        'She does not close the sale or negotiate final pricing. Your team does that.',
+        'She does not invent promotions or discounts: she only uses information you load and approve.',
+        'She does not approve anything that needs human judgment. She gathers and transfers.',
+        'She does not give legal, medical or financial advice.',
+      ],
+      escalaLabel: 'When your team steps in',
+      escala: 'When the customer is ready to move forward or asks for a person, Sofía transfers the conversation with all the context already captured.',
+      cta: 'Book a demo with Sofía',
+    },
+
     voice: {
       label: 'Demo · Voice',
       title: 'Hear it for yourself',
@@ -277,7 +361,7 @@ const en: Dict = {
       restart: 'Call again',
       caption: 'Visual demo. Your real agent is trained on your business information.',
       transcript: [
-        { who: 'agent', text: 'Thanks for calling MiAgentIA, this is Aria. How can I help?' },
+        { who: 'agent', text: 'Thanks for calling MiAgentIA, this is Sofía. How can I help?' },
         { who: 'user', text: 'Hi, I want info and to book a demo.' },
         { who: 'agent', text: 'Happy to. I have tomorrow at 10 or Thursday at 3. Which works best?' },
         { who: 'user', text: 'Tomorrow at 10 is perfect.' },

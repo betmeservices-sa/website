@@ -1,6 +1,8 @@
 // Composición de la landing (compartida por / y /en).
 import Hero from '@/components/sections/Hero'
+import Omnichannel from '@/components/sections/Omnichannel'
 import Services from '@/components/sections/Services'
+import Sofia from '@/components/sections/Sofia'
 import VoiceDemo from '@/components/sections/VoiceDemo'
 import WhatsAppDemo from '@/components/sections/WhatsAppDemo'
 import HybridModel from '@/components/sections/HybridModel'
@@ -14,7 +16,9 @@ export default function HomeSections() {
   return (
     <>
       <Hero />
+      <Omnichannel />
       <Services />
+      <Sofia />
       <VoiceDemo />
       <WhatsAppDemo />
       <HybridModel />
