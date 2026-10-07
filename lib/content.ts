@@ -16,7 +16,7 @@ const es = {
     },
 
     hero: {
-      badge: 'WhatsApp · Instagram · Facebook · Llamadas',
+      badge: 'Agentes de IA · WhatsApp, Instagram, Facebook y llamadas',
       titleTop: 'Todos tus canales.',
       titleGrad: 'Un solo agente.',
       sub: 'Sofía contesta en segundos, a la hora que sea. Califica al cliente, agenda la cita y deja el lead en tu CRM. Tu equipo entra cuando hay que cerrar.',
@@ -95,12 +95,12 @@ const es = {
     voice: {
       label: 'Demo · Voz',
       title: 'Escúchalo por ti mismo',
-      sub: 'Pulsa para simular una llamada. Así suena y responde tu agente de voz.',
+      sub: 'Pulsa para simular una llamada. Así suena y responde Sofía.',
       idle: 'Toca para llamar',
       active: 'En llamada...',
       ended: 'Llamada finalizada',
       restart: 'Volver a llamar',
-      caption: 'Demostración visual. Tu agente real se entrena con la información de tu negocio.',
+      caption: 'Demostración visual. La Sofía de tu negocio se entrena con tu propia información.',
       transcript: [
         { who: 'agent', text: 'Gracias por llamar a MiAgentIA, soy Sofía. ¿En qué te ayudo?' },
         { who: 'user', text: 'Hola, quiero información y agendar una demo.' },
@@ -113,7 +113,7 @@ const es = {
     chat: {
       label: 'Demo · WhatsApp',
       title: 'Conversaciones que convierten',
-      sub: 'Mira cómo el agente atiende, califica y agenda en tiempo real.',
+      sub: 'Mira cómo Sofía atiende, califica y agenda en tiempo real.',
       contact: 'MiAgentIA',
       status: 'en línea',
       typing: 'escribiendo...',
@@ -123,7 +123,7 @@ const es = {
         { who: 'in',  text: 'Hola, vi su anuncio. ¿Cómo funciona esto? 👀' },
         { who: 'out', text: '¡Hola! 👋 Somos MiAgentIA. Creamos agentes de IA que atienden, califican y agendan por WhatsApp y por llamada, 24/7. ¿Para qué tipo de negocio lo necesitas?' },
         { who: 'in',  text: 'Tengo una clínica dental.' },
-        { who: 'out', text: 'Perfecto. Nuestro agente responde pacientes al instante, agenda citas en tu calendario y les recuerda para bajar las ausencias. ¿Te muestro una demo esta semana?' },
+        { who: 'out', text: 'Perfecto. Sofía responde a tus pacientes al instante, agenda las citas en tu calendario y les recuerda para bajar las ausencias. ¿Te muestro una demo esta semana?' },
         { who: 'in',  text: 'Sí, por favor 🙌' },
         { who: 'out', text: 'Genial ✨ Te reservé el jueves 3:00 pm. En un momento te llega la confirmación. ¿Me compartes tu nombre?' },
       ],
@@ -131,13 +131,13 @@ const es = {
 
     how: {
       label: 'Cómo funciona',
-      title: 'De la idea al agente en vivo',
+      title: 'De la idea a Sofía en vivo',
       sub: 'Un proceso simple para poner tu IA a trabajar rápido.',
       steps: [
-        { title: 'Diseñamos tu agente', desc: 'Definimos su personalidad, guion y objetivos según tu negocio.' },
+        { title: 'Diseñamos tu colaboradora', desc: 'Definimos su personalidad, guion y objetivos según tu negocio.' },
         { title: 'Lo entrenamos', desc: 'Le cargamos tu información, preguntas frecuentes y flujos de venta.' },
         { title: 'Lo conectamos', desc: 'Voz, WhatsApp, calendario y CRM integrados en un solo sistema.' },
-        { title: 'Atiende 24/7', desc: 'Tu agente empieza a responder, calificar y agendar desde el día uno.' },
+        { title: 'Atiende 24/7', desc: 'Sofía empieza a responder, calificar y agendar desde el día uno.' },
       ],
     },
 
@@ -162,8 +162,8 @@ const es = {
 
     plans: {
       label: 'Planes',
-      title: 'Cuatro paquetes. El mismo agente.',
-      sub: 'Todos incluyen la bandeja unificada y el agente completo. Lo que cambia es cuánto entiende y hasta dónde automatiza.',
+      title: 'Cuatro paquetes. La misma Sofía.',
+      sub: 'Todos incluyen la bandeja unificada y a Sofía completa. Lo que cambia es cuánto entiende y hasta dónde automatiza.',
       tiers: ['Starter', 'Growth', 'Advanced', 'Enterprise'],
       groups: [
         {
@@ -214,10 +214,10 @@ const es = {
       label: 'Preguntas',
       title: 'Lo que todos preguntan',
       items: [
-        { q: '¿El agente suena robótico?', a: 'No. Usamos voces naturales y guiones conversacionales. La mayoría de las personas no nota que habla con una IA.' },
-        { q: '¿Se conecta con mi WhatsApp actual?', a: 'Sí. Integramos con WhatsApp Business para que el agente responda desde tu número, con el tono de tu marca.' },
+        { q: '¿Sofía suena robótica?', a: 'No. Usamos voces naturales y guiones conversacionales. La mayoría de las personas no nota que habla con una IA.' },
+        { q: '¿Se conecta con mi WhatsApp actual?', a: 'Sí. Integramos con WhatsApp Business para que Sofía responda desde tu número, con el tono de tu marca.' },
         { q: '¿Cuánto tarda la implementación?', a: 'Normalmente días, no meses. Depende de la complejidad de tus flujos e integraciones.' },
-        { q: '¿Puede transferir a un humano?', a: 'Claro. El agente resuelve lo repetitivo y escala a tu equipo cuando la conversación lo amerita.' },
+        { q: '¿Puede transferir a un humano?', a: 'Claro. Sofía resuelve lo repetitivo y pasa la conversación a tu equipo cuando lo amerita.' },
         { q: '¿En qué idiomas atiende?', a: 'Español, inglés y más. Puede detectar el idioma del cliente y responder en el mismo.' },
         { q: '¿Necesito conocimientos técnicos?', a: 'No. Nosotros diseñamos, entrenamos y conectamos todo. Tú solo recibes los resultados.' },
       ],
@@ -226,7 +226,7 @@ const es = {
     finalCta: {
       label: 'Empecemos',
       title: 'Tu próximo cliente está escribiendo ahora mismo',
-      sub: 'Deja que un agente de IA lo atienda al instante mientras tú te enfocas en crecer.',
+      sub: 'Deja que tu colaboradora de IA lo atienda al instante mientras tú te enfocas en crecer.',
       cta: 'Agenda tu demo gratis',
       wa: 'Escríbenos por WhatsApp',
       or: 'o',
@@ -275,7 +275,7 @@ const en: Dict = {
     },
 
     hero: {
-      badge: 'WhatsApp · Instagram · Facebook · Calls',
+      badge: 'AI agents · WhatsApp, Instagram, Facebook and calls',
       titleTop: 'Every channel.',
       titleGrad: 'One agent.',
       sub: 'Sofía answers in seconds, at any hour. She qualifies the customer, books the appointment and drops the lead into your CRM. Your team steps in to close.',
