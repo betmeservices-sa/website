@@ -22,9 +22,6 @@ export default function robots(): MetadataRoute.Robots {
         // Formularios de onboarding: los llena el cliente por enlace directo.
         // El noindex de cada pagina es el que manda; esto le evita el rastreo.
         '/onboarding/',
-        // Panel del equipo con los leads de conferencia: pide clave, pero tampoco
-        // tiene por que aparecer en una busqueda.
-        '/leads',
       ],
     },
     sitemap: 'https://www.miagentia.com/sitemap.xml',

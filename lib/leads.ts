@@ -1,11 +1,13 @@
 // Leads de las landings de conferencia (/sandra, /andrea).
 //
 // Viven en la tabla public.miagentia_leads del Supabase de BetMe
-// (pfzxpidlbuxxtlycdwaj). Se escribe y se lee SOLO desde el servidor con la
+// (pfzxpidlbuxxtlycdwaj). Aquí solo se escribe, desde el servidor, con la
 // llave secreta (SUPABASE_SECRET_KEY): la tabla tiene RLS encendido y ninguna
 // política a propósito, así que con la llave pública no se ve nada.
 //
-// Sin @supabase/supabase-js: son dos llamadas a PostgREST y el sitio no usa la
+// El equipo los lee en demo.miagentia.com (pantalla Leads de la agencia).
+//
+// Sin @supabase/supabase-js: es una llamada a PostgREST y el sitio no usa la
 // librería en ningún otro lado.
 
 export type TipoLead = 'datos' | 'llamada-demo'
@@ -52,17 +54,6 @@ export async function guardarLead(lead: LeadNuevo): Promise<Lead> {
   if (!r.ok) throw new Error(`Supabase ${r.status}: ${(await r.text()).slice(0, 300)}`)
   const filas = (await r.json()) as Lead[]
   return filas[0]
-}
-
-export async function listarLeads(limite = 1000): Promise<Lead[]> {
-  const { base, headers } = conexion()
-  const r = await fetch(`${base}?select=*&order=creado_en.desc&limit=${limite}`, {
-    headers,
-    cache: 'no-store',
-    signal: AbortSignal.timeout(10_000),
-  })
-  if (!r.ok) throw new Error(`Supabase ${r.status}: ${(await r.text()).slice(0, 300)}`)
-  return (await r.json()) as Lead[]
 }
 
 // Lo que manda el formulario de la landing, convertido en fila de la tabla.
