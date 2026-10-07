@@ -1,5 +1,6 @@
 'use client'
 
+import { Fragment } from 'react'
 import { useI18n } from '@/lib/i18n'
 import { site } from '@/lib/site'
 import AnimatedContent from '@/components/reactbits/AnimatedContent'

@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion, type TargetAndTransition } from 'framer-motion'
 import { useI18n } from '@/lib/i18n'
-import { site, waLink } from '@/lib/site'
+import { site, waSofiaLink } from '@/lib/site'
 import Aurora from '@/components/reactbits/Aurora'
 import SplitText from '@/components/reactbits/SplitText'
 import ChannelOrbit from '@/components/ui/ChannelOrbit'
@@ -62,7 +62,7 @@ export default function Hero() {
               <Icon name="phone" className="h-4 w-4" />
               {t.hero.cta1}
             </Button>
-            <Button href={waLink(t.hero.waMsg)} variant="ghost">
+            <Button href={waSofiaLink(t.hero.waMsg)} variant="ghost">
               <Icon name="whatsapp" className="h-4 w-4 text-cyan" />
               {t.hero.cta2}
             </Button>

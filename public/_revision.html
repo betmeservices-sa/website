@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<title>Banco de revisión</title>
+<style>
+  html,body{margin:0;background:#05050A}
+  iframe{display:block;border:0}
+</style>
+</head>
+<body>
+<!--
+  Banco de pruebas para revisar la home con el viewport correcto.
+
+  Una captura de pagina completa con un viewport altisimo NO sirve: el hero
+  usa min-h-screen, asi que se estira al alto de la ventana y deja huecos
+  falsos. Y saltar por ancla (#planes) tampoco: la pagina aun no asento el
+  layout cuando ocurre el salto.
+
+  Aqui la home va dentro de un iframe del tamano real de una pantalla y se
+  desplaza por parametro: ?y=2400&w=1440. Mismo origen, asi que se puede
+  tocar su scroll desde fuera.
+
+  Archivo de trabajo; esta bloqueado en robots.ts.
+-->
+<iframe id="f" src="/"></iframe>
+<script>
+  const q = new URLSearchParams(location.search)
+  const w = +(q.get('w') || 1440)
+  const h = +(q.get('h') || 950)
+  const y = +(q.get('y') || 0)
+  const f = document.getElementById('f')
+  f.width = w
+  f.height = h
+  f.addEventListener('load', () => {
+    // Deja asentar fuentes y layout antes de desplazar; si se desplaza
+    // demasiado pronto el destino queda mal calculado.
+    setTimeout(() => {
+      try { f.contentWindow.scrollTo(0, y) } catch (e) {}
+    }, 2500)
+  })
+</script>
+</body>
+</html>

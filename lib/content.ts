@@ -92,43 +92,6 @@ const es = {
       cta: 'Llama a Sofía y pregúntale',
     },
 
-    voice: {
-      label: 'Demo · Voz',
-      title: 'Escúchalo por ti mismo',
-      sub: 'Pulsa para simular una llamada. Así suena y responde Sofía.',
-      idle: 'Toca para llamar',
-      active: 'En llamada...',
-      ended: 'Llamada finalizada',
-      restart: 'Volver a llamar',
-      caption: 'Demostración visual. La Sofía de tu negocio se entrena con tu propia información.',
-      transcript: [
-        { who: 'agent', text: 'Gracias por llamar a MiAgentIA, soy Sofía. ¿En qué te ayudo?' },
-        { who: 'user', text: 'Hola, quiero información y agendar una demo.' },
-        { who: 'agent', text: 'Con gusto. Tengo espacio mañana a las 10 o el jueves a las 3. ¿Cuál te queda mejor?' },
-        { who: 'user', text: 'Mañana a las 10 está perfecto.' },
-        { who: 'agent', text: 'Listo, agendé tu demo mañana a las 10:00 am. Te envío la confirmación por WhatsApp ahora mismo.' },
-      ],
-    },
-
-    chat: {
-      label: 'Demo · WhatsApp',
-      title: 'Conversaciones que convierten',
-      sub: 'Mira cómo Sofía atiende, califica y agenda en tiempo real.',
-      contact: 'MiAgentIA',
-      status: 'en línea',
-      typing: 'escribiendo...',
-      placeholder: 'Escribe un mensaje',
-      replay: 'Repetir conversación',
-      thread: [
-        { who: 'in',  text: 'Hola, vi su anuncio. ¿Cómo funciona esto? 👀' },
-        { who: 'out', text: '¡Hola! 👋 Somos MiAgentIA. Creamos agentes de IA que atienden, califican y agendan por WhatsApp y por llamada, 24/7. ¿Para qué tipo de negocio lo necesitas?' },
-        { who: 'in',  text: 'Tengo una clínica dental.' },
-        { who: 'out', text: 'Perfecto. Sofía responde a tus pacientes al instante, agenda las citas en tu calendario y les recuerda para bajar las ausencias. ¿Te muestro una demo esta semana?' },
-        { who: 'in',  text: 'Sí, por favor 🙌' },
-        { who: 'out', text: 'Genial ✨ Te reservé el jueves 3:00 pm. En un momento te llega la confirmación. ¿Me compartes tu nombre?' },
-      ],
-    },
-
     how: {
       label: 'Cómo funciona',
       title: 'De la idea a Sofía en vivo',
@@ -344,43 +307,6 @@ const en: Dict = {
       escalaLabel: 'When your team steps in',
       escala: 'When the customer is ready or asks for a person, Sofía hands off with the full context. Your rep never asks anything twice.',
       cta: 'Call Sofía and ask her yourself',
-    },
-
-    voice: {
-      label: 'Demo · Voice',
-      title: 'Hear it for yourself',
-      sub: 'Tap to simulate a call. This is how your voice agent sounds and responds.',
-      idle: 'Tap to call',
-      active: 'On call...',
-      ended: 'Call ended',
-      restart: 'Call again',
-      caption: 'Visual demo. Your real agent is trained on your business information.',
-      transcript: [
-        { who: 'agent', text: 'Thanks for calling MiAgentIA, this is Sofía. How can I help?' },
-        { who: 'user', text: 'Hi, I want info and to book a demo.' },
-        { who: 'agent', text: 'Happy to. I have tomorrow at 10 or Thursday at 3. Which works best?' },
-        { who: 'user', text: 'Tomorrow at 10 is perfect.' },
-        { who: 'agent', text: 'Done, I booked your demo tomorrow at 10:00 am. Sending the confirmation to your WhatsApp now.' },
-      ],
-    },
-
-    chat: {
-      label: 'Demo · WhatsApp',
-      title: 'Conversations that convert',
-      sub: 'See how the agent answers, qualifies and books in real time.',
-      contact: 'MiAgentIA',
-      status: 'online',
-      typing: 'typing...',
-      placeholder: 'Type a message',
-      replay: 'Replay conversation',
-      thread: [
-        { who: 'in',  text: 'Hi, I saw your ad. How does this work? 👀' },
-        { who: 'out', text: 'Hey! 👋 We are MiAgentIA. We build AI agents that answer, qualify and book over WhatsApp and calls, 24/7. What kind of business is it for?' },
-        { who: 'in',  text: 'I run a dental clinic.' },
-        { who: 'out', text: 'Perfect. Our agent replies to patients instantly, books appointments on your calendar and reminds them to reduce no-shows. Want to see a demo this week?' },
-        { who: 'in',  text: 'Yes, please 🙌' },
-        { who: 'out', text: 'Great ✨ I booked you Thursday 3:00 pm. Your confirmation is on the way. What is your name?' },
-      ],
     },
 
     how: {
