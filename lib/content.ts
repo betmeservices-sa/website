@@ -19,8 +19,8 @@ const es = {
       titleTop: 'Todos tus canales.',
       titleGrad: 'Un solo agente.',
       sub: 'Sofía contesta en segundos, a la hora que sea. Califica al cliente, agenda la cita y deja el lead en tu CRM. Tu equipo entra cuando hay que cerrar.',
-      cta1: 'Prueba a Sofía acá',
-      cta2: 'Cómo funciona',
+      cta1: 'Llama a Sofía',
+      cta2: 'Pruébala por WhatsApp',
       waMsg: 'Hola, quiero probar a Sofía.',
       note: 'Ningún lead se queda sin respuesta.',
       stats: [
@@ -172,7 +172,11 @@ const es = {
         { icon: 'tooth', name: 'Clínicas y salud', desc: 'Agenda citas y recuerda a los pacientes.' },
         { icon: 'car', name: 'Automotriz', desc: 'Atiende cotizaciones y prueba de manejo.' },
         { icon: 'home', name: 'Inmobiliaria', desc: 'Califica compradores y coordina visitas.' },
-        { icon: 'cart', name: 'E-commerce', desc: 'Resuelve dudas y recupera carritos.' },
+        // Dos compradores distintos, no uno: la tienda con checkout propio y
+        // quien vende por DM sin carrito. En la región el segundo rara vez se
+        // llama "e-commerce" a sí mismo, así que buscarlo por ese nombre falla.
+        { icon: 'cart', name: 'Tiendas en línea', desc: 'Resuelve dudas, recupera carritos y confirma pedidos.' },
+        { icon: 'bag', name: 'Retail online', desc: 'Catálogo, tallas y disponibilidad por WhatsApp e Instagram. Cierra la venta en el chat.' },
         { icon: 'fork', name: 'Restaurantes', desc: 'Toma reservas y pedidos sin filas.' },
         { icon: 'bed', name: 'Hoteles y hospedaje', desc: 'Agenda y confirma reservas, cobra el anticipo y responde antes del check-in.' },
         { icon: 'briefcase', name: 'Servicios y agencias', desc: 'Filtra leads y llena tu calendario.' },
@@ -291,8 +295,8 @@ const en: Dict = {
       titleTop: 'Every channel.',
       titleGrad: 'One agent.',
       sub: 'Sofía answers in seconds, at any hour. She qualifies the customer, books the appointment and drops the lead into your CRM. Your team steps in to close.',
-      cta1: 'Try Sofía here',
-      cta2: 'How it works',
+      cta1: 'Call Sofía',
+      cta2: 'Try her on WhatsApp',
       waMsg: 'Hi, I would like to try Sofía.',
       note: 'No lead goes unanswered.',
       stats: [
@@ -439,7 +443,8 @@ const en: Dict = {
         { icon: 'tooth', name: 'Clinics & health', desc: 'Book appointments and remind patients.' },
         { icon: 'car', name: 'Automotive', desc: 'Handle quotes and test drives.' },
         { icon: 'home', name: 'Real estate', desc: 'Qualify buyers and schedule showings.' },
-        { icon: 'cart', name: 'E-commerce', desc: 'Answer questions and recover carts.' },
+        { icon: 'cart', name: 'Online stores', desc: 'Answer questions, recover carts and confirm orders.' },
+        { icon: 'bag', name: 'Online retail', desc: 'Catalogue, sizes and stock over WhatsApp and Instagram. Closes the sale in the chat.' },
         { icon: 'fork', name: 'Restaurants', desc: 'Take reservations and orders, no lines.' },
         { icon: 'bed', name: 'Hotels & lodging', desc: 'Book and confirm reservations, take the deposit and answer before check-in.' },
         { icon: 'briefcase', name: 'Services & agencies', desc: 'Filter leads and fill your calendar.' },

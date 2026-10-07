@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useI18n } from '@/lib/i18n'
-import { waLink } from '@/lib/site'
+import { site, waLink } from '@/lib/site'
 import Aurora from '@/components/reactbits/Aurora'
 import SplitText from '@/components/reactbits/SplitText'
 import ChannelOrbit from '@/components/ui/ChannelOrbit'
@@ -49,15 +49,15 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 1.25 }}
             className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start"
           >
-            {/* El CTA principal manda a la Sofía REAL por WhatsApp, no al demo
-                de la página: ese es una simulación visual y prometerlo como
-                prueba defrauda al que lo abre. */}
-            <Button href={waLink(t.hero.waMsg)}>
-              <Icon name="whatsapp" className="h-4 w-4" />
+            {/* Los dos CTA van a la Sofía REAL, no a los demos de la página:
+                esos son simulaciones visuales y prometerlos como prueba
+                defrauda a quien los abre. */}
+            <Button href={`tel:${site.phone}`}>
+              <Icon name="phone" className="h-4 w-4" />
               {t.hero.cta1}
             </Button>
-            <Button href="#como-funciona" variant="ghost">
-              <Icon name="sparkle" className="h-4 w-4 text-cyan" />
+            <Button href={waLink(t.hero.waMsg)} variant="ghost">
+              <Icon name="whatsapp" className="h-4 w-4 text-cyan" />
               {t.hero.cta2}
             </Button>
           </motion.div>
@@ -69,7 +69,7 @@ export default function Hero() {
             className="mt-5 flex items-center justify-center gap-1.5 text-xs text-muted lg:justify-start"
           >
             <Icon name="bolt" className="h-3.5 w-3.5 text-cyan" />
-            {t.hero.note}
+            {t.hero.note} <span className="text-ink/70">&middot; {site.phoneLabel}</span>
           </motion.p>
 
           {/* Stats rápidos */}

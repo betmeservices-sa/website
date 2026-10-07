@@ -16,6 +16,8 @@ const paths: Record<string, React.ReactNode> = {
   briefcase: <><rect x="3.5" y="7.5" width="17" height="12" rx="2" /><path d="M8.5 7.5V6a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v1.5M3.5 12.5h17" /></>,
   // Cama: hoteles y hospedaje.
   bed: <><path d="M3 20v-9M3 15h18v5M21 20v-5a3 3 0 0 0-3-3h-7v3" /><circle cx="7" cy="11" r="2" /></>,
+  // Bolsa: retail online / venta por redes (distinto del carrito de checkout).
+  bag: <><path d="M5 8h14l-1 12H6L5 8Z" /><path d="M9 8V6a3 3 0 0 1 6 0v2" /></>,
   arrow: <path d="M5 12h14M13 6l6 6-6 6" />,
   check: <path d="M5 12.5 10 17 19 7" />,
   sparkle: <path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Z" />,
