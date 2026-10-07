@@ -316,8 +316,9 @@ html.lenis, html.lenis body { height: auto; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .omni-node, .omni-hub { animation: none !important; }
-  .omni-pulse { display: none; }
+    :root:not([data-motion="on"]) .omni-node,
+  :root:not([data-motion="on"]) .omni-hub { animation: none !important; }
+  :root:not([data-motion="on"]) .omni-pulse { display: none; }
   .omni-link { opacity: .5; }
 }
 
@@ -391,7 +392,9 @@ html.lenis, html.lenis body { height: auto; }
   .orbit-name { bottom: calc(50% - 78px); } }
 
 @media (prefers-reduced-motion: reduce) {
-  .orbit-ring, .orbit-chip, .orbit-core { animation: none !important; }
+    :root:not([data-motion="on"]) .orbit-ring,
+  :root:not([data-motion="on"]) .orbit-chip,
+  :root:not([data-motion="on"]) .orbit-core { animation: none !important; }
 }
 
 /* ───────────── el orbe habla, no toca música ─────────────
@@ -471,7 +474,7 @@ html.lenis, html.lenis body { height: auto; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .voice-bar { animation: none !important; transform: scaleY(.6); }
+  :root:not([data-motion="on"]) .voice-bar { animation: none !important; transform: scaleY(.6); }
 }
 
 /* ───────────── los canales se encienden de uno en uno ─────────────
@@ -506,5 +509,93 @@ html.lenis, html.lenis body { height: auto; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .orbit-chip { animation: none !important; }
+  :root:not([data-motion="on"]) .orbit-chip { animation: none !important; }
 }
+
+/* ───────── las puertas que abre Sofía → un solo cliente ─────────
+   Cinco canales a la izquierda, líneas que convergen en UNA ficha. Por cada
+   línea viaja un cometa; al llegar se enciende la insignia de ese canal
+   dentro de la ficha, pero la ficha nunca cambia. Cambia la puerta, no la
+   persona: ese es el argumento entero.
+
+   Los cometas usan pathLength=1 en el SVG, así que el dash va de 1.08 a 0
+   sin importar cuánto mida cada curva. El ciclo (4s) y el desfase (0.8s por
+   canal) son los MISMOS en .cu-comet y .cu-badge: si cambias uno, cambia el
+   otro o la insignia se enciende cuando el cometa aún va a medio camino. */
+.cu { width: 100%; }
+.cu-stage { position: relative; width: 100%; max-width: 560px; margin: 0 auto; aspect-ratio: 560 / 300; }
+.cu-wires { position: absolute; inset: 0; width: 100%; height: 100%; }
+.cu-wire { stroke: url(#cu-grad); stroke-width: 1.4; opacity: .2; }
+.cu-comet {
+  stroke: url(#cu-grad); stroke-width: 2.6; stroke-linecap: round;
+  stroke-dasharray: .07 1; stroke-dashoffset: 1.07;
+  animation: cu-run 4s linear var(--d, 0s) infinite;
+}
+@keyframes cu-run { from { stroke-dashoffset: 1.07 } to { stroke-dashoffset: 0 } }
+
+.cu-doors {
+  position: absolute; left: 0; top: 0; height: 100%;
+  display: flex; flex-direction: column; justify-content: space-between;
+  padding: calc(26 / 300 * 100% - 23px) 0;
+}
+.cu-door {
+  width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center;
+  border: 1px solid rgba(255,255,255,.13); background: rgba(10,10,20,.7);
+  color: var(--tint);
+}
+.cu-door svg, .cu-badge svg {
+  width: 21px; height: 21px; fill: none; stroke: currentColor;
+  stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round;
+}
+.cu-door svg .fillcur, .cu-badge svg .fillcur { fill: currentColor; stroke: none; }
+
+.cu-card {
+  position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+  width: 215px; padding: 22px 20px; border-radius: 18px; text-align: center;
+  border: 1px solid rgba(255,255,255,.14); background: rgba(13,13,24,.92);
+  box-shadow: 0 18px 50px -18px rgba(0,0,0,.9);
+}
+.cu-avatar {
+  width: 54px; height: 54px; margin: 0 auto; border-radius: 50%;
+  display: grid; place-items: center; padding: 2px;
+  background: conic-gradient(from 140deg, #22D3EE, #8B5CF6, #E879F9, #22D3EE);
+}
+.cu-avatar svg {
+  width: 100%; height: 100%; border-radius: 50%; background: #0D0D18;
+  fill: none; stroke: #EDEDF5; stroke-width: 1.5; padding: 5px;
+  stroke-linecap: round;
+}
+.cu-title { margin-top: 13px; font-family: var(--font-display); font-weight: 600; font-size: 15px; }
+.cu-sub { margin-top: 4px; font-size: 12px; color: var(--color-muted); }
+.cu-badges { margin-top: 15px; display: flex; justify-content: center; gap: 7px; }
+.cu-badge {
+  width: 30px; height: 30px; border-radius: 9px; display: grid; place-items: center;
+  border: 1px solid rgba(255,255,255,.1); color: rgba(255,255,255,.3);
+  animation: cu-land 4s ease-out var(--d, 0s) infinite;
+}
+/* Se enciende al final del ciclo: cuando el cometa de ese canal aterriza. */
+@keyframes cu-land {
+  0%, 72% { color: rgba(255,255,255,.3); border-color: rgba(255,255,255,.1); box-shadow: none }
+  84% { color: var(--tint); border-color: color-mix(in srgb, var(--tint) 65%, transparent);
+        box-shadow: 0 0 14px -2px color-mix(in srgb, var(--tint) 60%, transparent) }
+  100% { color: rgba(255,255,255,.3); border-color: rgba(255,255,255,.1); box-shadow: none }
+}
+
+@media (max-width: 760px) {
+  .cu-stage { aspect-ratio: auto; max-width: 340px; }
+  .cu-wires { display: none }
+  .cu-doors { position: static; flex-direction: row; justify-content: center; gap: 9px; padding: 0 }
+  .cu-card { position: static; transform: none; margin: 22px auto 0 }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root:not([data-motion="on"]) .cu-comet { display: none }
+  :root:not([data-motion="on"]) .cu-badge { animation: none !important; color: var(--tint); border-color: color-mix(in srgb, var(--tint) 45%, transparent) }
+  .cu-wire { opacity: .35 }
+}
+
+/* Nota sobre el bloque anterior: todas las reglas de reduced-motion están
+   condicionadas a :root:not([data-motion="on"]). Eso NO debilita la
+   accesibilidad — el visitante real nunca lleva ese atributo, así que para
+   él siguen aplicando igual. Existe solo para poder revisar el diseño en una
+   máquina con las animaciones del sistema apagadas (ver MotionPreview). */

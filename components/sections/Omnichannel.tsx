@@ -2,6 +2,7 @@
 
 import { useI18n } from '@/lib/i18n'
 import { VoiceBadge } from '@/components/ui/Logo'
+import ContactoUnico from '@/components/sections/ContactoUnico'
 import AnimatedContent from '@/components/reactbits/AnimatedContent'
 import Eyebrow from '@/components/ui/Eyebrow'
 
@@ -135,11 +136,12 @@ export default function Omnichannel() {
             atendamos muchos canales, es que detrás de todos hay una sola
             persona con un solo historial. */}
         <AnimatedContent delay={0.14}>
-          <div className="mx-auto mt-16 max-w-3xl rounded-2xl border border-cyan/25 bg-cyan/[0.055] px-7 py-9 text-center sm:px-12">
+          <div className="mx-auto mt-16 max-w-4xl rounded-2xl border border-cyan/25 bg-cyan/[0.055] px-7 py-9 text-center sm:px-12">
             <h3 className="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
               {o.unifiedTitle}
             </h3>
             <p className="mx-auto mt-4 max-w-2xl leading-relaxed text-muted">{o.unifiedSub}</p>
+            <div className="mt-10"><ContactoUnico /></div>
           </div>
         </AnimatedContent>
 

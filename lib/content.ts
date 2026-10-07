@@ -54,13 +54,15 @@ const es = {
     omni: {
       label: 'Omnicanalidad',
       titleTop: 'El lead entra por cualquier canal.',
-      titleGrad: 'MiAgentIA lo ordena y lo clasifica.',
+      titleGrad: 'Sofía lo recibe y lo clasifica.',
       sub: 'WhatsApp, Instagram, Facebook, llamadas y tu sitio caen en una sola bandeja. Sofía responde, califica y abre el ticket.',
       channels: ['WhatsApp', 'Llamadas', 'Correo', 'Instagram', 'Facebook'],
       hub: 'Sofía',
       out: 'Tu CRM',
       caption: 'Tu vendedor recibe el lead calificado, con todo el contexto. No vuelve a preguntar nada.',
       unifiedTitle: 'Entre por donde entre, es el mismo contacto.',
+      cardTitle: 'Un solo contacto',
+      cardSub: 'Un solo historial',
       unifiedSub: 'Te escribe por WhatsApp, te llama el martes y te comenta una foto en Facebook. Para Sofía es la misma persona: un solo contacto, un solo historial. Nadie empieza de cero.',
       crmLabel: 'No te cambiamos el sistema',
       crmSub: 'Tu CRM sigue siendo el oficial. Lo que Sofía conversa y califica se escribe ahí, y lo que ya está ahí ella lo sabe.',
@@ -68,7 +70,7 @@ const es = {
       // verdad, no va en esta lista: prometer una integración que no existe
       // es el peor error posible en una web B2B.
       crmsLabel: 'Ya los hemos conectado',
-      crms: ['Salesforce', 'HubSpot', 'Cloudbeds'],
+      crms: ['Salesforce', 'HubSpot', 'Shopify', 'Cloudbeds'],
       crmNote: '¿Usas otro? Dinos cuál y te decimos si lo conectamos.',
     },
 
@@ -328,18 +330,20 @@ const en: Dict = {
     omni: {
       label: 'Omnichannel',
       titleTop: 'The lead comes in on any channel.',
-      titleGrad: 'MiAgentIA sorts it and qualifies it.',
+      titleGrad: 'Sofía takes it and sorts it.',
       sub: 'WhatsApp, Instagram, Facebook, calls and your website land in one inbox. Sofía answers, qualifies and opens the ticket.',
       channels: ['WhatsApp', 'Calls', 'Email', 'Instagram', 'Facebook'],
       hub: 'Sofía',
       out: 'Your CRM',
       caption: 'Your rep gets the qualified lead with the full context. They never ask twice.',
       unifiedTitle: 'Whichever door they come in, it is the same contact.',
+      cardTitle: 'One contact',
+      cardSub: 'One history',
       unifiedSub: 'They message on WhatsApp, call on Tuesday and comment on a photo on Facebook. To Sofía it is one person: one contact, one history. Nobody starts over.',
       crmLabel: 'We do not change your system',
       crmSub: 'Your CRM stays the official one. What Sofía talks through and qualifies is written there, and what is already there she knows.',
       crmsLabel: 'Already connected',
-      crms: ['Salesforce', 'HubSpot', 'Cloudbeds'],
+      crms: ['Salesforce', 'HubSpot', 'Shopify', 'Cloudbeds'],
       crmNote: 'Using another one? Tell us which and we will tell you if we connect it.',
     },
 
