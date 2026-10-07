@@ -36,8 +36,8 @@ const es = {
 
     services: {
       label: 'Qué hacemos',
-      title: 'Un equipo de IA que nunca duerme',
-      sub: 'Automatizamos la primera línea de tu negocio con agentes que suenan y escriben como humanos.',
+      title: 'Sofía recibe tus leads 24/7 y los califica',
+      sub: 'Contesta, pregunta lo que hay que preguntar y te entrega al cliente listo. Tu equipo se dedica a cerrar.',
       items: [
         { icon: 'phone', title: 'Agente de voz', desc: 'Contesta llamadas entrantes y hace salientes con voz natural. Responde, califica y transfiere cuando hace falta.' },
         { icon: 'whatsapp', title: 'Chat de WhatsApp', desc: 'Atiende cada mensaje al segundo, en cualquier idioma, con el tono de tu marca.' },
@@ -169,6 +169,7 @@ const es = {
         { icon: 'home', name: 'Inmobiliaria', desc: 'Califica compradores y coordina visitas.' },
         { icon: 'cart', name: 'E-commerce', desc: 'Resuelve dudas y recupera carritos.' },
         { icon: 'fork', name: 'Restaurantes', desc: 'Toma reservas y pedidos sin filas.' },
+        { icon: 'bed', name: 'Hoteles y hospedaje', desc: 'Agenda y confirma reservas, cobra el anticipo y responde antes del check-in.' },
         { icon: 'briefcase', name: 'Servicios y agencias', desc: 'Filtra leads y llena tu calendario.' },
       ],
     },
@@ -302,8 +303,8 @@ const en: Dict = {
 
     services: {
       label: 'What we do',
-      title: 'An AI team that never sleeps',
-      sub: 'We automate the front line of your business with agents that sound and write like humans.',
+      title: 'Sofía takes your leads 24/7 and qualifies them',
+      sub: 'She answers, asks what needs asking and hands you the customer ready. Your team gets to close.',
       items: [
         { icon: 'phone', title: 'Voice agent', desc: 'Answers inbound calls and makes outbound ones with a natural voice. Responds, qualifies and transfers when needed.' },
         { icon: 'whatsapp', title: 'WhatsApp chat', desc: 'Replies to every message in seconds, in any language, in your brand voice.' },
@@ -433,6 +434,7 @@ const en: Dict = {
         { icon: 'home', name: 'Real estate', desc: 'Qualify buyers and schedule showings.' },
         { icon: 'cart', name: 'E-commerce', desc: 'Answer questions and recover carts.' },
         { icon: 'fork', name: 'Restaurants', desc: 'Take reservations and orders, no lines.' },
+        { icon: 'bed', name: 'Hotels & lodging', desc: 'Book and confirm reservations, take the deposit and answer before check-in.' },
         { icon: 'briefcase', name: 'Services & agencies', desc: 'Filter leads and fill your calendar.' },
       ],
     },
