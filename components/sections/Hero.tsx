@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useI18n } from '@/lib/i18n'
+import { waLink } from '@/lib/site'
 import Aurora from '@/components/reactbits/Aurora'
 import SplitText from '@/components/reactbits/SplitText'
 import ChannelOrbit from '@/components/ui/ChannelOrbit'
@@ -48,12 +49,15 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 1.25 }}
             className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start"
           >
-            <Button href="#voz">
-              <Icon name="phone" className="h-4 w-4" />
+            {/* El CTA principal manda a la Sofía REAL por WhatsApp, no al demo
+                de la página: ese es una simulación visual y prometerlo como
+                prueba defrauda al que lo abre. */}
+            <Button href={waLink(t.hero.waMsg)}>
+              <Icon name="whatsapp" className="h-4 w-4" />
               {t.hero.cta1}
             </Button>
-            <Button href="#chat" variant="ghost">
-              <Icon name="whatsapp" className="h-4 w-4 text-cyan" />
+            <Button href="#como-funciona" variant="ghost">
+              <Icon name="sparkle" className="h-4 w-4 text-cyan" />
               {t.hero.cta2}
             </Button>
           </motion.div>

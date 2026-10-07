@@ -19,8 +19,9 @@ const es = {
       titleTop: 'Todos tus canales.',
       titleGrad: 'Un solo agente.',
       sub: 'Sofía contesta en segundos, a la hora que sea. Califica al cliente, agenda la cita y deja el lead en tu CRM. Tu equipo entra cuando hay que cerrar.',
-      cta1: 'Llama a Sofía',
-      cta2: 'Pruébala por WhatsApp',
+      cta1: 'Prueba a Sofía acá',
+      cta2: 'Cómo funciona',
+      waMsg: 'Hola, quiero probar a Sofía.',
       note: 'Ningún lead se queda sin respuesta.',
       stats: [
         { value: '24/7', label: 'Todos los días del año' },
@@ -286,8 +287,9 @@ const en: Dict = {
       titleTop: 'Every channel.',
       titleGrad: 'One agent.',
       sub: 'Sofía answers in seconds, at any hour. She qualifies the customer, books the appointment and drops the lead into your CRM. Your team steps in to close.',
-      cta1: 'Call Sofía',
-      cta2: 'Try her on WhatsApp',
+      cta1: 'Try Sofía here',
+      cta2: 'How it works',
+      waMsg: 'Hi, I would like to try Sofía.',
       note: 'No lead goes unanswered.',
       stats: [
         { value: '24/7', label: 'Every day of the year' },
