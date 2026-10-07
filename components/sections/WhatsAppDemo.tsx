@@ -74,7 +74,7 @@ export default function WhatsAppDemo() {
   const done = visible >= t.chat.thread.length
 
   return (
-    <section id="chat" className="relative overflow-hidden py-24 sm:py-32">
+    <div className="relative overflow-hidden">
       <div className="aurora-blob aurora-2 opacity-50" />
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2">
@@ -176,6 +176,6 @@ export default function WhatsAppDemo() {
           </AnimatedContent>
         </div>
       </div>
-    </section>
+    </div>
   )
 }

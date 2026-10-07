@@ -6,6 +6,7 @@ import { useI18n } from '@/lib/i18n'
 import AnimatedContent from '@/components/reactbits/AnimatedContent'
 import Eyebrow from '@/components/ui/Eyebrow'
 import Icon from '@/components/ui/Icon'
+import FinalCta from '@/components/sections/FinalCta'
 
 export default function Faq() {
   const { t } = useI18n()
@@ -53,6 +54,9 @@ export default function Faq() {
           })}
         </div>
       </div>
-    </section>
+      <div className="mt-24 border-t border-white/10 pt-20">
+          <FinalCta />
+        </div>
+      </section>
   )
 }

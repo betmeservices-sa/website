@@ -3,13 +3,9 @@ import Hero from '@/components/sections/Hero'
 import Omnichannel from '@/components/sections/Omnichannel'
 import Sofia from '@/components/sections/Sofia'
 import Planes from '@/components/sections/Planes'
-import VoiceDemo from '@/components/sections/VoiceDemo'
-import WhatsAppDemo from '@/components/sections/WhatsAppDemo'
-import HowItWorks from '@/components/sections/HowItWorks'
+import Pruebala from '@/components/sections/Pruebala'
 import Industries from '@/components/sections/Industries'
-import Results from '@/components/sections/Results'
 import Faq from '@/components/sections/Faq'
-import FinalCta from '@/components/sections/FinalCta'
 
 export default function HomeSections() {
   return (
@@ -17,14 +13,10 @@ export default function HomeSections() {
       <Hero />
       <Omnichannel />
       <Sofia />
-      <VoiceDemo />
-      <WhatsAppDemo />
+      <Pruebala />
       <Planes />
-      <HowItWorks />
       <Industries />
-      <Results />
       <Faq />
-      <FinalCta />
     </>
   )
 }

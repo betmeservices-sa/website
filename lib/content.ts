@@ -10,7 +10,7 @@ const es = {
         { label: 'Sofía', href: '#sofia' },
         { label: 'Planes', href: '#planes' },
         { label: 'Industrias', href: '#industrias' },
-        { label: 'Cómo funciona', href: '#como-funciona' },
+        { label: 'Pruébala', href: '#demos' },
       ],
       cta: 'Agenda una demo',
     },
@@ -160,19 +160,6 @@ const es = {
       ],
     },
 
-    results: {
-      label: 'Impacto',
-      title: 'Lo que cambia cuando nada se queda sin respuesta',
-      sub: 'Rangos ilustrativos del potencial de la automatización con IA.',
-      stats: [
-        { value: 100, suffix: '%', label: 'de llamadas y mensajes atendidos' },
-        { value: 24,  suffix: '/7', label: 'disponibilidad, sin turnos' },
-        { value: 80,  suffix: '%', label: 'menos tareas repetitivas' },
-        { value: 3,   suffix: 'x', label: 'más citas agendadas' },
-      ],
-      disclaimer: 'Cifras ilustrativas, no resultados garantizados. El desempeño depende de tu negocio y tu volumen.',
-    },
-
     plans: {
       label: 'Planes',
       title: 'Cuatro paquetes. El mismo agente.',
@@ -260,7 +247,7 @@ const es = {
           title: 'Empresa',
           links: [
             { label: 'Industrias', href: '#industrias' },
-            { label: 'Cómo funciona', href: '#como-funciona' },
+            { label: 'Cómo arrancamos', href: '#planes' },
             { label: 'Preguntas', href: '#preguntas' },
             { label: 'Contacto', href: '#empezar' },
             { label: 'Política de Privacidad', href: '/privacidad' },
@@ -282,7 +269,7 @@ const en: Dict = {
         { label: 'Sofía', href: '#sofia' },
         { label: 'Plans', href: '#planes' },
         { label: 'Industries', href: '#industrias' },
-        { label: 'How it works', href: '#como-funciona' },
+        { label: 'Try her', href: '#demos' },
       ],
       cta: 'Book a demo',
     },
@@ -424,19 +411,6 @@ const en: Dict = {
       ],
     },
 
-    results: {
-      label: 'Impact',
-      title: 'What changes when nothing goes unanswered',
-      sub: 'Illustrative ranges of what AI automation can unlock.',
-      stats: [
-        { value: 100, suffix: '%', label: 'of calls and messages answered' },
-        { value: 24,  suffix: '/7', label: 'availability, no shifts' },
-        { value: 80,  suffix: '%', label: 'fewer repetitive tasks' },
-        { value: 3,   suffix: 'x', label: 'more booked appointments' },
-      ],
-      disclaimer: 'Illustrative figures, not guaranteed results. Performance depends on your business and volume.',
-    },
-
     plans: {
       label: 'Plans',
       title: 'Four packages. The same agent.',
@@ -524,7 +498,7 @@ const en: Dict = {
           title: 'Company',
           links: [
             { label: 'Industries', href: '#industrias' },
-            { label: 'How it works', href: '#como-funciona' },
+            { label: 'How we start', href: '#planes' },
             { label: 'FAQ', href: '#preguntas' },
             { label: 'Contact', href: '#empezar' },
             { label: 'Privacy Policy', href: '/en/privacy' },

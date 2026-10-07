@@ -5,6 +5,7 @@ import { site } from '@/lib/site'
 import AnimatedContent from '@/components/reactbits/AnimatedContent'
 import Eyebrow from '@/components/ui/Eyebrow'
 import Button from '@/components/ui/Button'
+import HowItWorks from '@/components/sections/HowItWorks'
 
 /**
  * Tabla comparativa de paquetes, al estilo de respond.io.
@@ -107,6 +108,14 @@ export default function Planes() {
           <p className="mx-auto mt-8 max-w-3xl text-center text-xs leading-relaxed text-muted">
             {p.note}
           </p>
+        </AnimatedContent>
+
+        {/* "Cómo arrancamos" vivía en su propia sección. Pertenece aquí: la
+            pregunta que sigue a ver los paquetes es cómo se empieza. */}
+        <AnimatedContent delay={0.14}>
+          <div className="mt-24 border-t border-white/10 pt-20">
+            <HowItWorks />
+          </div>
         </AnimatedContent>
       </div>
     </section>

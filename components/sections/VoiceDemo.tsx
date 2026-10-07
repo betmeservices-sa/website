@@ -116,7 +116,7 @@ export default function VoiceDemo() {
   const statusText = phase === 'idle' ? t.voice.idle : phase === 'active' ? t.voice.active : t.voice.ended
 
   return (
-    <section id="voz" className="relative overflow-hidden py-24 sm:py-32">
+    <div className="relative overflow-hidden">
       <div className="aurora-blob aurora-1 opacity-50" />
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <AnimatedContent className="mx-auto max-w-2xl text-center">
@@ -184,6 +184,6 @@ export default function VoiceDemo() {
           </AnimatedContent>
         </div>
       </div>
-    </section>
+    </div>
   )
 }

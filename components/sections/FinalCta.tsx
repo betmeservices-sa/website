@@ -12,7 +12,7 @@ export default function FinalCta() {
   const { t } = useI18n()
 
   return (
-    <section id="empezar" className="relative overflow-hidden py-28 sm:py-36">
+    <div id="empezar" className="relative scroll-mt-28">
       <Aurora dots={false} />
       <div className="relative mx-auto max-w-3xl px-5 text-center sm:px-8">
         <AnimatedContent>
@@ -35,6 +35,6 @@ export default function FinalCta() {
           </div>
         </AnimatedContent>
       </div>
-    </section>
+    </div>
   )
 }

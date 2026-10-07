@@ -7,7 +7,7 @@ import Eyebrow from '@/components/ui/Eyebrow'
 export default function HowItWorks() {
   const { t } = useI18n()
   return (
-    <section id="como-funciona" className="relative py-24 sm:py-32">
+    <div className="relative">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <AnimatedContent className="mx-auto max-w-2xl text-center">
           <Eyebrow>{t.how.label}</Eyebrow>
@@ -30,6 +30,6 @@ export default function HowItWorks() {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   )
 }
