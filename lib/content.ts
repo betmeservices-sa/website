@@ -62,10 +62,14 @@ const es = {
       caption: 'Tu vendedor recibe el lead calificado, con todo el contexto. No vuelve a preguntar nada.',
       unifiedTitle: 'Entre por donde entre, es el mismo contacto.',
       unifiedSub: 'Te escribe por WhatsApp, te llama el martes y te comenta una foto en Facebook. Para Sofía es la misma persona: un solo contacto, un solo historial. Nadie empieza de cero.',
-      crmLabel: 'No te cambiamos el CRM',
-      crmSub: 'Tu CRM sigue siendo la fuente oficial. Lo que genera Sofía se inyecta ahí, en los dos sentidos.',
-      crms: ['Salesforce', 'HubSpot', 'Zoho', 'Kommo', 'Pipedrive', 'Monday', 'Bitrix24', 'Odoo', 'Dynamics 365'],
-      crmNote: '¿Usas otro? Si tiene API, se conecta.',
+      crmLabel: 'No te cambiamos el sistema',
+      crmSub: 'Tu CRM sigue siendo el oficial. Lo que Sofía conversa y califica se escribe ahí, y lo que ya está ahí ella lo sabe.',
+      // SOLO integraciones hechas y probadas. Si no se ha conectado de
+      // verdad, no va en esta lista: prometer una integración que no existe
+      // es el peor error posible en una web B2B.
+      crmsLabel: 'Ya los hemos conectado',
+      crms: ['Salesforce', 'HubSpot', 'Cloudbeds'],
+      crmNote: '¿Usas otro? Dinos cuál y te decimos si lo conectamos.',
     },
 
     sofia: {
@@ -328,10 +332,11 @@ const en: Dict = {
       caption: 'Your rep gets the qualified lead with the full context. They never ask twice.',
       unifiedTitle: 'Whichever door they come in, it is the same contact.',
       unifiedSub: 'They message on WhatsApp, call on Tuesday and comment on a photo on Facebook. To Sofía it is one person: one contact, one history. Nobody starts over.',
-      crmLabel: 'We do not change your CRM',
-      crmSub: 'Your CRM stays the source of truth. What Sofía generates is pushed into it, both ways.',
-      crms: ['Salesforce', 'HubSpot', 'Zoho', 'Kommo', 'Pipedrive', 'Monday', 'Bitrix24', 'Odoo', 'Dynamics 365'],
-      crmNote: 'Using another one? If it has an API, it connects.',
+      crmLabel: 'We do not change your system',
+      crmSub: 'Your CRM stays the official one. What Sofía talks through and qualifies is written there, and what is already there she knows.',
+      crmsLabel: 'Already connected',
+      crms: ['Salesforce', 'HubSpot', 'Cloudbeds'],
+      crmNote: 'Using another one? Tell us which and we will tell you if we connect it.',
     },
 
     sofia: {

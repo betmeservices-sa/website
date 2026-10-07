@@ -148,17 +148,25 @@ export default function Omnichannel() {
           <div className="mx-auto mt-16 max-w-3xl rounded-2xl border border-white/10 bg-bg-card px-7 py-8 text-center sm:px-10">
             <h3 className="font-display text-xl font-semibold">{o.crmLabel}</h3>
             <p className="mx-auto mt-2.5 max-w-xl text-sm leading-relaxed text-muted">{o.crmSub}</p>
-            <div className="mt-7 flex flex-wrap justify-center gap-2.5">
+
+            {/* Wordmarks tipográficos, no los logotipos oficiales: MiAgentIA no
+                es partner de ninguno, y reproducir su marca registrada daría a
+                entender una relación que no existe. Puestos todos en el mismo
+                peso y color leen como muro de logos sin prometer nada. */}
+            <p className="mt-9 font-display text-[11px] uppercase tracking-[.2em] text-muted/70">
+              {o.crmsLabel}
+            </p>
+            <div className="mt-5 flex flex-wrap items-center justify-center gap-x-10 gap-y-5">
               {o.crms.map((c) => (
                 <span
                   key={c}
-                  className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-ink/90"
+                  className="font-display text-xl font-semibold tracking-tight text-ink/85 sm:text-2xl"
                 >
                   {c}
                 </span>
               ))}
             </div>
-            <p className="mt-6 text-xs text-muted">{o.crmNote}</p>
+            <p className="mt-8 text-xs text-muted">{o.crmNote}</p>
           </div>
         </AnimatedContent>
       </div>
