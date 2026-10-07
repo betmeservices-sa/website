@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MiAgentIA · comparación de tipografías</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Sora:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;600;800&family=Manrope:wght@400;600;800&family=Outfit:wght@400;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700&display=swap">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#05050A; --card:#0D0D18; --line:rgba(255,255,255,.08);
+  --ink:#EDEDF5; --muted:#9A9AB0;
+  --grad:linear-gradient(120deg,#22D3EE 0%,#8B5CF6 48%,#E879F9 100%);
+}
+body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;
+  padding:56px 24px 90px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto}
+.page-h{font-size:30px;font-weight:700;letter-spacing:-.02em}
+.page-s{color:var(--muted);margin-top:10px;max-width:760px;line-height:1.55;font-size:15px}
+.grid{display:grid;gap:22px;margin-top:40px}
+
+.spec{border:1px solid var(--line);border-radius:18px;background:var(--card);padding:34px 32px;position:relative}
+.spec.now{border-color:rgba(34,211,238,.35)}
+.tag{position:absolute;top:0;right:28px;transform:translateY(-50%);
+  background:var(--card);border:1px solid var(--line);border-radius:999px;
+  padding:6px 14px;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.spec.now .tag{border-color:rgba(34,211,238,.45);color:#67E8F9}
+
+.eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+h2{font-size:clamp(32px,4.4vw,52px);line-height:1.03;letter-spacing:-.03em;font-weight:700;margin-top:16px}
+h2 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--muted);line-height:1.6;margin-top:18px;max-width:620px;font-size:16px}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:24px}
+.btn{background:var(--grad);color:#05050A;border-radius:999px;padding:11px 22px;font-size:14px;font-weight:600}
+.ghost{border:1px solid var(--line);border-radius:999px;padding:11px 22px;font-size:14px;font-weight:500;color:var(--ink)}
+.meta{margin-top:26px;padding-top:18px;border-top:1px solid var(--line);
+  display:flex;flex-wrap:wrap;gap:22px;font-size:12.5px;color:var(--muted)}
+.meta b{color:var(--ink);font-weight:600}
+.verdict{margin-top:14px;font-size:13px;line-height:1.55;color:var(--muted);max-width:720px}
+.verdict strong{color:var(--ink);font-weight:600}
+
+/* ── las combinaciones ── */
+.f-actual h2,.f-actual .eyebrow{font-family:'Space Grotesk',sans-serif}
+.f-actual .sub,.f-actual .btn,.f-actual .ghost{font-family:Inter,sans-serif}
+
+.f-sora h2,.f-sora .eyebrow{font-family:Sora,sans-serif}
+.f-sora .sub,.f-sora .btn,.f-sora .ghost{font-family:Inter,sans-serif}
+
+.f-jakarta h2,.f-jakarta .eyebrow{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800}
+.f-jakarta .sub,.f-jakarta .btn,.f-jakarta .ghost{font-family:'Plus Jakarta Sans',sans-serif}
+
+.f-manrope h2,.f-manrope .eyebrow{font-family:Manrope,sans-serif;font-weight:800}
+.f-manrope .sub,.f-manrope .btn,.f-manrope .ghost{font-family:Manrope,sans-serif}
+
+.f-outfit h2,.f-outfit .eyebrow{font-family:Outfit,sans-serif}
+.f-outfit .sub,.f-outfit .btn,.f-outfit .ghost{font-family:Inter,sans-serif}
+
+.f-bricolage h2,.f-bricolage .eyebrow{font-family:'Bricolage Grotesque',sans-serif}
+.f-bricolage .sub,.f-bricolage .btn,.f-bricolage .ghost{font-family:Inter,sans-serif}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1 class="page-h">Tipografía · seis opciones con el texto real</h1>
+  <p class="page-s">El mismo titular, el mismo párrafo y los mismos botones de la home, cambiando solo la tipografía.
+    Míralos de lejos y de cerca: de lejos se juzga el titular, de cerca el párrafo.
+    La primera es la que está en vivo hoy.</p>
+
+  <div class="grid">
+
+    <section class="spec now f-actual">
+      <span class="tag">En vivo hoy</span>
+      <p class="eyebrow">Whatsapp · Instagram · Facebook · Llamadas</p>
+      <h2>Todos tus canales. <span class="g">Un solo agente.</span></h2>
+      <p class="sub">Sofía contesta en segundos, a la hora que sea. Califica al cliente, agenda la cita y deja el lead en tu CRM. Tu equipo entra cuando hay que cerrar.</p>
+      <div class="row"><span class="btn">Llama a Sofía</span><span class="ghost">Pruébala por WhatsApp</span></div>
+      <div class="meta"><span><b>Titulares:</b> Space Grotesk</span><span><b>Texto:</b> Inter</span></div>
+      <p class="verdict"><strong>Qué le pasa:</strong> Space Grotesk tiene letras con carácter raro (la <em>G</em>, la <em>k</em>, el <em>1</em>) que la vuelven reconocible pero también un poco fría y de 2021. Es la tipografía por defecto de las startups de IA, así que no te distingue.</p>
+    </section>
+
+    <section class="spec f-sora">
+      <span class="tag">Opción 1</span>
+      <p class="eyebrow">Whatsapp · Instagram · Facebook · Llamadas</p>
+      <h2>Todos tus canales. <span class="g">Un solo agente.</span></h2>
+      <p class="sub">Sofía contesta en segundos, a la hora que sea. Califica al cliente, agenda la cita y deja el lead en tu CRM. Tu equipo entra cuando hay que cerrar.</p>
+      <div class="row"><span class="btn">Llama a Sofía</span><span class="ghost">Pruébala por WhatsApp</span></div>
+      <div class="meta"><span><b>Titulares:</b> Sora</span><span><b>Texto:</b> Inter</span></div>
+      <p class="verdict"><strong>Sora.</strong> Geométrica y limpia, más seria que la actual y sin letras extrañas. Se siente producto, no experimento. Es la más segura de las seis.</p>
+    </section>
+
+    <section class="spec f-jakarta">
+      <span class="tag">Opción 2</span>
+      <p class="eyebrow">Whatsapp · Instagram · Facebook · Llamadas</p>
+      <h2>Todos tus canales. <span class="g">Un solo agente.</span></h2>
+      <p class="sub">Sofía contesta en segundos, a la hora que sea. Califica al cliente, agenda la cita y deja el lead en tu CRM. Tu equipo entra cuando hay que cerrar.</p>
+      <div class="row"><span class="btn">Llama a Sofía</span><span class="ghost">Pruébala por WhatsApp</span></div>
+      <div class="meta"><span><b>Titulares y texto:</b> Plus Jakarta Sans</span></div>
+      <p class="verdict"><strong>Plus Jakarta Sans.</strong> Una sola familia para todo. Redondeada y cálida: suaviza el negro y hace que la marca se sienta cercana en vez de técnica. La que mejor combina con el tono de Sofía.</p>
+    </section>
+
+    <section class="spec f-manrope">
+      <span class="tag">Opción 3</span>
+      <p class="eyebrow">Whatsapp · Instagram · Facebook · Llamadas</p>
+      <h2>Todos tus canales. <span class="g">Un solo agente.</span></h2>
+      <p class="sub">Sofía contesta en segundos, a la hora que sea. Califica al cliente, agenda la cita y deja el lead en tu CRM. Tu equipo entra cuando hay que cerrar.</p>
+      <div class="row"><span class="btn">Llama a Sofía</span><span class="ghost">Pruébala por WhatsApp</span></div>
+      <div class="meta"><span><b>Titulares y texto:</b> Manrope</span></div>
+      <p class="verdict"><strong>Manrope.</strong> También una sola familia. Más apretada y moderna; los titulares pesan sin gritar y el párrafo se lee muy bien en pantallas chicas. La más eficiente de todas.</p>
+    </section>
+
+    <section class="spec f-outfit">
+      <span class="tag">Opción 4</span>
+      <p class="eyebrow">Whatsapp · Instagram · Facebook · Llamadas</p>
+      <h2>Todos tus canales. <span class="g">Un solo agente.</span></h2>
+      <p class="sub">Sofía contesta en segundos, a la hora que sea. Califica al cliente, agenda la cita y deja el lead en tu CRM. Tu equipo entra cuando hay que cerrar.</p>
+      <div class="row"><span class="btn">Llama a Sofía</span><span class="ghost">Pruébala por WhatsApp</span></div>
+      <div class="meta"><span><b>Titulares:</b> Outfit</span><span><b>Texto:</b> Inter</span></div>
+      <p class="verdict"><strong>Outfit.</strong> La más parecida al logotipo de MiAgentIA: geométrica y redondeada, casi el mismo trazo. <strong>Advertencia:</strong> es la tipografía de BetMe. Si la usas aquí, las dos marcas empiezan a verse como la misma empresa.</p>
+    </section>
+
+    <section class="spec f-bricolage">
+      <span class="tag">Opción 5</span>
+      <p class="eyebrow">Whatsapp · Instagram · Facebook · Llamadas</p>
+      <h2>Todos tus canales. <span class="g">Un solo agente.</span></h2>
+      <p class="sub">Sofía contesta en segundos, a la hora que sea. Califica al cliente, agenda la cita y deja el lead en tu CRM. Tu equipo entra cuando hay que cerrar.</p>
+      <div class="row"><span class="btn">Llama a Sofía</span><span class="ghost">Pruébala por WhatsApp</span></div>
+      <div class="meta"><span><b>Titulares:</b> Bricolage Grotesque</span><span><b>Texto:</b> Inter</span></div>
+      <p class="verdict"><strong>Bricolage Grotesque.</strong> La más atrevida. Tiene personalidad de editorial y nadie en la región la está usando, así que destaca de inmediato. El riesgo es el opuesto al de Space Grotesk: puede verse más de agencia creativa que de software.</p>
+    </section>
+
+  </div>
+</div>
+</body>
+</html>
