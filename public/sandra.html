@@ -37,6 +37,7 @@ h1 span{background:linear-gradient(90deg,var(--cyan),var(--pink));-webkit-backgr
 .opt strong{display:block;font-size:17px}
 .opt small{display:block;color:var(--muted);font-size:13.5px;margin-top:3px;line-height:1.35}
 .arrow{margin-left:auto;color:var(--muted);font-size:20px}
+.opt.wa .ico{background:#25D366}
 .foot{text-align:center;color:var(--muted);font-size:12.5px;margin-top:26px}
 
 /* modal */
@@ -92,14 +93,21 @@ input:focus,select:focus{outline:none;border-color:var(--cyan)}
       <span class="arrow">›</span>
     </button>
 
-    <!-- 3. Dejar datos -->
+    <!-- 3. Chat con Sofía por WhatsApp -->
+    <a class="opt wa" href="https://wa.me/50375605872?text=Hola%20Sof%C3%ADa%2C%20vengo%20de%20la%20conferencia%20y%20quiero%20probar%20la%20demo" id="optWa" target="_blank" rel="noopener">
+      <span class="ico">💬</span>
+      <span><strong>Chatea con Sofía</strong><small>Escríbele por WhatsApp a nuestra agente de IA y pruébala tú mismo</small></span>
+      <span class="arrow">›</span>
+    </a>
+
+    <!-- 4. Dejar datos -->
     <button class="opt" id="optDatos" type="button">
       <span class="ico">📝</span>
       <span><strong>Déjanos tus datos</strong><small>Te contactamos nosotros para platicar sobre tu negocio</small></span>
       <span class="arrow">›</span>
     </button>
 
-    <!-- 4. Guardar contacto -->
+    <!-- 5. Guardar contacto -->
     <button class="opt" id="optSave" type="button">
       <span class="ico">👤</span>
       <span><strong id="saveLabel">Guardar contacto</strong><small id="saveName"></small></span>
