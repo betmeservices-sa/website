@@ -52,8 +52,8 @@ const es = {
     // canales → orbe (el agente) → ventas. Los iconos son los mismos SVG.
     omni: {
       label: 'Omnicanalidad',
-      titleTop: 'Entra por donde sea.',
-      titleGrad: 'Sale ordenado.',
+      titleTop: 'El lead entra por cualquier canal.',
+      titleGrad: 'MiAgentIA lo ordena y lo clasifica.',
       sub: 'WhatsApp, Instagram, Facebook, llamadas y tu sitio caen en una sola bandeja. Sofía responde, califica y abre el ticket.',
       channels: ['WhatsApp', 'Llamadas', 'Correo', 'Instagram', 'Facebook'],
       hub: 'Sofía',
@@ -316,8 +316,8 @@ const en: Dict = {
 
     omni: {
       label: 'Omnichannel',
-      titleTop: 'Comes in anywhere.',
-      titleGrad: 'Leaves organized.',
+      titleTop: 'The lead comes in on any channel.',
+      titleGrad: 'MiAgentIA sorts it and qualifies it.',
       sub: 'WhatsApp, Instagram, Facebook, calls and your website land in one inbox. Sofía answers, qualifies and opens the ticket.',
       channels: ['WhatsApp', 'Calls', 'Email', 'Instagram', 'Facebook'],
       hub: 'Sofía',

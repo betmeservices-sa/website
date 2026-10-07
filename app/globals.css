@@ -258,7 +258,7 @@ html.lenis, html.lenis body { height: auto; }
 /* orbe.png ya trae alfa por luminancia (el cuadro negro del recorte se
    eliminó en build), así que no hace falta mix-blend-mode — que además no
    funcionaría: el padre tiene filter y transform, y eso aísla el blending. */
-.omni-hub img { width: 100%; height: 100%; object-fit: contain; }
+.omni-hub > * { width: 100%; height: 100%; }
 
 .omni-cap {
   width: 100%; margin-top: 12px; text-align: center;
@@ -372,7 +372,7 @@ html.lenis, html.lenis body { height: auto; }
   display: grid; place-items: center;
   animation: orbit-breathe 4s ease-in-out infinite;
 }
-.orbit-core img { width: 100%; height: 100%; object-fit: contain; }
+.orbit-core > * { width: 100%; height: 100%; }
 .orbit-name {
   position: absolute; z-index: 2; bottom: calc(50% - 128px);
   font-family: var(--font-display); font-size: 12px; font-weight: 600;
@@ -392,4 +392,119 @@ html.lenis, html.lenis body { height: auto; }
 
 @media (prefers-reduced-motion: reduce) {
   .orbit-ring, .orbit-chip, .orbit-core { animation: none !important; }
+}
+
+/* ───────────── el orbe habla, no toca música ─────────────
+   Un ecualizador de música rebota a compás: todas las barras suben y bajan
+   juntas, regular. La voz no. Tiene ataques secos, mesetas, y PAUSAS —
+   los silencios entre palabras.
+
+   Por eso cada barra tiene su propia curva irregular y una duración que no
+   es múltiplo de las demás (1.37 / 1.73 / 2.11 / 1.57 / 1.93 s): el conjunto
+   nunca vuelve a alinearse, así que no se lee como un bucle. */
+@keyframes voiceA {
+  0%,100% { transform: scaleY(.18) }
+  5%  { transform: scaleY(.92) }
+  11% { transform: scaleY(.46) }
+  19% { transform: scaleY(.78) }
+  27% { transform: scaleY(.24) }
+  34% { transform: scaleY(.66) }
+  43% { transform: scaleY(.31) }
+  52%,61% { transform: scaleY(.13) }   /* pausa */
+  68% { transform: scaleY(.84) }
+  76% { transform: scaleY(.38) }
+  85% { transform: scaleY(.7) }
+  93% { transform: scaleY(.26) }
+}
+@keyframes voiceB {
+  0%,100% { transform: scaleY(.3) }
+  7%  { transform: scaleY(.55) }
+  13% { transform: scaleY(1) }
+  21% { transform: scaleY(.42) }
+  29% { transform: scaleY(.88) }
+  36% { transform: scaleY(.2) }
+  45%,53% { transform: scaleY(.15) }   /* pausa */
+  60% { transform: scaleY(.72) }
+  69% { transform: scaleY(.34) }
+  78% { transform: scaleY(.95) }
+  88% { transform: scaleY(.4) }
+}
+@keyframes voiceC {
+  0%,100% { transform: scaleY(.4) }
+  4%  { transform: scaleY(1) }
+  12% { transform: scaleY(.62) }
+  18% { transform: scaleY(.86) }
+  26% { transform: scaleY(.35) }
+  33% { transform: scaleY(.94) }
+  41% { transform: scaleY(.5) }
+  49% { transform: scaleY(.76) }
+  57%,64% { transform: scaleY(.17) }   /* pausa */
+  72% { transform: scaleY(.9) }
+  81% { transform: scaleY(.44) }
+  90% { transform: scaleY(.68) }
+}
+@keyframes voiceD {
+  0%,100% { transform: scaleY(.24) }
+  8%  { transform: scaleY(.7) }
+  15% { transform: scaleY(.33) }
+  23% { transform: scaleY(.96) }
+  31% { transform: scaleY(.45) }
+  40%,47% { transform: scaleY(.14) }   /* pausa */
+  55% { transform: scaleY(.6) }
+  63% { transform: scaleY(.28) }
+  71% { transform: scaleY(.82) }
+  80% { transform: scaleY(.37) }
+  91% { transform: scaleY(.58) }
+}
+@keyframes voiceE {
+  0%,100% { transform: scaleY(.2) }
+  6%  { transform: scaleY(.64) }
+  14% { transform: scaleY(.29) }
+  22% { transform: scaleY(.8) }
+  30% { transform: scaleY(.22) }
+  39% { transform: scaleY(.52) }
+  48%,58% { transform: scaleY(.12) }   /* pausa larga */
+  66% { transform: scaleY(.88) }
+  75% { transform: scaleY(.41) }
+  84% { transform: scaleY(.66) }
+  94% { transform: scaleY(.3) }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voice-bar { animation: none !important; transform: scaleY(.6); }
+}
+
+/* ───────────── los canales se encienden de uno en uno ─────────────
+   Animar los seis iconos a la vez es ruido: ya se mueven (orbitan) y le
+   roban el foco al centro. En vez de eso se enciende UNO a la vez, como si
+   acabara de entrar un mensaje por ese canal.
+
+   El ciclo dura lo mismo para todos y cada chip entra con su retardo
+   (--i × 1.2s), así que siempre hay como mucho uno encendido. */
+.orbit-chip {
+  animation:
+    orbit-spin-rev var(--spin) linear infinite,
+    chip-ping 7.2s ease-in-out calc(var(--i, 0) * 1.2s) infinite;
+}
+@keyframes chip-ping {
+  0%, 86%, 100% {
+    border-color: rgba(255,255,255,.13);
+    box-shadow: 0 10px 30px -10px rgba(0,0,0,.8);
+  }
+  4% {
+    border-color: color-mix(in srgb, var(--tint) 75%, transparent);
+    box-shadow: 0 10px 30px -10px rgba(0,0,0,.8),
+                0 0 0 4px color-mix(in srgb, var(--tint) 16%, transparent),
+                0 0 26px -2px color-mix(in srgb, var(--tint) 65%, transparent);
+  }
+  12% {
+    border-color: color-mix(in srgb, var(--tint) 40%, transparent);
+    box-shadow: 0 10px 30px -10px rgba(0,0,0,.8),
+                0 0 0 10px color-mix(in srgb, var(--tint) 0%, transparent),
+                0 0 18px -4px color-mix(in srgb, var(--tint) 30%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orbit-chip { animation: none !important; }
 }

@@ -1,7 +1,7 @@
 'use client'
 
-import Image from 'next/image'
 import { useI18n } from '@/lib/i18n'
+import { VoiceBadge } from '@/components/ui/Logo'
 import AnimatedContent from '@/components/reactbits/AnimatedContent'
 import Eyebrow from '@/components/ui/Eyebrow'
 
@@ -99,9 +99,7 @@ export default function Omnichannel() {
               {/* El agente */}
               <div className="omni-step omni-step-hub">
                 <div className="omni-icon">
-                  <div className="omni-hub">
-                    <Image src="/brand/orbe-sofia.png" alt="" width={120} height={120} priority />
-                  </div>
+                  <div className="omni-hub"><VoiceBadge className="h-full w-full" /></div>
                 </div>
                 <span className="omni-cap omni-cap-hub">{o.hub}</span>
                 <div className="omni-link omni-link-out">

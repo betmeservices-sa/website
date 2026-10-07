@@ -25,12 +25,17 @@ export default function Logo({ className = '', showText = true }: { className?: 
 
 // Barras del ecualizador en SVG: escalan perfecto a cualquier tamaño de
 // círculo (en px fijos se desbordaban en insignias pequeñas).
+//
+// Cada barra lleva su propia curva (voiceA..voiceE) y una duración que no es
+// múltiplo de las otras, para que el conjunto NUNCA se vuelva a alinear. Un
+// ecualizador de música rebota a compás; la voz tiene ataques secos y pausas.
+// Si igualas las duraciones, vuelve a sonar a música.
 const BARS = [
-  { x: 5.3, h: 5 },
-  { x: 8.2, h: 8 },
-  { x: 11.1, h: 11 },
-  { x: 14.0, h: 7 },
-  { x: 16.9, h: 5 },
+  { x: 5.3,  h: 5,  anim: 'voiceA', dur: 1.37 },
+  { x: 8.2,  h: 8,  anim: 'voiceD', dur: 1.73 },
+  { x: 11.1, h: 11, anim: 'voiceC', dur: 2.11 },
+  { x: 14.0, h: 7,  anim: 'voiceB', dur: 1.57 },
+  { x: 16.9, h: 5,  anim: 'voiceE', dur: 1.93 },
 ]
 
 export function VoiceBadge({ className = 'h-[1.5em] w-[1.5em]' }: { className?: string }) {
@@ -61,9 +66,10 @@ export function VoiceBadge({ className = 'h-[1.5em] w-[1.5em]' }: { className?: 
             height={b.h}
             rx="0.9"
             fill="url(#eq-grad)"
+            className="voice-bar"
             style={{
               transformOrigin: `${b.x + 0.9}px 17.5px`,
-              animation: `eqY ${0.9 + i * 0.12}s ease-in-out ${i * 0.08}s infinite`,
+              animation: `${b.anim} ${b.dur}s cubic-bezier(.3,.9,.4,1) ${i * 0.11}s infinite`,
             }}
           />
         ))}

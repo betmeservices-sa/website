@@ -1,7 +1,7 @@
 'use client'
 
-import Image from 'next/image'
 import { ChannelIcon, type ChannelKey } from '@/components/ui/ChannelIcons'
+import { VoiceBadge } from '@/components/ui/Logo'
 
 /**
  * El orbe del hero: los canales girando alrededor de Sofía.
@@ -39,16 +39,17 @@ export default function ChannelOrbit({ className = '' }: { className?: string })
             className="orbit-item"
             style={{ ['--a' as string]: `${i * step}deg` }}
           >
-            <div className="orbit-chip" style={{ ['--tint' as string]: c.tint }}>
+            <div className="orbit-chip" style={{ ['--tint' as string]: c.tint, ['--i' as string]: i }}>
               <ChannelIcon name={c.key} />
             </div>
           </div>
         ))}
       </div>
 
-      {/* Sofía al centro */}
+      {/* Sofía al centro. Es el VoiceBadge del logo, no un PNG: vector, así que
+          es nítido a cualquier tamaño, y sus barras ya se mueven solas. */}
       <div className="orbit-core">
-        <Image src="/brand/orbe-sofia.png" alt="" width={240} height={240} priority />
+        <VoiceBadge className="h-full w-full" />
       </div>
       <span className="orbit-name">Sofía</span>
     </div>
