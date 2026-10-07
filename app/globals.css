@@ -599,3 +599,63 @@ html.lenis, html.lenis body { height: auto; }
    accesibilidad — el visitante real nunca lleva ese atributo, así que para
    él siguen aplicando igual. Existe solo para poder revisar el diseño en una
    máquina con las animaciones del sistema apagadas (ver MotionPreview). */
+
+/* ───────────── tabla de paquetes ─────────────
+   Cuatro planes no caben en un teléfono, y apilar por plan repetiría las
+   veinte filas cuatro veces. Se desplaza en horizontal con la columna de
+   características fija: así siempre se sabe qué fila se está leyendo. */
+.pl-scroll {
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--color-line); border-radius: 18px;
+  background: var(--color-bg-card);
+}
+.pl-table { width: 100%; min-width: 680px; border-collapse: collapse; text-align: left; }
+
+.pl-head { padding: 22px 18px 18px; vertical-align: bottom; }
+.pl-tier {
+  font-family: var(--font-display); font-size: 16px; font-weight: 600;
+  letter-spacing: -.01em;
+}
+.pl-first {
+  position: sticky; left: 0; z-index: 2;
+  background: var(--color-bg-card);
+  min-width: 290px; max-width: 340px;
+}
+.pl-grouprow th, .pl-grouprow td {
+  padding-top: 26px; border-bottom: 1px solid var(--color-line);
+}
+.pl-group {
+  font-family: var(--font-display); font-size: 11px; font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase; color: var(--color-muted);
+  padding: 26px 18px 10px;
+}
+.pl-feat {
+  padding: 13px 18px; font-size: 13.5px; font-weight: 400; line-height: 1.45;
+  color: var(--color-ink); border-top: 1px solid var(--color-line);
+}
+.pl-cell {
+  padding: 13px 18px; text-align: center; border-top: 1px solid var(--color-line);
+  min-width: 112px;
+}
+.pl-grouprow + tr .pl-feat, .pl-grouprow + tr .pl-cell { border-top: none; }
+
+.pl-dot {
+  display: inline-grid; place-items: center; width: 24px; height: 24px;
+  border-radius: 50%; background: rgba(34,211,238,.13);
+}
+.pl-dot svg {
+  width: 13px; height: 13px; fill: none; stroke: var(--color-cyan);
+  stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round;
+}
+.pl-no { color: rgba(255,255,255,.22); font-size: 15px; }
+.pl-val {
+  font-family: var(--font-display); font-size: 13px; font-weight: 600;
+  color: var(--color-ink);
+}
+.pl-ctacell { padding: 22px 14px 24px; }
+
+@media (max-width: 640px) {
+  .pl-first { min-width: 210px; max-width: 220px; }
+  .pl-feat { font-size: 12.5px; padding: 11px 14px; }
+  .pl-cell { min-width: 92px; padding: 11px 10px; }
+}

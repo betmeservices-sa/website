@@ -3,6 +3,7 @@ import Hero from '@/components/sections/Hero'
 import Omnichannel from '@/components/sections/Omnichannel'
 import Services from '@/components/sections/Services'
 import Sofia from '@/components/sections/Sofia'
+import Planes from '@/components/sections/Planes'
 import VoiceDemo from '@/components/sections/VoiceDemo'
 import WhatsAppDemo from '@/components/sections/WhatsAppDemo'
 import HybridModel from '@/components/sections/HybridModel'
@@ -22,6 +23,7 @@ export default function HomeSections() {
       <VoiceDemo />
       <WhatsAppDemo />
       <HybridModel />
+      <Planes />
       <HowItWorks />
       <Industries />
       <Results />

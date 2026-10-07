@@ -6,10 +6,11 @@ export type Lang = 'es' | 'en'
 const es = {
     nav: {
       links: [
-        { label: 'Servicios', href: '#servicios' },
-        { label: 'Demo Voz', href: '#voz' },
-        { label: 'Demo Chat', href: '#chat' },
+        { label: 'Omnicanal', href: '#omnicanal' },
+        { label: 'Sofía', href: '#sofia' },
+        { label: 'Planes', href: '#planes' },
         { label: 'Industrias', href: '#industrias' },
+        { label: 'Cómo funciona', href: '#como-funciona' },
       ],
       cta: 'Agenda una demo',
     },
@@ -76,9 +77,9 @@ const es = {
 
     sofia: {
       label: 'Qué hace Sofía',
-      titleTop: 'Una persona cubre su turno.',
-      titleGrad: 'Sofía cubre el día completo.',
-      sub: 'Responde, informa, califica y da seguimiento. Sin turno que se acabe ni cola que se forme.',
+      titleTop: 'Sofía te brinda cobertura',
+      titleGrad: 'de tu negocio 24/7.',
+      sub: 'Responde, informa, califica, agenda y cierra. Sin cola que se forme ni conversación que se enfríe.',
       meta: [
         { k: 'Canales', v: 'WhatsApp, Instagram, Facebook y llamadas' },
         { k: 'Idiomas', v: 'Español e inglés' },
@@ -89,14 +90,15 @@ const es = {
         { t: 'Responde al instante', d: 'WhatsApp, Instagram, Facebook y llamadas en segundos. Fines de semana y madrugadas incluidos.' },
         { t: 'Informa como un vendedor', d: 'Precios, versiones, disponibilidad y formas de pago, leídos de la información que tú compartas.' },
         { t: 'Califica y agenda', d: 'Pregunta presupuesto, forma de pago y fecha de compra. Agenda la cita en tu calendario.' },
+        { t: 'Cierra la venta', d: 'Con el cobro integrado, toma el pedido y confirma el pago en la misma conversación. No hay que esperar a un vendedor.' },
         { t: 'No suelta el lead', d: 'Reactiva a los fríos, manda recordatorios y abre el ticket al vendedor que corresponde.' },
       ],
       limitsLabel: 'Lo que no hace',
       limitsNote: 'Los límites los defines tú. Estos son los que recomendamos:',
       limits: [
-        'No cierra la venta. Eso lo hace tu vendedor.',
         'No inventa precios ni promociones. Solo usa lo que tú cargas.',
-        'No aprueba descuentos ni financiamiento. Recopila y transfiere.',
+        'No aprueba descuentos ni condiciones especiales por su cuenta.',
+        'No da asesoría legal, médica ni financiera.',
         'Si el cliente pregunta, dice que es IA.',
       ],
       escalaLabel: 'Cuándo entra tu equipo',
@@ -200,33 +202,52 @@ const es = {
 
     plans: {
       label: 'Planes',
-      title: 'Empieza simple, escala sin límite',
-      sub: 'Paquetes por capacidad. El precio final se cotiza a la medida de tu negocio.',
-      tiers: [
+      title: 'Cuatro paquetes. El mismo agente.',
+      sub: 'Todos incluyen la bandeja unificada y el agente completo. Lo que cambia es cuánto entiende y hasta dónde automatiza.',
+      tiers: ['Starter', 'Growth', 'Advanced', 'Enterprise'],
+      groups: [
         {
-          name: 'Arranque',
-          tagline: 'Un canal, listo para vender',
-          features: ['1 agente (voz o chat)', 'Guion y personalidad a medida', 'Citas en tu calendario', 'Integración básica', 'Soporte por WhatsApp'],
-          cta: 'Cotizar',
-          featured: false,
+          name: 'Qué entiende Sofía',
+          rows: [
+            { f: 'Texto, hasta 15 respuestas por conversación', v: [true, true, true, true] },
+            { f: 'Escucha notas de voz (3 de hasta 20 segundos)', v: [false, true, true, true] },
+            { f: 'Lee las fotos que le mandan (hasta 3)', v: [false, false, true, true] },
+          ],
         },
         {
-          name: 'Crecimiento',
-          tagline: 'Voz + WhatsApp trabajando juntos',
-          features: ['Agente de voz y de chat', 'Calificación de leads avanzada', 'Integración con tu CRM', 'Recordatorios automáticos', 'Reportes de conversaciones', 'Soporte prioritario'],
-          cta: 'Cotizar',
-          featured: true,
+          name: 'Canales y bandeja',
+          rows: [
+            { f: 'Bandeja unificada: WhatsApp, Instagram y Facebook', v: [true, true, true, true] },
+            { f: 'Modo IA activable y pausable por conversación', v: [true, true, true, true] },
+            { f: 'Transferencia a una persona por reglas', v: [true, true, true, true] },
+            { f: 'Agentes personalizables por caso de uso', v: [true, true, true, true] },
+          ],
         },
         {
-          name: 'A medida',
-          tagline: 'Operación completa con IA',
-          features: ['Múltiples agentes y flujos', 'Llamadas salientes a escala', 'Integraciones personalizadas', 'Automatizaciones con n8n', 'Optimización continua', 'Acompañamiento dedicado'],
-          cta: 'Hablar con ventas',
-          featured: false,
+          name: 'Campañas y seguimiento',
+          rows: [
+            { f: '5 campañas y promociones incluidas', v: [true, true, true, true] },
+            { f: 'Reactivación de contactos inactivos a las 24 h', v: [true, true, true, true] },
+            { f: 'Gestión de plantillas de Meta', v: [true, true, true, true] },
+            { f: 'Recordatorios y confirmaciones automáticas', v: [false, true, true, true] },
+            { f: 'Tarjetas de cliente frecuente', v: [false, true, true, true] },
+            { f: 'Programa de referidos automático', v: [false, false, true, true] },
+            { f: 'Reactivación personalizada', v: [false, false, 'Hasta 3 meses', 'Hasta 6 meses'] },
+            { f: 'Reseñas y reputación automatizada', v: [false, false, false, true] },
+          ],
+        },
+        {
+          name: 'Tu operación',
+          rows: [
+            { f: 'Calendario de disponibilidad', v: [true, true, true, true] },
+            { f: 'Chat interno por canal y departamento', v: [true, true, true, true] },
+            { f: 'Dashboard de métricas del negocio', v: [true, true, true, true] },
+            { f: 'Usuarios incluidos', v: ['5', '10', '10', '30'] },
+          ],
         },
       ],
-      note: 'Sin permanencia forzada. Cancelas cuando quieras.',
-      popular: 'Más popular',
+      cta: 'Consultar precio',
+      note: 'El precio se cotiza por negocio, según tu volumen de conversaciones. Los mensajes que Meta cobra por WhatsApp se facturan directo a tu cuenta, no a través de nosotros.',
     },
 
     faq: {
@@ -284,10 +305,11 @@ export type Dict = typeof es
 const en: Dict = {
     nav: {
       links: [
-        { label: 'Services', href: '#servicios' },
-        { label: 'Voice Demo', href: '#voz' },
-        { label: 'Chat Demo', href: '#chat' },
+        { label: 'Omnichannel', href: '#omnicanal' },
+        { label: 'Sofía', href: '#sofia' },
+        { label: 'Plans', href: '#planes' },
         { label: 'Industries', href: '#industrias' },
+        { label: 'How it works', href: '#como-funciona' },
       ],
       cta: 'Book a demo',
     },
@@ -349,9 +371,9 @@ const en: Dict = {
 
     sofia: {
       label: 'What Sofía does',
-      titleTop: 'A person covers a shift.',
-      titleGrad: 'Sofía covers the day.',
-      sub: 'She answers, informs, qualifies and follows up. No shift ending, no queue building.',
+      titleTop: 'Sofía covers your business',
+      titleGrad: '24/7.',
+      sub: 'She answers, informs, qualifies, books and closes. No queue building, no conversation going cold.',
       meta: [
         { k: 'Channels', v: 'WhatsApp, Instagram, Facebook and calls' },
         { k: 'Languages', v: 'Spanish and English' },
@@ -362,14 +384,15 @@ const en: Dict = {
         { t: 'Answers instantly', d: 'WhatsApp, Instagram, Facebook and calls in seconds. Weekends and small hours included.' },
         { t: 'Informs like a rep', d: 'Pricing, versions, availability and payment options, read from the information you share.' },
         { t: 'Qualifies and books', d: 'Asks budget, payment method and purchase date. Books the appointment in your calendar.' },
+        { t: 'Closes the sale', d: 'With payments connected, she takes the order and confirms payment in the same conversation. No waiting for a rep.' },
         { t: 'Never drops the lead', d: 'Reactivates cold ones, sends reminders and opens the ticket for the right rep.' },
       ],
       limitsLabel: 'What she does not do',
       limitsNote: 'You set the limits. These are the ones we recommend:',
       limits: [
-        'She does not close the sale. Your rep does that.',
         'She does not invent prices or promotions. She only uses what you load.',
-        'She does not approve discounts or financing. She gathers and transfers.',
+        'She does not approve discounts or special terms on her own.',
+        'She does not give legal, medical or financial advice.',
         'If the customer asks, she says she is AI.',
       ],
       escalaLabel: 'When your team steps in',
@@ -470,33 +493,52 @@ const en: Dict = {
 
     plans: {
       label: 'Plans',
-      title: 'Start simple, scale without limits',
-      sub: 'Packages by capability. Final pricing is quoted to fit your business.',
-      tiers: [
+      title: 'Four packages. The same agent.',
+      sub: 'All of them include the unified inbox and the full agent. What changes is how much she understands and how far she automates.',
+      tiers: ['Starter', 'Growth', 'Advanced', 'Enterprise'],
+      groups: [
         {
-          name: 'Starter',
-          tagline: 'One channel, ready to sell',
-          features: ['1 agent (voice or chat)', 'Custom script and personality', 'Booking into your calendar', 'Basic integration', 'WhatsApp support'],
-          cta: 'Get a quote',
-          featured: false,
+          name: 'What Sofía understands',
+          rows: [
+            { f: 'Text, up to 15 replies per conversation', v: [true, true, true, true] },
+            { f: 'Listens to voice notes (3 of up to 20 seconds)', v: [false, true, true, true] },
+            { f: 'Reads the photos people send (up to 3)', v: [false, false, true, true] },
+          ],
         },
         {
-          name: 'Growth',
-          tagline: 'Voice + WhatsApp working together',
-          features: ['Voice and chat agent', 'Advanced lead qualification', 'CRM integration', 'Automated reminders', 'Conversation reports', 'Priority support'],
-          cta: 'Get a quote',
-          featured: true,
+          name: 'Channels and inbox',
+          rows: [
+            { f: 'Unified inbox: WhatsApp, Instagram and Facebook', v: [true, true, true, true] },
+            { f: 'AI mode you can switch on and off per conversation', v: [true, true, true, true] },
+            { f: 'Hand-off to a person by rules', v: [true, true, true, true] },
+            { f: 'Agents customizable per use case', v: [true, true, true, true] },
+          ],
         },
         {
-          name: 'Custom',
-          tagline: 'A full AI operation',
-          features: ['Multiple agents and flows', 'Outbound calls at scale', 'Custom integrations', 'n8n automations', 'Continuous optimization', 'Dedicated guidance'],
-          cta: 'Talk to sales',
-          featured: false,
+          name: 'Campaigns and follow-up',
+          rows: [
+            { f: '5 campaigns and promotions included', v: [true, true, true, true] },
+            { f: 'Reactivation of inactive contacts at 24 h', v: [true, true, true, true] },
+            { f: 'Meta template management', v: [true, true, true, true] },
+            { f: 'Automatic reminders and confirmations', v: [false, true, true, true] },
+            { f: 'Loyalty cards', v: [false, true, true, true] },
+            { f: 'Automatic referral programme', v: [false, false, true, true] },
+            { f: 'Custom reactivation', v: [false, false, 'Up to 3 months', 'Up to 6 months'] },
+            { f: 'Automated reviews and reputation', v: [false, false, false, true] },
+          ],
+        },
+        {
+          name: 'Your operation',
+          rows: [
+            { f: 'Availability calendar', v: [true, true, true, true] },
+            { f: 'Internal chat by channel and department', v: [true, true, true, true] },
+            { f: 'Business metrics dashboard', v: [true, true, true, true] },
+            { f: 'Users included', v: ['5', '10', '10', '30'] },
+          ],
         },
       ],
-      note: 'No lock-in. Cancel anytime.',
-      popular: 'Most popular',
+      cta: 'Ask for pricing',
+      note: 'Pricing is quoted per business, based on your conversation volume. The per-message fees Meta charges for WhatsApp are billed straight to your own account, not through us.',
     },
 
     faq: {
