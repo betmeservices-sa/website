@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/next'
-import { inter, space } from '@/lib/fonts'
+import { inter, display } from '@/lib/fonts'
 import { SITE_URL } from '@/lib/jsonld'
+import MotionPreview from '@/components/MotionPreview'
 import './globals.css'
 
 const GA_ID = 'G-Z3GPQSFHVD'
@@ -62,8 +63,9 @@ export const metadata: Metadata = {
 // en cliente y las etiquetas hreflang le dicen a Google qué versión es cuál.
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" className={`${inter.variable} ${space.variable}`} suppressHydrationWarning>
+    <html lang="es" className={`${inter.variable} ${display.variable}`} suppressHydrationWarning>
       <body className="grain font-sans antialiased" suppressHydrationWarning>
+        <MotionPreview />
         {children}
         <Analytics />
         {/* Google tag (gtag.js) · GA4 */}

@@ -40,7 +40,7 @@ export function buildJsonLd(lang: Lang) {
             : 'AI customer service automation',
         provider: { '@id': `${SITE_URL}/#organization` },
         areaServed: lang === 'es' ? 'Latinoamérica' : 'Latin America',
-        description: t.services.sub,
+        description: t.sofia.sub,
       },
       {
         '@type': 'FAQPage',
