@@ -56,11 +56,9 @@ export default function Sofia() {
               </div>
               <ul className="mt-7 space-y-6">
                 {s.does.map((d) => (
-                  <li key={d.s} className="border-l border-white/10 pl-5">
-                    <p className="font-display text-[12px] uppercase tracking-[.13em] text-cyan">
-                      {d.s}
-                    </p>
-                    <p className="mt-2 text-sm leading-relaxed text-muted">{d.r}</p>
+                  <li key={d.t} className="border-l border-white/10 pl-5">
+                    <p className="font-display text-base font-semibold">{d.t}</p>
+                    <p className="mt-1.5 text-sm leading-relaxed text-muted">{d.d}</p>
                   </li>
                 ))}
               </ul>

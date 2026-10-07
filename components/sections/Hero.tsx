@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { useI18n } from '@/lib/i18n'
 import Aurora from '@/components/reactbits/Aurora'
 import SplitText from '@/components/reactbits/SplitText'
-import RobotMascot from '@/components/ui/RobotMascot'
+import ChannelOrbit from '@/components/ui/ChannelOrbit'
 import Button from '@/components/ui/Button'
 import Eyebrow from '@/components/ui/Eyebrow'
 import Icon from '@/components/ui/Icon'
@@ -30,8 +30,7 @@ export default function Hero() {
 
           <h1 className="mt-7 font-display text-4xl font-semibold leading-[1.08] tracking-tight sm:text-6xl lg:text-6xl xl:text-7xl">
             <SplitText text={t.hero.titleTop} delay={0.1} />{' '}
-            <SplitText text={t.hero.titleGrad} delay={0.35} wordClassName="text-grad" />{' '}
-            <SplitText text={t.hero.titleBottom} delay={0.7} />
+            <SplitText text={t.hero.titleGrad} delay={0.35} wordClassName="text-grad" />
           </h1>
 
           <motion.p
@@ -85,14 +84,15 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Columna derecha: robot (arriba en móvil, a la derecha en escritorio) */}
+        {/* Columna derecha: los canales girando alrededor de Sofía. Reemplaza al
+            robot: dice el mensaje principal como imagen. */}
         <motion.div
           initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           className="order-first flex justify-center lg:order-none"
         >
-          <RobotMascot className="h-60 w-auto sm:h-80 lg:h-[34rem]" />
+          <ChannelOrbit />
         </motion.div>
       </div>
     </section>

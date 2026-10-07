@@ -132,6 +132,37 @@ export default function Omnichannel() {
             <p className="mt-10 text-center text-sm text-muted">{o.caption}</p>
           </div>
         </AnimatedContent>
+
+        {/* Contacto unificado. Es el fondo del mensaje principal: no es que
+            atendamos muchos canales, es que detrás de todos hay una sola
+            persona con un solo historial. */}
+        <AnimatedContent delay={0.14}>
+          <div className="mx-auto mt-16 max-w-3xl rounded-2xl border border-cyan/25 bg-cyan/[0.055] px-7 py-9 text-center sm:px-12">
+            <h3 className="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+              {o.unifiedTitle}
+            </h3>
+            <p className="mx-auto mt-4 max-w-2xl leading-relaxed text-muted">{o.unifiedSub}</p>
+          </div>
+        </AnimatedContent>
+
+        {/* El CRM del cliente se queda donde está: esto alimenta, no reemplaza. */}
+        <AnimatedContent delay={0.16}>
+          <div className="mx-auto mt-16 max-w-3xl rounded-2xl border border-white/10 bg-bg-card px-7 py-8 text-center sm:px-10">
+            <h3 className="font-display text-xl font-semibold">{o.crmLabel}</h3>
+            <p className="mx-auto mt-2.5 max-w-xl text-sm leading-relaxed text-muted">{o.crmSub}</p>
+            <div className="mt-7 flex flex-wrap justify-center gap-2.5">
+              {o.crms.map((c) => (
+                <span
+                  key={c}
+                  className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-ink/90"
+                >
+                  {c}
+                </span>
+              ))}
+            </div>
+            <p className="mt-6 text-xs text-muted">{o.crmNote}</p>
+          </div>
+        </AnimatedContent>
       </div>
     </section>
   )
