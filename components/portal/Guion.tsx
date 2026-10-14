@@ -13,6 +13,9 @@ import {
   CALENDARIOS,
   CANALES,
   CRMS,
+  HORARIO_DIAS,
+  HORARIO_SIEMPRE,
+  HORAS,
   IDIOMAS,
   OBJETIVOS,
   OBJETIVO_OTRO,
@@ -131,9 +134,33 @@ export default function Guion() {
 
       <Bloque titulo="Cómo habla">
         <div className="space-y-6">
+          {/* Dos columnas: arriba tono y días, y debajo el rango de horas en
+              la misma retícula, así los cuatro selects quedan alineados. */}
           <div className="grid gap-4 sm:grid-cols-2">
             <Lista etiqueta="Tono" valor={g.tono} onChange={(v) => setGuion({ tono: v })} opciones={[...TONOS]} />
-            <Campo etiqueta="Horario de atención" valor={g.horario} onChange={(v) => setGuion({ horario: v })} placeholder="Lun a vie, 8am a 6pm" />
+            <Lista
+              etiqueta="Días de atención"
+              valor={g.horarioDias}
+              onChange={(v) => setGuion({ horarioDias: v })}
+              opciones={HORARIO_DIAS}
+            />
+            {/* Si atiende las 24 horas no hay rango que elegir. */}
+            {g.horarioDias && g.horarioDias !== HORARIO_SIEMPRE && (
+              <>
+                <Lista
+                  etiqueta="Desde"
+                  valor={g.horarioDesde}
+                  onChange={(v) => setGuion({ horarioDesde: v })}
+                  opciones={HORAS}
+                />
+                <Lista
+                  etiqueta="Hasta"
+                  valor={g.horarioHasta}
+                  onChange={(v) => setGuion({ horarioHasta: v })}
+                  opciones={HORAS}
+                />
+              </>
+            )}
           </div>
           <Fichas etiqueta="Idiomas" opciones={IDIOMAS} elegidas={g.idiomas} onToggle={(v) => alternar('idiomas', v)} />
           <Area

@@ -15,6 +15,7 @@ import {
   funcion,
   nombreObjetivo,
   plan,
+  textoHorario,
 } from './catalogo'
 import { usePortal } from './estado'
 import Checkout, { type Linea } from './Checkout'
@@ -50,7 +51,7 @@ export default function Implementacion() {
     ['Canales', g.canales.join(', ')],
     ['Integraciones', integra.length ? integra.join(' y ') : 'Ninguna por ahora'],
     ['Tono', g.tono],
-    ['Horario', g.horario],
+    ['Horario', textoHorario(g)],
     ['Idiomas', g.idiomas.join(', ')],
     ['No debe', g.queNoHace],
   ]

@@ -13,14 +13,17 @@ export default function Planes() {
 
   return (
     <>
-      <Titulo
-        eyebrow="Paso 1 de 5"
-        bajada="Elige el paquete que te queda. La mensualidad no se cobra hoy: empieza después de la segunda reunión, más o menos una semana. Hoy solo se paga la implementación."
-      >
+      <Titulo eyebrow="Paso 1 de 5">
         Empieza con <span className="text-grad">tu agente</span>.
       </Titulo>
 
-      <div className="mt-9 grid gap-4 md:grid-cols-3">
+      {/* La indicación va como rótulo de la grilla y no como párrafo: es la
+          etiqueta del campo, igual que en los demás pasos. */}
+      <p className="mt-8 font-display text-[11px] uppercase tracking-[0.16em] text-muted">
+        Selecciona el paquete de tu interés
+      </p>
+
+      <div className="mt-5 grid gap-4 md:grid-cols-3">
         {PLANES.map((p) => {
           const activo = elegido === p.id
           return (

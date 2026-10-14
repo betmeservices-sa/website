@@ -11,10 +11,10 @@
 
 import { createContext, useCallback, useContext, useEffect, useState } from 'react'
 
-// v2: el paso de pago de la mensualidad se quitó y `objetivo` pasó a ser una
-// lista. Cambiar la llave evita que un recorrido viejo del navegador reviva
-// con la forma anterior.
-const LLAVE = 'portal.miagentia.v2'
+// v3: el horario dejó de ser texto libre y pasó a tres campos. Cambiar la
+// llave evita que un recorrido viejo del navegador reviva con la forma
+// anterior (antes: `objetivo` suelto y el paso de pago de la mensualidad).
+const LLAVE = 'portal.miagentia.v3'
 
 export type Guion = {
   empresa: string
@@ -31,7 +31,11 @@ export type Guion = {
   canales: string[]
   tono: string
   idiomas: string[]
-  horario: string
+  // Horario de atención, de listas y no de texto libre: días y, si no atiende
+  // las 24 horas, el rango. Ver textoHorario() para armarlo en una línea.
+  horarioDias: string
+  horarioDesde: string
+  horarioHasta: string
   queNoHace: string
   notas: string
 }
@@ -62,7 +66,9 @@ const VACIO: Estado = {
     canales: [],
     tono: '',
     idiomas: ['Español'],
-    horario: '',
+    horarioDias: '',
+    horarioDesde: '',
+    horarioHasta: '',
     queNoHace: '',
     notas: '',
   },

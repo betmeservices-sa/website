@@ -96,6 +96,43 @@ export const CANALES = ['WhatsApp', 'Instagram', 'Facebook', 'Web', 'Llamadas', 
 export const TONOS = ['Cercano', 'Formal', 'Directo', 'Divertido']
 export const IDIOMAS = ['Español', 'Inglés', 'Portugués']
 
+// ── Horario de atención ──
+//
+// Se elige de listas y no se escribe: el horario entra al guion y de ahí a la
+// configuración del agente, así que "L-V de 8 a 6" y "lunes a viernes 8am-6pm"
+// tienen que llegar iguales.
+
+/** Atiende siempre: con esta opción no hay horas que elegir. */
+export const HORARIO_SIEMPRE = 'Todos los días, 24 horas'
+
+export const HORARIO_DIAS = [
+  HORARIO_SIEMPRE,
+  'Lunes a viernes',
+  'Lunes a sábado',
+  'Todos los días',
+  'Solo fines de semana',
+]
+
+function reloj(minutos: number): string {
+  const h24 = Math.floor(minutos / 60)
+  const h12 = h24 % 12 === 0 ? 12 : h24 % 12
+  const mm = String(minutos % 60).padStart(2, '0')
+  return `${h12}:${mm} ${h24 < 12 ? 'am' : 'pm'}`
+}
+
+/** El día completo en pasos de media hora. */
+export const HORAS: string[] = Array.from({ length: 48 }, (_, i) => reloj(i * 30))
+
+export function textoHorario(h: {
+  horarioDias: string
+  horarioDesde: string
+  horarioHasta: string
+}): string {
+  if (h.horarioDias === HORARIO_SIEMPRE) return HORARIO_SIEMPRE
+  const horas = h.horarioDesde && h.horarioHasta ? `${h.horarioDesde} a ${h.horarioHasta}` : ''
+  return [h.horarioDias, horas].filter(Boolean).join(', ')
+}
+
 // ── Funciones ──
 //
 // Un precio único por función, a propósito: el cliente arma su alcance sumando
