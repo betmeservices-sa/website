@@ -26,6 +26,10 @@ const paths: Record<string, React.ReactNode> = {
   chevron: <path d="M6 9l6 6 6-6" />,
   plus: <path d="M12 5v14M5 12h14" />,
   bot: <><rect x="4.5" y="8" width="15" height="11" rx="3" /><path d="M12 8V5M9.5 13.2h.01M14.5 13.2h.01M9.5 16h5" /><circle cx="12" cy="4" r="1" /></>,
+  // Micrófono: notas de voz que ENTRAN (el teléfono es para las llamadas que salen).
+  mic: <><rect x="9" y="3" width="6" height="11" rx="3" /><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M9 21h6" /></>,
+  foto: <><rect x="3" y="5" width="18" height="14" rx="2.5" /><circle cx="8.5" cy="10" r="1.5" /><path d="M3.5 16.5 9 12l4 3.5 2.5-2 4.5 4" /></>,
+  grafico: <><path d="M4 4v16h16" /><path d="M8 16.5v-4M12.5 16.5V8.5M17 16.5v-6.5" /></>,
   user: <><circle cx="12" cy="8" r="3.5" /><path d="M5 20c.9-3.4 3.6-5.4 7-5.4s6.1 2 7 5.4" /></>,
 }
 
