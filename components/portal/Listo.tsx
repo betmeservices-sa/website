@@ -7,17 +7,17 @@
 import Link from 'next/link'
 import Icon from '@/components/ui/Icon'
 import { waLink } from '@/lib/site'
-import { OBJETIVOS, USOS, dinero, feeImplementacion, funcion, plan } from './catalogo'
+import { USOS, dinero, feeImplementacion, funcion, nombreObjetivo, plan } from './catalogo'
 import { usePortal } from './estado'
 import { bonito } from './Cita'
 
 export default function Listo() {
   const { estado } = usePortal()
   const p = plan(estado.plan)
-  const fee = feeImplementacion(estado.funciones)
   const g = estado.guion
+  const fee = feeImplementacion(estado.funciones, g.objetivos)
   const uso = USOS.find((u) => u.id === g.uso)?.nombre
-  const objetivo = OBJETIVOS.find((o) => o.id === g.objetivo)?.nombre
+  const objetivos = g.objetivos.map((id) => nombreObjetivo(id, g.objetivoOtro))
 
   return (
     <>
@@ -37,11 +37,13 @@ export default function Listo() {
       </div>
 
       <div className="mt-11 grid gap-4 sm:grid-cols-2">
-        <Ficha titulo="Tu suscripción">
+        <Ficha titulo="Tu paquete">
           {p && (
             <>
               <p className="font-display text-2xl font-semibold text-ink">{p.nombre}</p>
-              <p className="mt-1 text-sm text-muted">{dinero(p.mensual)} al mes, sin permanencia.</p>
+              <p className="mt-1 text-sm text-muted">
+                {dinero(p.mensual)} al mes desde la segunda reunión, sin permanencia.
+              </p>
             </>
           )}
         </Ficha>
@@ -49,7 +51,8 @@ export default function Listo() {
           <p className="font-display text-2xl font-semibold text-ink">{dinero(fee)}</p>
           <p className="mt-1 text-sm text-muted">
             Pagado. {estado.funciones.length}{' '}
-            {estado.funciones.length === 1 ? 'función' : 'funciones'}.
+            {estado.funciones.length === 1 ? 'función' : 'funciones'}
+            {objetivos.length > 1 && ` y ${objetivos.length} objetivos`}.
           </p>
         </Ficha>
       </div>
@@ -57,7 +60,7 @@ export default function Listo() {
       <section className="mt-10 border-t border-white/5 pt-8">
         <h2 className="font-display text-lg font-semibold text-ink">Tu agente</h2>
         <p className="mt-1.5 text-sm text-muted">
-          {[g.empresa, uso, objetivo].filter(Boolean).join(' · ')}
+          {[g.empresa, uso, ...objetivos].filter(Boolean).join(' · ')}
         </p>
         <ul className="mt-6 grid gap-2.5 sm:grid-cols-2">
           {estado.funciones.map((id) => (
@@ -75,7 +78,7 @@ export default function Listo() {
           {[
             ['Antes de la llamada', 'Te mandamos el guion ya escrito con lo que acabas de llenar, para que lo leas y corrijas.'],
             ['En la llamada', 'Repasamos el guion, conectamos tus cuentas y definimos qué NO hace el agente.'],
-            ['Después', 'Lo dejamos corriendo en pruebas con tu equipo antes de abrirlo a tus clientes.'],
+            ['La segunda reunión', 'Una semana después lo ves andando con tu equipo, y ahí arranca la mensualidad.'],
           ].map(([t, d], i) => (
             <li key={t} className="flex gap-4">
               <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-white/15 font-display text-xs text-muted">

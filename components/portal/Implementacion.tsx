@@ -7,7 +7,15 @@
 // la de la izquierda dice QUÉ se va a construir, la derecha CUÁNTO cuesta.
 
 import { useRouter } from 'next/navigation'
-import { OBJETIVOS, PRECIO_FUNCION, USOS, dinero, funcion, plan } from './catalogo'
+import {
+  PRECIO_FUNCION,
+  PRECIO_OBJETIVO,
+  USOS,
+  dinero,
+  funcion,
+  nombreObjetivo,
+  plan,
+} from './catalogo'
 import { usePortal } from './estado'
 import Checkout, { type Linea } from './Checkout'
 
@@ -16,20 +24,29 @@ export default function Implementacion() {
   const { estado, set } = usePortal()
   const g = estado.guion
 
-  const lineas: Linea[] = estado.funciones.map((id) => {
-    const f = funcion(id)
-    return { concepto: f?.nombre ?? id, monto: PRECIO_FUNCION }
-  })
+  const objetivos = g.objetivos.map((id) => nombreObjetivo(id, g.objetivoOtro))
+
+  // El primer objetivo es el guion base y va dentro: solo se cobran los demás.
+  const lineas: Linea[] = [
+    ...objetivos.slice(1).map((nombre) => ({
+      concepto: `Objetivo: ${nombre}`,
+      detalle: 'Guion adicional',
+      monto: PRECIO_OBJETIVO,
+    })),
+    ...estado.funciones.map((id) => ({
+      concepto: funcion(id)?.nombre ?? id,
+      monto: PRECIO_FUNCION,
+    })),
+  ]
 
   const uso = USOS.find((u) => u.id === g.uso)?.nombre
-  const objetivo = OBJETIVOS.find((o) => o.id === g.objetivo)?.nombre
   const integra = [g.crm, g.calendario].filter((x) => x && x !== 'Ninguno todavía')
   const suscripcion = plan(estado.plan)
 
   const filas: [string, string][] = [
     ['Empresa', g.empresa],
     ['Para', uso ?? ''],
-    ['Objetivo', objetivo ?? ''],
+    [objetivos.length === 1 ? 'Objetivo' : 'Objetivos', objetivos.join(' · ')],
     ['Canales', g.canales.join(', ')],
     ['Integraciones', integra.length ? integra.join(' y ') : 'Ninguna por ahora'],
     ['Tono', g.tono],
@@ -58,8 +75,8 @@ export default function Implementacion() {
     )}
     {suscripcion && (
       <p className="mt-6 text-sm text-muted">
-        Tu suscripción {suscripcion.nombre} de {dinero(suscripcion.mensual)} al mes ya está
-        activa y corre aparte de este pago.
+        Tu paquete {suscripcion.nombre}, de {dinero(suscripcion.mensual)} al mes, empieza a
+        cobrarse después de la segunda reunión. Hoy no se toca.
       </p>
     )}
   </section>
@@ -67,13 +84,13 @@ export default function Implementacion() {
 
   return (
     <Checkout
-      eyebrow="Paso 5 de 6"
+      eyebrow="Paso 4 de 5"
       titulo={
         <>
           Tu <span className="text-grad">implementación</span>.
         </>
       }
-      bajada="Un solo pago por armar el agente con las funciones que elegiste. Al confirmarlo eliges la hora de la llamada de arranque."
+      bajada="Un solo pago por armar el agente: tus objetivos y las funciones que elegiste. Es lo único que se cobra hoy. Al confirmarlo eliges la hora de la llamada de arranque."
       lineas={lineas}
       textoBoton="Pagar"
       onPagado={() => {

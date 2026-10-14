@@ -86,7 +86,7 @@ export default function Cita() {
   return (
     <>
       <Titulo
-        eyebrow="Paso 6 de 6"
+        eyebrow="Paso 5 de 5"
         bajada="Una hora con el equipo que va a armar tu agente. Repasamos el guion que acabas de llenar, grabamos tu voz de marca y te dejamos la fecha de salida."
       >
         Elige cuándo <span className="text-grad">arrancamos</span>.

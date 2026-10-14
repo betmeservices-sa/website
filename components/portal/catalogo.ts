@@ -70,6 +70,9 @@ export const USOS = [
   { id: 'ambos', nombre: 'Las dos cosas', desc: 'Un agente que vende y uno que atiende, cada uno con su guion.' },
 ] as const
 
+// Se pueden elegir varios. Cada objetivo es un guion distinto que escribir y
+// probar, así que el primero va dentro de la implementación y los demás suman
+// (ver PRECIO_OBJETIVO).
 export const OBJETIVOS = [
   { id: 'citas', nombre: 'Llenar el calendario de citas' },
   { id: 'calificar', nombre: 'Calificar leads antes de pasarlos al equipo' },
@@ -78,6 +81,14 @@ export const OBJETIVOS = [
   { id: 'cobrar', nombre: 'Cobrar y dar seguimiento a pagos' },
   { id: 'reactivar', nombre: 'Reactivar contactos viejos' },
 ]
+
+/** El objetivo escrito a mano. Vive aparte porque su texto lo pone el cliente. */
+export const OBJETIVO_OTRO = 'otro'
+
+export function nombreObjetivo(id: string, otro: string): string {
+  if (id === OBJETIVO_OTRO) return otro.trim() || 'Otro objetivo'
+  return OBJETIVOS.find((o) => o.id === id)?.nombre ?? id
+}
 
 export const CRMS = ['Ninguno todavía', 'HubSpot', 'Salesforce', 'GoHighLevel', 'Pipedrive', 'Zoho', 'Otro']
 export const CALENDARIOS = ['Ninguno todavía', 'Google Calendar', 'Outlook', 'Calendly', 'Cal.com', 'Otro']
@@ -91,6 +102,10 @@ export const IDIOMAS = ['Español', 'Inglés', 'Portugués']
 // y ve el total cambiar sin tener que entender una tabla.
 
 export const PRECIO_FUNCION = 100
+
+// El primer objetivo va incluido: es el guion base, sin él no hay agente. Los
+// demás son guiones adicionales y se cobran igual que una función.
+export const PRECIO_OBJETIVO = 100
 
 export type Funcion = { id: string; nombre: string; desc: string; icono: string }
 
@@ -113,8 +128,13 @@ export function funcion(id: string): Funcion | undefined {
   return FUNCIONES.find((f) => f.id === id)
 }
 
-export function feeImplementacion(ids: string[]): number {
-  return ids.length * PRECIO_FUNCION
+/** Objetivos que suman: todos menos el primero. */
+export function objetivosExtra(objetivos: string[]): number {
+  return Math.max(0, objetivos.length - 1)
+}
+
+export function feeImplementacion(funciones: string[], objetivos: string[]): number {
+  return funciones.length * PRECIO_FUNCION + objetivosExtra(objetivos) * PRECIO_OBJETIVO
 }
 
 export function dinero(n: number): string {

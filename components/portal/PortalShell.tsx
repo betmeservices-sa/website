@@ -14,7 +14,6 @@ import { PortalProvider, usePortal } from './estado'
 
 const PASOS = [
   { href: '/portal', corto: 'Plan' },
-  { href: '/portal/pago', corto: 'Pago' },
   { href: '/portal/guion', corto: 'Guion' },
   { href: '/portal/funciones', corto: 'Funciones' },
   { href: '/portal/implementacion', corto: 'Implementación' },

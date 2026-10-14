@@ -9,7 +9,19 @@
 // puede cerrar y volver.
 
 import { useRouter } from 'next/navigation'
-import { CALENDARIOS, CANALES, CRMS, IDIOMAS, OBJETIVOS, TONOS, USOS } from './catalogo'
+import {
+  CALENDARIOS,
+  CANALES,
+  CRMS,
+  IDIOMAS,
+  OBJETIVOS,
+  OBJETIVO_OTRO,
+  PRECIO_OBJETIVO,
+  TONOS,
+  USOS,
+  dinero,
+  objetivosExtra,
+} from './catalogo'
 import { guionCompleto, usePortal } from './estado'
 import { Area, Avanzar, Barra, Campo, Fichas, Lista, Opcion, Titulo } from './piezas'
 
@@ -18,8 +30,9 @@ export default function Guion() {
   const { estado, setGuion, set } = usePortal()
   const g = estado.guion
   const listo = guionCompleto(g)
+  const extra = objetivosExtra(g.objetivos)
 
-  function alternar(campo: 'canales' | 'idiomas', valor: string) {
+  function alternar(campo: 'canales' | 'idiomas' | 'objetivos', valor: string) {
     const previo = g[campo]
     setGuion({
       [campo]: previo.includes(valor) ? previo.filter((x) => x !== valor) : [...previo, valor],
@@ -34,7 +47,7 @@ export default function Guion() {
   return (
     <>
       <Titulo
-        eyebrow="Paso 3 de 6"
+        eyebrow="Paso 2 de 5"
         bajada="Con esto escribimos el guion del agente. No hace falta que esté perfecto: lo repasamos juntos en la llamada de arranque."
       >
         Cuéntanos qué tiene que <span className="text-grad">hacer tu agente</span>.
@@ -64,19 +77,46 @@ export default function Guion() {
       </Bloque>
 
       <Bloque
-        titulo="El objetivo principal"
-        nota="Elige uno. Es el que manda cuando dos cosas se contradicen en la conversación."
+        titulo="Qué tiene que lograr"
+        nota={`Elige los que apliquen. El primero va dentro de la implementación; cada objetivo más suma ${dinero(PRECIO_OBJETIVO)}, porque es otro guion que escribir y probar.`}
       >
         <div className="grid gap-3 sm:grid-cols-2">
           {OBJETIVOS.map((o) => (
             <Opcion
               key={o.id}
-              activa={g.objetivo === o.id}
-              onClick={() => setGuion({ objetivo: o.id })}
+              activa={g.objetivos.includes(o.id)}
+              onClick={() => alternar('objetivos', o.id)}
               titulo={o.nombre}
             />
           ))}
+          <Opcion
+            activa={g.objetivos.includes(OBJETIVO_OTRO)}
+            onClick={() => alternar('objetivos', OBJETIVO_OTRO)}
+            titulo="Otro"
+          />
         </div>
+
+        {/* El campo aparece solo si marcó Otro: en blanco no se puede escribir
+            un guion ni cobrarlo, así que la barra de abajo no deja seguir. */}
+        {g.objetivos.includes(OBJETIVO_OTRO) && (
+          <div className="mt-3">
+            <Campo
+              etiqueta="Cuál"
+              valor={g.objetivoOtro}
+              onChange={(v) => setGuion({ objetivoOtro: v })}
+              placeholder="Lo que tiene que lograr, en tus palabras"
+            />
+          </div>
+        )}
+
+        {extra > 0 && (
+          <p className="mt-5 flex flex-wrap items-center gap-2 text-sm text-muted">
+            <span className="rounded-full border border-cyan/40 bg-cyan/10 px-2.5 py-1 text-xs text-ink">
+              {g.objetivos.length} objetivos
+            </span>
+            suman {dinero(extra * PRECIO_OBJETIVO)} a la implementación.
+          </p>
+        )}
       </Bloque>
 
       <Bloque titulo="Canales e integraciones">
@@ -115,7 +155,11 @@ export default function Guion() {
       <Barra
         izquierda={
           <p className="text-sm text-muted">
-            {listo ? 'Listo. Ahora elige qué sabe hacer.' : 'Falta empresa, contacto, correo, uso, objetivo y al menos un canal.'}
+            {listo
+              ? 'Listo. Ahora elige qué sabe hacer.'
+              : g.objetivos.includes(OBJETIVO_OTRO) && !g.objetivoOtro.trim()
+                ? 'Escribe cuál es ese otro objetivo.'
+                : 'Falta empresa, contacto, correo, uso, al menos un objetivo y al menos un canal.'}
           </p>
         }
       >

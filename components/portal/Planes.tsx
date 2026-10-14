@@ -14,8 +14,8 @@ export default function Planes() {
   return (
     <>
       <Titulo
-        eyebrow="Paso 1 de 6"
-        bajada="Elige el paquete y queda activa la suscripción. Las funciones del agente se eligen después: primero vemos qué tiene que hacer."
+        eyebrow="Paso 1 de 5"
+        bajada="Elige el paquete que te queda. La mensualidad no se cobra hoy: empieza después de la segunda reunión, más o menos una semana. Hoy solo se paga la implementación."
       >
         Empieza con <span className="text-grad">tu agente</span>.
       </Titulo>
@@ -74,15 +74,16 @@ export default function Planes() {
             <p className="text-sm text-muted">
               <span className="text-ink">{PLANES.find((p) => p.id === elegido)!.nombre}</span>
               {' · '}
-              {dinero(PLANES.find((p) => p.id === elegido)!.mensual)} al mes, sin permanencia.
+              {dinero(PLANES.find((p) => p.id === elegido)!.mensual)} al mes desde la segunda
+              reunión, sin permanencia.
             </p>
           ) : (
             <p className="text-sm text-muted">Elige un paquete para seguir.</p>
           )
         }
       >
-        <Avanzar onClick={() => router.push('/portal/pago')} disabled={!elegido}>
-          Suscribirme
+        <Avanzar onClick={() => router.push('/portal/guion')} disabled={!elegido}>
+          Seguir
         </Avanzar>
       </Barra>
     </>

@@ -9,7 +9,14 @@
 import { useMemo } from 'react'
 import { useRouter } from 'next/navigation'
 import Icon from '@/components/ui/Icon'
-import { FUNCIONES, PRECIO_FUNCION, dinero, feeImplementacion } from './catalogo'
+import {
+  FUNCIONES,
+  PRECIO_FUNCION,
+  PRECIO_OBJETIVO,
+  dinero,
+  feeImplementacion,
+  objetivosExtra,
+} from './catalogo'
 import { usePortal, type Guion } from './estado'
 import { Avanzar, Barra, Marca, Titulo } from './piezas'
 
@@ -18,12 +25,12 @@ function sugeridas(g: Guion): string[] {
   const s: string[] = []
   const tiene = (v: string) => Boolean(v) && v !== 'Ninguno todavía'
   if (tiene(g.crm)) s.push('crm')
-  if (tiene(g.calendario) || g.objetivo === 'citas') s.push('calendario')
+  if (tiene(g.calendario) || g.objetivos.includes('citas')) s.push('calendario')
   if (g.idiomas.length > 1) s.push('idiomas')
   if (g.canales.includes('Llamadas')) s.push('voz')
-  if (g.objetivo === 'cobrar') s.push('pagos')
-  if (g.objetivo === 'reactivar') s.push('seguimiento')
-  if (g.objetivo === 'resolver') s.push('conocimiento')
+  if (g.objetivos.includes('cobrar')) s.push('pagos')
+  if (g.objetivos.includes('reactivar')) s.push('seguimiento')
+  if (g.objetivos.includes('resolver')) s.push('conocimiento')
   if (g.uso === 'soporte' || g.uso === 'ambos') s.push('transferencia')
   return s
 }
@@ -33,7 +40,8 @@ export default function Funciones() {
   const { estado, set } = usePortal()
   const elegidas = estado.funciones
   const sug = useMemo(() => sugeridas(estado.guion), [estado.guion])
-  const fee = feeImplementacion(elegidas)
+  const extra = objetivosExtra(estado.guion.objetivos)
+  const fee = feeImplementacion(elegidas, estado.guion.objetivos)
 
   function alternar(id: string) {
     set({
@@ -44,8 +52,12 @@ export default function Funciones() {
   return (
     <>
       <Titulo
-        eyebrow="Paso 4 de 6"
-        bajada={`Cada función se cobra una vez, al implementarla: ${dinero(PRECIO_FUNCION)}. La suscripción mensual no cambia por esto.`}
+        eyebrow="Paso 3 de 5"
+        bajada={
+          extra > 0
+            ? `Cada función se cobra una vez, al implementarla: ${dinero(PRECIO_FUNCION)}. Tus objetivos adicionales ya suman ${dinero(extra * PRECIO_OBJETIVO)}.`
+            : `Cada función se cobra una vez, al implementarla: ${dinero(PRECIO_FUNCION)}. La mensualidad no cambia por esto.`
+        }
       >
         Qué sabe hacer <span className="text-grad">tu agente</span>.
       </Titulo>
@@ -106,6 +118,7 @@ export default function Funciones() {
               <span className="font-display text-2xl font-semibold text-ink">{dinero(fee)}</span>
               <span className="text-sm text-muted">
                 {elegidas.length} {elegidas.length === 1 ? 'función' : 'funciones'}
+                {extra > 0 && ` + ${extra} ${extra === 1 ? 'objetivo' : 'objetivos'}`}
               </span>
             </p>
           </div>

@@ -14,14 +14,13 @@ import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { usePortal, type Estado } from './estado'
 
-type Paso = 'pago' | 'guion' | 'funciones' | 'implementacion' | 'cita' | 'listo'
+type Paso = 'guion' | 'funciones' | 'implementacion' | 'cita' | 'listo'
 
 const REQUISITO: Record<Paso, { permitido: (e: Estado) => boolean; volver: string }> = {
-  pago: { permitido: (e) => Boolean(e.plan), volver: '/portal' },
-  guion: { permitido: (e) => e.suscrito, volver: '/portal' },
-  funciones: { permitido: (e) => e.suscrito, volver: '/portal' },
+  guion: { permitido: (e) => Boolean(e.plan), volver: '/portal' },
+  funciones: { permitido: (e) => Boolean(e.plan), volver: '/portal' },
   implementacion: {
-    permitido: (e) => e.suscrito && e.funciones.length > 0,
+    permitido: (e) => Boolean(e.plan) && e.funciones.length > 0,
     volver: '/portal/funciones',
   },
   cita: { permitido: (e) => e.feePagado, volver: '/portal/implementacion' },

@@ -11,7 +11,10 @@
 
 import { createContext, useCallback, useContext, useEffect, useState } from 'react'
 
-const LLAVE = 'portal.miagentia.v1'
+// v2: el paso de pago de la mensualidad se quitó y `objetivo` pasó a ser una
+// lista. Cambiar la llave evita que un recorrido viejo del navegador reviva
+// con la forma anterior.
+const LLAVE = 'portal.miagentia.v2'
 
 export type Guion = {
   empresa: string
@@ -19,7 +22,10 @@ export type Guion = {
   email: string
   whatsapp: string
   uso: string
-  objetivo: string
+  objetivos: string[]
+  // Lo que escribió en "Otro". Vive aparte del id para no perderlo si lo
+  // desmarca y lo vuelve a marcar.
+  objetivoOtro: string
   crm: string
   calendario: string
   canales: string[]
@@ -34,7 +40,6 @@ export type Cita = { fecha: string; hora: string }
 
 export type Estado = {
   plan: string | null
-  suscrito: boolean
   guion: Guion
   guionListo: boolean
   funciones: string[]
@@ -44,14 +49,14 @@ export type Estado = {
 
 const VACIO: Estado = {
   plan: null,
-  suscrito: false,
   guion: {
     empresa: '',
     contacto: '',
     email: '',
     whatsapp: '',
     uso: '',
-    objetivo: '',
+    objetivos: [],
+    objetivoOtro: '',
     crm: '',
     calendario: '',
     canales: [],
@@ -135,5 +140,10 @@ export function usePortal(): Ctx {
 // El guion está completo cuando están las respuestas que cambian el alcance.
 // Lo demás (notas, qué no hace) es opcional a propósito.
 export function guionCompleto(g: Guion): boolean {
-  return Boolean(g.empresa && g.contacto && g.email && g.uso && g.objetivo && g.canales.length)
+  // Si marcó "Otro" tiene que decir cuál: un objetivo en blanco no se puede
+  // escribir ni cobrar.
+  const otroListo = !g.objetivos.includes('otro') || Boolean(g.objetivoOtro.trim())
+  return Boolean(
+    g.empresa && g.contacto && g.email && g.uso && g.objetivos.length && otroListo && g.canales.length,
+  )
 }
