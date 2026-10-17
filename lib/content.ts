@@ -126,45 +126,34 @@ const es = {
     plans: {
       label: 'Planes',
       title: 'Cuatro paquetes. La misma Sofía.',
-      sub: 'Todos incluyen la bandeja unificada y a Sofía completa. Lo que cambia es cuánto entiende y hasta dónde automatiza.',
+      sub: 'Todos incluyen a Sofía completa en tus canales. Lo que cambia es hasta dónde automatiza.',
       tiers: ['Starter', 'Growth', 'Advanced', 'Enterprise'],
+      // Simple a propósito (Sandra, 2026-10-17): los paquetes de texto se
+      // describen solo por conversaciones. Sin respuestas por conversación,
+      // sin notas de voz, sin lectura de imágenes ni límites internos.
       groups: [
         {
-          name: 'Qué entiende Sofía',
+          name: 'Conversaciones',
           rows: [
-            { f: 'Texto, hasta 15 respuestas por conversación', v: [true, true, true, true] },
-            { f: 'Escucha notas de voz (3 de hasta 20 segundos)', v: [false, true, true, true] },
-            { f: 'Lee las fotos que le mandan (hasta 3)', v: [false, false, true, true] },
+            { f: 'Sofía atiende WhatsApp, Instagram y Facebook', v: [true, true, true, true] },
+            { f: 'Bandeja unificada para tu equipo', v: [true, true, true, true] },
+            { f: 'Pasa la conversación a una persona cuando hace falta', v: [true, true, true, true] },
           ],
         },
         {
-          name: 'Canales y bandeja',
+          name: 'Seguimiento',
           rows: [
-            { f: 'Bandeja unificada: WhatsApp, Instagram y Facebook', v: [true, true, true, true] },
-            { f: 'Modo IA activable y pausable por conversación', v: [true, true, true, true] },
-            { f: 'Transferencia a una persona por reglas', v: [true, true, true, true] },
-            { f: 'Agentes personalizables por caso de uso', v: [true, true, true, true] },
-          ],
-        },
-        {
-          name: 'Campañas y seguimiento',
-          rows: [
-            { f: '5 campañas y promociones incluidas', v: [true, true, true, true] },
-            { f: 'Reactivación de contactos inactivos a las 24 h', v: [true, true, true, true] },
-            { f: 'Gestión de plantillas de Meta', v: [true, true, true, true] },
-            { f: 'Recordatorios y confirmaciones automáticas', v: [false, true, true, true] },
-            { f: 'Tarjetas de cliente frecuente', v: [false, true, true, true] },
-            { f: 'Programa de referidos automático', v: [false, false, true, true] },
-            { f: 'Reactivación personalizada', v: [false, false, 'Hasta 3 meses', 'Hasta 6 meses'] },
-            { f: 'Reseñas y reputación automatizada', v: [false, false, false, true] },
+            { f: 'Campañas y promociones', v: [true, true, true, true] },
+            { f: 'Reactivación de contactos inactivos', v: [true, true, true, true] },
+            { f: 'Recordatorios y confirmaciones', v: [false, true, true, true] },
+            { f: 'Programa de referidos', v: [false, false, true, true] },
+            { f: 'Reseñas y reputación', v: [false, false, false, true] },
           ],
         },
         {
           name: 'Tu operación',
           rows: [
-            { f: 'Calendario de disponibilidad', v: [true, true, true, true] },
-            { f: 'Chat interno por canal y departamento', v: [true, true, true, true] },
-            { f: 'Dashboard de métricas del negocio', v: [true, true, true, true] },
+            { f: 'Calendario, métricas y chat interno', v: [true, true, true, true] },
             { f: 'Usuarios incluidos', v: ['5', '10', '10', '30'] },
           ],
         },
@@ -340,45 +329,31 @@ const en: Dict = {
     plans: {
       label: 'Plans',
       title: 'Four packages. The same agent.',
-      sub: 'All of them include the unified inbox and the full agent. What changes is how much she understands and how far she automates.',
+      sub: 'All of them include the full agent on your channels. What changes is how far she automates.',
       tiers: ['Starter', 'Growth', 'Advanced', 'Enterprise'],
       groups: [
         {
-          name: 'What Sofía understands',
+          name: 'Conversations',
           rows: [
-            { f: 'Text, up to 15 replies per conversation', v: [true, true, true, true] },
-            { f: 'Listens to voice notes (3 of up to 20 seconds)', v: [false, true, true, true] },
-            { f: 'Reads the photos people send (up to 3)', v: [false, false, true, true] },
+            { f: 'Sofía handles WhatsApp, Instagram and Facebook', v: [true, true, true, true] },
+            { f: 'Unified inbox for your team', v: [true, true, true, true] },
+            { f: 'Hands the conversation to a person when needed', v: [true, true, true, true] },
           ],
         },
         {
-          name: 'Channels and inbox',
+          name: 'Follow-up',
           rows: [
-            { f: 'Unified inbox: WhatsApp, Instagram and Facebook', v: [true, true, true, true] },
-            { f: 'AI mode you can switch on and off per conversation', v: [true, true, true, true] },
-            { f: 'Hand-off to a person by rules', v: [true, true, true, true] },
-            { f: 'Agents customizable per use case', v: [true, true, true, true] },
-          ],
-        },
-        {
-          name: 'Campaigns and follow-up',
-          rows: [
-            { f: '5 campaigns and promotions included', v: [true, true, true, true] },
-            { f: 'Reactivation of inactive contacts at 24 h', v: [true, true, true, true] },
-            { f: 'Meta template management', v: [true, true, true, true] },
-            { f: 'Automatic reminders and confirmations', v: [false, true, true, true] },
-            { f: 'Loyalty cards', v: [false, true, true, true] },
-            { f: 'Automatic referral programme', v: [false, false, true, true] },
-            { f: 'Custom reactivation', v: [false, false, 'Up to 3 months', 'Up to 6 months'] },
-            { f: 'Automated reviews and reputation', v: [false, false, false, true] },
+            { f: 'Campaigns and promotions', v: [true, true, true, true] },
+            { f: 'Reactivation of inactive contacts', v: [true, true, true, true] },
+            { f: 'Reminders and confirmations', v: [false, true, true, true] },
+            { f: 'Referral programme', v: [false, false, true, true] },
+            { f: 'Reviews and reputation', v: [false, false, false, true] },
           ],
         },
         {
           name: 'Your operation',
           rows: [
-            { f: 'Availability calendar', v: [true, true, true, true] },
-            { f: 'Internal chat by channel and department', v: [true, true, true, true] },
-            { f: 'Business metrics dashboard', v: [true, true, true, true] },
+            { f: 'Calendar, metrics and internal chat', v: [true, true, true, true] },
             { f: 'Users included', v: ['5', '10', '10', '30'] },
           ],
         },
