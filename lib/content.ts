@@ -106,8 +106,8 @@ const es = {
 
     industries: {
       label: 'Para quién',
-      title: 'Hecho para negocios que viven de responder rápido',
-      sub: 'Si un cliente sin respuesta es un cliente perdido, esto es para ti.',
+      title: 'Diseñado para atender tu negocio de inmediato',
+      sub: 'Si quieres que todos tus clientes tengan respuesta en segundos, esto es para ti.',
       items: [
         { icon: 'tooth', name: 'Clínicas y salud', desc: 'Agenda citas y recuerda a los pacientes.' },
         { icon: 'car', name: 'Automotriz', desc: 'Atiende cotizaciones y prueba de manejo.' },
@@ -312,8 +312,8 @@ const en: Dict = {
 
     industries: {
       label: 'Who it is for',
-      title: 'Built for businesses that live on fast replies',
-      sub: 'If an unanswered customer is a lost customer, this is for you.',
+      title: 'Built to serve your business instantly',
+      sub: 'If you want every customer to get an answer in seconds, this is for you.',
       items: [
         { icon: 'tooth', name: 'Clinics & health', desc: 'Book appointments and remind patients.' },
         { icon: 'car', name: 'Automotive', desc: 'Handle quotes and test drives.' },
