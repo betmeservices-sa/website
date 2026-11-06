@@ -28,6 +28,8 @@ export default function robots(): MetadataRoute.Robots {
         // Portal de contratación: recorrido de compra, no página de venta.
         '/portal',
         '/portal/',
+        // Evaluación de Valeria (CEGISA): página de prueba, por enlace directo.
+        '/valeria-cegisa-test',
       ],
     },
     sitemap: 'https://www.miagentia.com/sitemap.xml',

@@ -10,6 +10,35 @@ import path from 'path'
 // persona. De las seis cabeceras que esos escáneres miran, el sitio solo tenía
 // una (HSTS, que la pone Vercel sola).
 //
+// LO QUE ESTE CSP PERMITE Y POR QUÉ, porque uno mal puesto deja el sitio en
+// blanco y eso es peor que el rechazo de TikTok:
+//   - script-src con 'unsafe-inline': Next inyecta scripts en línea para
+//     hidratar, el JSON-LD de cada página va en línea, y el init de GA4
+//     también. Quitarlo exige nonces por middleware; se deja anotado como
+//     lo próximo si alguna vez hace falta un CSP estricto de verdad.
+//   - googletagmanager y google-analytics: es el GA4 de app/layout.tsx.
+//   - frame-ancestors 'self': el mismo criterio que X-Frame-Options.
+//   - object-src 'none': no hay Flash ni applets, y es de lo primero que
+//     mira un escáner.
+//   - Sin frame-src: cae a default-src 'self', así que ninguna página puede
+//     embeber otro dominio. La que lo necesite recibe su propio CSP en
+//     headers() con `extra` (ver /valeria-cegisa-test).
+const csp = (extra: string[] = []) =>
+  [
+    "default-src 'self'",
+    "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com",
+    "style-src 'self' 'unsafe-inline'",
+    "img-src 'self' data: blob: https://www.googletagmanager.com https://www.google-analytics.com",
+    "font-src 'self' data:",
+    "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com",
+    "frame-ancestors 'self'",
+    "base-uri 'self'",
+    "form-action 'self'",
+    "object-src 'none'",
+    ...extra,
+    'upgrade-insecure-requests',
+  ].join('; ')
+
 // Se aplican a TODAS las rutas: un escáner puede entrar por cualquiera.
 const seguridad = [
   // Dos años, y también los subdominios (hub, demo y conectar ya son HTTPS).
@@ -29,32 +58,7 @@ const seguridad = [
     key: 'Permissions-Policy',
     value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=()',
   },
-  {
-    key: 'Content-Security-Policy',
-    // LO QUE ESTE CSP PERMITE Y POR QUÉ, porque uno mal puesto deja el sitio en
-    // blanco y eso es peor que el rechazo de TikTok:
-    //   - script-src con 'unsafe-inline': Next inyecta scripts en línea para
-    //     hidratar, el JSON-LD de cada página va en línea, y el init de GA4
-    //     también. Quitarlo exige nonces por middleware; se deja anotado como
-    //     lo próximo si alguna vez hace falta un CSP estricto de verdad.
-    //   - googletagmanager y google-analytics: es el GA4 de app/layout.tsx.
-    //   - frame-ancestors 'self': el mismo criterio que X-Frame-Options.
-    //   - object-src 'none': no hay Flash ni applets, y es de lo primero que
-    //     mira un escáner.
-    value: [
-      "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com",
-      "style-src 'self' 'unsafe-inline'",
-      "img-src 'self' data: blob: https://www.googletagmanager.com https://www.google-analytics.com",
-      "font-src 'self' data:",
-      "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com",
-      "frame-ancestors 'self'",
-      "base-uri 'self'",
-      "form-action 'self'",
-      "object-src 'none'",
-      'upgrade-insecure-requests',
-    ].join('; '),
-  },
+  { key: 'Content-Security-Policy', value: csp() },
 ]
 
 const nextConfig: NextConfig = {
@@ -65,7 +69,22 @@ const nextConfig: NextConfig = {
   // línea de cualquier reporte de escáner.
   poweredByHeader: false,
   async headers() {
-    return [{ source: '/:path*', headers: seguridad }]
+    return [
+      { source: '/:path*', headers: seguridad },
+      // Evaluación de Valeria (CEGISA): un Google Apps Script en iframe. Va
+      // DESPUÉS de la regla general a propósito: si dos reglas ponen la misma
+      // cabecera, Next se queda con la última. googleusercontent por si el
+      // /exec redirige ahí (así sirve Apps Script algunas respuestas).
+      {
+        source: '/valeria-cegisa-test',
+        headers: [
+          {
+            key: 'Content-Security-Policy',
+            value: csp(["frame-src 'self' https://script.google.com https://*.googleusercontent.com"]),
+          },
+        ],
+      },
+    ]
   },
   async redirects() {
     return [
