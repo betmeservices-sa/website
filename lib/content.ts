@@ -193,6 +193,7 @@ const es = {
             { label: 'Omnicanal', href: '#omnicanal' },
             { label: 'Sofía', href: '#sofia' },
             { label: 'Planes', href: '#planes' },
+            { label: 'Hoteles', href: '/hoteles' },
           ],
         },
         {

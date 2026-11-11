@@ -25,6 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       'agente-ia-whatsapp-guatemala',
       'crm-conversacional-el-salvador',
       'automatizacion-ventas-whatsapp',
+      'hoteles',
     ].map((slug) => ({
       url: `${SITE_URL}/${slug}`,
       lastModified: new Date(),
